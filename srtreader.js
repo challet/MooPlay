@@ -3,7 +3,7 @@ var SrtReader = new Class({
     
     options : {
         refresh_delay: 50,
-        srt_end_of_line: '\r\n',
+        srt_end_of_line: '\n',
         url: 'test.srt',
         container: 'subtitle',
         time_container: 'time'
