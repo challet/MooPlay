@@ -80,18 +80,26 @@ var SrtReader = new Class({
     
     checkDisplayed: function(abs_movie_time) {
         
+        var displayed_yet = new Array();
+        
         this.displayed.each(function(sub) {
             if(sub.end < abs_movie_time) {
                 sub.text.dispose();
+            } else {
+                displayed_yet.push(sub);
             }
         });
         
+        this.displayed = displayed_yet;
         
     },
     
     checkNext: function(abs_movie_time) {
         
         if(this.subs[this.current_index] != undefined && this.subs[this.current_index].start < abs_movie_time) {
+            
+            this.subs[this.current_index].text.addClass('overlapping' + String(this.displayed.length));
+            
             this.subs[this.current_index].text.inject(this.container, 'bottom');
             this.displayed.push(this.subs[this.current_index]);
             this.current_index++;
