@@ -14,22 +14,38 @@
 
 <body>
 
-<a href="javascript:test_load();">load</a>
-<a href="javascript:test_start();">start</a>
-<script>
-var srttest = null;
-function test_load() {
-    srttest = new SrtReader({url: 'test.srt'});
-}
-function test_start() {
-    srttest.start();
-}
-</script>
+<a href="#" id="load">load</a>
+<a href="#" id="start">start</a>
+
 
 <div id="subtitle" style="border:1px solid #000; width:400px; height: 50px">
 </div>
 <div id="time" style="border:1px solid #000; width:400px; height: 50px">
 </div>
+
+
+<script>
+
+document.addEvent('domready', function() {
+    
+    var reader = null;
+    
+    $('load').addEvent('click', function(e) {
+        e.preventDefault();
+        new Srt.Parser({
+            onComplete: function(data) {
+                reader = new Srt.Reader(data);
+            }
+        });
+    });
+    
+    $('start').addEvent('click', function(e) {
+        e.preventDefault();
+        reader.start();
+    });
+ 
+})
+</script>
 
 </body>
 </html>
