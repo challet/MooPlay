@@ -4,7 +4,7 @@ var Srt = {
         Implements: [Options],
     
         options : {
-            refresh_delay: 50,
+            refresh_delay: 80,
             container: 'subtitle',
             time_container: 'time'
         },
@@ -23,6 +23,7 @@ var Srt = {
         
             this.subs = subs;
             
+            this.displayed = new Array();
             
         },
     
@@ -30,13 +31,12 @@ var Srt = {
             if(this.start_time == null) {
                 this.start_time = $time();
             } else if(this.pause_time != null) {
-                this.start_time += ($times() - this.pause_time);
+                this.start_time += ($time() - this.pause_time);
                 this.pause_time = null;
             } else {
                 return false;
             }
         
-            this.displayed = new Array();
             this.tick();
             return true;
         },

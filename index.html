@@ -16,6 +16,7 @@
 
 <a href="#" id="load">load</a>
 <a href="#" id="start">start</a>
+<a href="#" id="pause">pause</a>
 
 
 <div id="subtitle" style="border:1px solid #000; width:400px; height: 50px">
@@ -33,6 +34,7 @@ document.addEvent('domready', function() {
     $('load').addEvent('click', function(e) {
         e.preventDefault();
         new Srt.Parser({
+            url: 'test.srt',
             onComplete: function(data) {
                 reader = new Srt.Reader(data);
             }
@@ -42,6 +44,11 @@ document.addEvent('domready', function() {
     $('start').addEvent('click', function(e) {
         e.preventDefault();
         reader.start();
+    });
+    
+    $('pause').addEvent('click', function(e) {
+        e.preventDefault();
+        reader.pause();
     });
  
 })
