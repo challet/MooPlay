@@ -7,19 +7,23 @@
 
 	<title>index</title>
 	<script src="mootools-1.2.3-core-nc.js" type="text/javascript" charset="utf-8"></script>
-	<script src="srtreader.js" type="text/javascript" charset="utf-8"></script>
+	<script src="Source/VideoPlayer.js" type="text/javascript" charset="utf-8"></script>
 	<link rel="stylesheet" href="test.css" type="text/css" media="screen" title="no title" charset="utf-8">
 </head>
 
 
 <body>
+    
+<ul>
+    <li><a href="#" id="load">load subtitle</a></li>
+    <li><a href="#" id="play">play video</a></li>
+    <li><a href="#" id="pause">pause video</a></li>
+</ul>
 
-<a href="#" id="load">load</a>
-<a href="#" id="start">start</a>
-<a href="#" id="pause">pause</a>
-
-
-<div id="subtitle" style="border:1px solid #000; width:400px; height: 50px">
+<div style="position:relative;">
+    <video id="video" src="Big_lebowski.avi" autobuffer="true" style="width:400px;position:absolute;top:0;z-index:1"></video>
+    <div id="subtitle" style="border:1px solid #000; width:400px;height:400px;position:absolute;top:0;z-index:2">
+</div>
 </div>
 <div id="time" style="border:1px solid #000; width:400px; height: 50px">
 </div>
@@ -31,25 +35,37 @@ document.addEvent('domready', function() {
     
     var reader = null;
     
+    var video = new Video.Player($('video'));
+    
     $('load').addEvent('click', function(e) {
         e.preventDefault();
-        new Srt.Parser({
-            url: 'test.srt',
+        new Video.SubTitleParser.SubRip({
+            url: 'Big_lebowski.srt',
             onComplete: function(data) {
-                reader = new Srt.Reader(data);
+                reader = new Video.SubTitlePlayer(data, {
+                    container: 'subtitle',
+                    time_container: 'time'
+                });
+                
+                video.addEvent('tick', function( abs_movie_time) {
+                    reader.tick(abs_movie_time * 1000);
+                });
+                
             }
         });
     });
     
-    $('start').addEvent('click', function(e) {
-        e.preventDefault();
-        reader.start();
+    $('play').addEvent('click', function(e) {
+        e.preventDefault($('video').play());
+        
     });
     
     $('pause').addEvent('click', function(e) {
-        e.preventDefault();
-        reader.pause();
-    });
+        e.preventDefault($('video').pause());
+        
+    })
+    
+    
  
 })
 </script>

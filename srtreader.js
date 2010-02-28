@@ -27,31 +27,6 @@ var Srt = {
             
         },
     
-        start: function() {
-            if(this.start_time == null) {
-                this.start_time = $time();
-            } else if(this.pause_time != null) {
-                this.start_time += ($time() - this.pause_time);
-                this.pause_time = null;
-            } else {
-                return false;
-            }
-        
-            this.tick();
-            return true;
-        },
-    
-        pause: function() {
-        
-            if(this.pause_time == null) {
-                $clear(this.timer);
-                this.pause_time = $time();
-                return true;
-            } else {
-                return false;
-            }
-        
-        },
     
         tick: function() {
             var abs_movie_time = $time() - this.start_time;
@@ -138,10 +113,7 @@ var Srt = {
             });
             request.send({});
         },
-        
-        
 
-        
         run: function(data) {
 
             this.subs = new Array();
