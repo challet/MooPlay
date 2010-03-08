@@ -20,11 +20,22 @@
     <li><a href="#" id="pause">pause video</a></li>
 </ul>
 
-<div style="position:relative;">
-    <video id="video" src="Big_lebowski.avi" autobuffer="true" style="width:400px;position:absolute;top:0;z-index:1"></video>
-    <div id="subtitle" style="border:1px solid #000; width:400px;height:400px;position:absolute;top:0;z-index:2">
+
+
+<div style="border:1px solid #000; width:400px; height:300px;">
+    <div style="position:relative;">
+        <video id="video" src="rashomon.ogv" autobuffer="true" style="width:400px;height:300px;position:absolute;top:0;z-index:1"></video>
+        <div id="subtitle" style="border:1px solid #000; width:400px;height:300px;position:absolute;top:0;z-index:2"></div>
+        <div style="clear:both;"></div>
+    </div>
+    <div style="clear:both;"></div>
 </div>
-</div>
+<div style="clear:both;"></div>
+
+
+
+
+
 <div id="time" style="border:1px solid #000; width:400px; height: 50px">
 </div>
 
@@ -34,35 +45,29 @@
 document.addEvent('domready', function() {
     
     var reader = null;
-    
-    var video = new Video.Player($('video'));
-    
+
     $('load').addEvent('click', function(e) {
         e.preventDefault();
-        new Video.SubTitleParser.SubRip({
-            url: 'Big_lebowski.srt',
+        new Video.SubTitle.Parser.SubRip({
+            url: 'rashomon.srt',
+            srt_end_of_line: '\r\n',
             onComplete: function(data) {
-                reader = new Video.SubTitlePlayer(data, {
+                reader = new Video.SubTitle.Player(data, $('video'), {
                     container: 'subtitle',
                     time_container: 'time'
                 });
-                
-                video.addEvent('tick', function( abs_movie_time) {
-                    reader.tick(abs_movie_time * 1000);
-                });
-                
             }
         });
     });
     
     $('play').addEvent('click', function(e) {
-        e.preventDefault($('video').play());
-        
+        e.preventDefault();
+        $('video').play();
     });
     
     $('pause').addEvent('click', function(e) {
-        e.preventDefault($('video').pause());
-        
+        e.preventDefault();
+        $('video').pause();
     })
     
     
