@@ -6,7 +6,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 	<title>index</title>
-	<script src="mootools-1.2.3-core-nc.js" type="text/javascript" charset="utf-8"></script>
+	<script src="mootools-1.2.4-core-nc.js" type="text/javascript" charset="utf-8"></script>
+	<script src="mootools-1.2.4.4-more.js" type="text/javascript" charset="utf-8"></script>
 	<script src="Source/VideoPlayer.js" type="text/javascript" charset="utf-8"></script>
 	<link rel="stylesheet" href="test.css" type="text/css" media="screen" title="no title" charset="utf-8">
 </head>
@@ -22,37 +23,45 @@
 
 
 
-<div style="border:1px solid #000; width:400px; height:300px;">
+<div style="width:400px; height:300px;">
     <div style="position:relative;">
         <video id="video" src="rashomon.ogv" autobuffer="true" style="width:400px;height:300px;position:absolute;top:0;z-index:1"></video>
-        <div id="subtitle" style="border:1px solid #000; width:400px;height:300px;position:absolute;top:0;z-index:2"></div>
+        <div id="subtitle" style="width:400px;height:300px;position:absolute;top:0;z-index:2"></div>
         <div style="clear:both;"></div>
     </div>
     <div style="clear:both;"></div>
 </div>
 <div style="clear:both;"></div>
 
+<div style="border:1px solid #000; width:398px">
+    <span id="time_container"></span>
+</div>
+<div style="border:1px solid #000; width:398px">
+    <span id="ratio_container"></span> %
+</div>
 
 
 
-
-<div id="time" style="border:1px solid #000; width:400px; height: 50px">
+<div id="slider" style="width:400px;height:5px;background:#a0a0a0;">
+    <div id="knob" style="width:5px;height:5px;background:#ffff80;"></div>
 </div>
 
 
 <script>
 
+var reader = null;
+
 document.addEvent('domready', function() {
     
-    var reader = null;
+    
 
     $('load').addEvent('click', function(e) {
         e.preventDefault();
-        new Video.SubTitle.Parser.SubRip({
+        new Video.Subtitle.Parser.SubRip({
             url: 'rashomon.srt',
             srt_end_of_line: '\r\n',
-            onComplete: function(data) {
-                reader = new Video.SubTitle.Player(data, $('video'), {
+            onComplete: function(subs_hash) {
+                reader = new Video.Subtitle.Player(subs_hash, $('video'), {
                     container: 'subtitle',
                     time_container: 'time'
                 });
@@ -68,8 +77,13 @@ document.addEvent('domready', function() {
     $('pause').addEvent('click', function(e) {
         e.preventDefault();
         $('video').pause();
-    })
+    });
     
+    var slider = new Slider($('slider'), $('knob'));
+    new Video.Control.Progress(slider, $('video'));
+    
+    new Video.Display.Time($('video'), $('time_container'));
+    new Video.Display.Ratio($('video'), $('ratio_container'));
     
  
 })

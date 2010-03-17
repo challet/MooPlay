@@ -8,7 +8,7 @@
     var set_executed = false;
     var set_step_arg = null;
     
-    describe('Progress.tick function', {
+    describe('Control.Progress.tick function', {
         
         before_each: function() {
 

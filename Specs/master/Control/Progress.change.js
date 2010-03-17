@@ -5,7 +5,7 @@
     var knob_div = null;
     var slider = null;
     
-    describe('Progress.tick function', {
+    describe('Control.Progress.tick function', {
         
         before_each: function() {
 

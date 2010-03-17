@@ -18,18 +18,18 @@
     "Subtitle": {
         "Parser": {
             "Base": {
-                "deps": ["Video.SubTitle.Tree"]
+                "deps": ["Video.Subtitle.Tree"]
             },
             "SubRip": {
-                "deps": ["Video.SubTitle.Parser.Base", "Video.Utils"]
+                "deps": ["Video.Subtitle.Parser.Base", "Video.Utils"]
             }
         },
         "Item": {},
         "Player": {
-            "deps": ["Video.SubTitle.Tree"]
+            "deps": ["Video.Subtitle.Tree"]
         },
         "Tree": {
-            "deps": ["Video.SubTitle.Item"]
+            "deps": ["Video.Subtitle.Item"]
         }
     }
 

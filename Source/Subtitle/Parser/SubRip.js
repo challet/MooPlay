@@ -1,6 +1,6 @@
-Video.SubTitle.Parser.SubRip = new Class({
+Video.Subtitle.Parser.SubRip = new Class({
 
-    Extends: Video.SubTitle.Parser.Base,
+    Extends: Video.Subtitle.Parser.Base,
     
     regexps: {
         new_sub: /^(\d+)$/,
@@ -40,7 +40,7 @@ Video.SubTitle.Parser.SubRip = new Class({
             } else if(line != null && this.regexps.text.test(line)) {
                 current_text = new Element('p').appendText(this.regexps.text.exec(line)[1]);
             } else if(current_sub != null) {
-                subs.push(new Video.SubTitle.Item(current_sub.start, current_sub.end, current_text));
+                subs.push(new Video.Subtitle.Item(current_sub.start, current_sub.end, current_text));
                 current_sub = null;
                 current_text = null;
             }

@@ -1,4 +1,4 @@
-Video.SubTitle.Parser.Base = new Class({
+Video.Subtitle.Parser.Base = new Class({
     
     Implements: [Options],
     
@@ -33,7 +33,7 @@ Video.SubTitle.Parser.Base = new Class({
     
     hash: function(abs_start, abs_end, subs) {
         
-        var hash_root = new Video.SubTitle.Tree(abs_start, abs_end);
+        var hash_root = new Video.Subtitle.Tree(abs_start, abs_end);
 
         subs.each(function(sub) {
             hash_root.addSub(sub);

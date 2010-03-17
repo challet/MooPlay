@@ -1,4 +1,4 @@
-Video.SubTitle.Item = new Class({
+Video.Subtitle.Item = new Class({
     
     initialize: function(start, end, element) {
         
@@ -7,7 +7,5 @@ Video.SubTitle.Item = new Class({
         this.element = element;
         
     },
-    
-
     
 });

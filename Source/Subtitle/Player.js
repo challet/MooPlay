@@ -1,4 +1,4 @@
-Video.SubTitle.Player = new Class({
+Video.Subtitle.Player = new Class({
 
     Implements: [Options],
 

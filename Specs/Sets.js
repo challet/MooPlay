@@ -6,6 +6,7 @@ context.Sets = {
     'Control/Progress.initialization',
     'Control/Progress.tick',
     'Control/Progress.change',
+    'Subtitle/Item.initialization'
 ],
 
  
