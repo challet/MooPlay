@@ -1,0 +1,3 @@
+[submodule "Tests/UnitTester"]
+	path = Tests/UnitTester
+	url = git://github.com/anutron/mootools-unittester.git

@@ -1,0 +1,36 @@
+{
+    "Video": {
+        "Video": {
+            "deps": []
+        }
+    },
+    "Control": {
+        "Progress": {
+            "deps": ["Video"]
+        }
+    },
+    "Display": {
+        "Ratio": {},
+        "Time": {
+            "deps": ["Video.Utils"]
+        }
+    },
+    "Subtitle": {
+        "Parser": {
+            "Base": {
+                "deps": ["Video.SubTitle.Tree"]
+            },
+            "SubRip": {
+                "deps": ["Video.SubTitle.Parser.Base", "Video.Utils"]
+            }
+        },
+        "Item": {},
+        "Player": {
+            "deps": ["Video.SubTitle.Tree"]
+        },
+        "Tree": {
+            "deps": ["Video.SubTitle.Item"]
+        }
+    }
+
+}
