@@ -37,6 +37,7 @@ Video.Subtitle.Player = new Class({
 
         var next_displayed = this.subs_hash.getSubs(abs_movie_time);
         
+        // remove subs which are not here anymore
         this.displayed.each(function(sub) {
             var displayed = [];
             if(!next_displayed.contains(sub)) {
@@ -48,6 +49,7 @@ Video.Subtitle.Player = new Class({
             this.displayed = displayed;
         }.bind(this));
         
+        // display subs which should to
         next_displayed.each(function(sub) {
             this.video.pause();
             if(!this.displayed.contains(sub)) {

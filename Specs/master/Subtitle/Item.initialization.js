@@ -46,7 +46,7 @@
         
         "item.element should be initialized": function() {
             value_of(item.element).should_be(element);
-        },
+        }
 
     });
     

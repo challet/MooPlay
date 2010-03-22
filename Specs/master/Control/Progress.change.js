@@ -1,15 +1,15 @@
 (function() {
     
-    var video_div = null;
+    var mock_video_div = null;
     var slider_div = null;
     var knob_div = null;
     var slider = null;
     
-    describe('Control.Progress.tick function', {
+    describe('Control.Progress.change function', {
         
         before_each: function() {
 
-            video_div = new Element('div', {
+            mock_video_div = new Element('div', {
                 id: 'video',
                 styles: {
                     width: 400,
@@ -28,6 +28,7 @@
                 }
             }).inject(document.body);
 
+           
             knob_div = new Element('div', {
                 id: 'knob',
                 styles: {
@@ -38,13 +39,13 @@
             }).inject(slider_div);
 
             slider = new Slider(slider_div, knob_div);
-            progress = new Video.Control.Progress(slider, video_div);
+            progress = new Video.Control.Progress(slider, mock_video_div);
 
         },
         
         after_each: function() {
             
-            video_div.dispose();
+            mock_video_div.dispose();
             knob_div.dispose();
             slider_div.dispose();
             
@@ -60,7 +61,7 @@
             var slider_length = 100;
             var click_position = 50;
             
-            video_div.duration = duration;
+            mock_video_div.duration = duration;
             
             progress.change({
                 client: {
@@ -72,7 +73,7 @@
                 }
             });
 
-            value_of(video_div.currentTime).should_be(duration * click_position / slider_length);
+            value_of(mock_video_div.currentTime).should_be(duration * click_position / slider_length);
         }
         
     });

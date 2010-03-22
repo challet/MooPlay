@@ -9,29 +9,30 @@ Video.Subtitle.Tree = new Class({
         this.start = start;
         this.end = end;
     },
+    
+    buildChildren: function() {
 
-    getSubs: function(timestamp) {
-        
-        if(timestamp < this.start && timestamp >= this.end) {
-            return [];
+       var child_period = Math.ceil((this.end - this.start) / this.nb_childs); 
+
+       for (var i = 0; i < this.nb_childs; i++) {
+           this.children.push(new Video.Subtitle.Tree(
+               this.start + i * child_period, // start
+               this.start + (i + 1) * child_period // end
+           ));
+       }
+   },
+    
+    getChildren: function(even_empty) {
+        if(this.children.length == 0 && even_empty) {
+            this.buildChildren();
         }
-        
-        
-        var subs = [];
-        
-        this.subs.each(function(sub) {
-            if(timestamp >= this.start && timestamp < this.end) {
-                subs.push(sub);
-            }
-        });
-        
-        this.getChildren(false).each(function(child) {
-            subs.extend(child.getSubs(timestamp));
-        });
-        
-        return subs;
+        return this.children;
+    },            
+    
+    doesSubtitleFit: function(sub) {
+        return sub.start >= this.start && sub.end <= this.end;
     },
-
+    
     addSub: function(sub) {
         
         var fit_in_one_child = false;
@@ -46,28 +47,26 @@ Video.Subtitle.Tree = new Class({
             this.subs.push(sub);
         }
     },
+    
+    getSubs: function(timestamp) {
+        
+        if(timestamp < this.start && timestamp >= this.end) {
+            return [];
+        }
 
-    getChildren: function(even_empty) {
-        if(this.children.length == 0 && even_empty) {
-            this.buildChildren();
-        }
-        return this.children;
-    },            
-    
-    buildChildren: function() {
+        var subs = [];
         
-        var child_period = Math.ceil((this.end - this.start) / this.nb_childs); 
+        this.subs.each(function(sub) {
+            if(timestamp >= sub.start && timestamp < sub.end) {
+                subs.push(sub);
+            }
+        });
         
-        for (var i = 0; i < this.nb_childs; i++) {
-            this.children.push(new Video.Subtitle.Tree(
-                this.start + i * child_period, // start
-                this.start + (i + 1) * child_period// end
-            ));
-        }
-    },
-    
-    doesSubtitleFit: function(sub) {
-        return sub.start >= this.start && sub.end <= this.end;
+        this.getChildren(false).each(function(child) {
+            subs.extend(child.getSubs(timestamp));
+        });
+        
+        return subs;
     }
 
 });
