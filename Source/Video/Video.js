@@ -3,8 +3,9 @@ Element.NativeEvents = $merge(Element.NativeEvents, {
 });
 
 var Video = {
-    Subtitle: {},
-    Parser: {},
+    Subtitle: {
+        Parser: {}
+    },
     Control: {},
     Display: {}
 };

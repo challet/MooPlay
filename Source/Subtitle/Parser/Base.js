@@ -12,14 +12,15 @@ Video.Subtitle.Parser.Base = new Class({
         var request = new Request({
             url: this.options.url,
             method: 'get',
-            onSuccess: this.run.bind(this)
+            onSuccess: function(data) {
+                this.run(this.parse(data));
+            }.bind(this)
         });
         request.send({});
     },
     
-    run: function (data) {
-        var subs = this.parse(data);
-
+    run: function (subs) {
+        
         var abs_start = Infinity;
         var abs_end = 0;
         subs.each(function(sub) {
