@@ -27,7 +27,7 @@ Video.Subtitle.Tree = new Class({
             this.buildChildren();
         }
         return this.children;
-    },            
+    },
     
     doesSubtitleFit: function(sub) {
         return sub.start >= this.start && sub.end <= this.end;
@@ -63,7 +63,9 @@ Video.Subtitle.Tree = new Class({
         });
         
         this.getChildren(false).each(function(child) {
-            subs.extend(child.getSubs(timestamp));
+            if(timestamp >= child.start && timestamp <= child.end) {
+                subs.extend(child.getSubs(timestamp));
+            }
         });
         
         return subs;
