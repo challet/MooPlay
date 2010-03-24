@@ -1,0 +1,2 @@
+SubRipReader by Clément Hallet http://twitter.com/challet
+Mootools and Slick by the Mootools dev team http://mootools.net

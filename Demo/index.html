@@ -6,10 +6,24 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
 	<title>index</title>
-	<script src="mootools-1.2.4-core-nc.js" type="text/javascript" charset="utf-8"></script>
-	<script src="mootools-1.2.4.4-more.js" type="text/javascript" charset="utf-8"></script>
-	<script src="Source/VideoPlayer.js" type="text/javascript" charset="utf-8"></script>
-	<link rel="stylesheet" href="test.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	
+	<!-- MooTools -->
+    <script src="/Assets/mootools-1.2.4-core-nc.js" type="text/javascript"></script>
+    <script src="/Assets/mootools-1.2.4.4-more.js" type="text/javascript"></script>
+
+    <!-- SubRipReader -->
+    <script src="/Source/Video/Video.js" type="text/javascript"></script>
+    <script src="/Source/Utils.js" type="text/javascript"></script>
+    <script src="/Source/Control/Progress.js" type="text/javascript"></script>
+    <script src="/Source/Display/Ratio.js" type="text/javascript"></script>
+    <script src="/Source/Display/Time.js" type="text/javascript"></script>
+    <script src="/Source/Subtitle/Item.js" type="text/javascript"></script>
+    <script src="/Source/Subtitle/Tree.js" type="text/javascript"></script>
+    <script src="/Source/Subtitle/Player.js" type="text/javascript"></script>
+    <script src="/Source/Subtitle/Parser/Base.js" type="text/javascript"></script>
+    <script src="/Source/Subtitle/Parser/SubRip.js" type="text/javascript"></script>
+    
+	<link rel="stylesheet" href="/Demo/test.css" type="text/css" media="screen" title="no title" charset="utf-8">
 </head>
 
 
@@ -25,7 +39,7 @@
 
 <div style="width:400px; height:300px;">
     <div style="position:relative;">
-        <video id="video" src="rashomon.ogv" autobuffer="true" style="width:400px;height:300px;position:absolute;top:0;z-index:1"></video>
+        <video id="video" src="/Assets/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="true" style="width:400px;height:300px;position:absolute;top:0;z-index:1"></video>
         <div id="subtitle" style="width:400px;height:300px;position:absolute;top:0;z-index:2"></div>
         <div style="clear:both;"></div>
     </div>
@@ -45,7 +59,12 @@
 <div id="slider" style="width:400px;height:5px;background:#a0a0a0;">
     <div id="knob" style="width:5px;height:5px;background:#ffff80;"></div>
 </div>
-
+<br />
+<form id="time_shift">
+    <label for="time_shift_setter">subs time shift :</label>
+    <input type="text" id="time_shift_setter" value="-8500" />
+    <input type="submit" value="set" />
+</form>
 
 <script>
 
@@ -53,13 +72,10 @@ var reader = null;
 
 document.addEvent('domready', function() {
     
-    
-
     $('load').addEvent('click', function(e) {
         e.preventDefault();
         new Video.Subtitle.Parser.SubRip({
-            url: 'rashomon.srt',
-            srt_end_of_line: '\r\n',
+            url: '/Assets/Framasoft-WhatsNewInFirefox35717.srt',
             onComplete: function(subs_hash) {
                 reader = new Video.Subtitle.Player(subs_hash, $('video'), {
                     container: 'subtitle',
@@ -77,6 +93,11 @@ document.addEvent('domready', function() {
     $('pause').addEvent('click', function(e) {
         e.preventDefault();
         $('video').pause();
+    });
+    
+    $('time_shift').addEvent('submit', function(e){
+        e.preventDefault();
+        reader.setTimeShift($('time_shift_setter').value);
     });
     
     var slider = new Slider($('slider'), $('knob'));

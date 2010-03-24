@@ -4,8 +4,8 @@ Video.Subtitle.Player = new Class({
 
     options: {
         container: 'subtitle',
-        time_container: 'time',
-        tick_delay: 100,
+        tick_delay: 100, // not in use for now
+        time_shift: 0,
         onDispose: function(element, container) {
             element.dispose();
         },
@@ -23,6 +23,7 @@ Video.Subtitle.Player = new Class({
 
         this.subs_hash = subs_hash;
         
+
         this.overlapping_level = 0;
         this.displayed = [];
 
@@ -32,10 +33,9 @@ Video.Subtitle.Player = new Class({
     
     },
   
-        
     tick: function(abs_movie_time) {
 
-        var next_displayed = this.subs_hash.getSubs(abs_movie_time);
+        var next_displayed = this.subs_hash.getSubs(abs_movie_time + this.options.time_shift);
         
         // remove subs which are not here anymore
         this.displayed.each(function(sub) {
@@ -51,7 +51,6 @@ Video.Subtitle.Player = new Class({
         
         // display subs which should to
         next_displayed.each(function(sub) {
-            this.video.pause();
             if(!this.displayed.contains(sub)) {
                 sub.element.addClass('overlapping' + String(this.overlapping_level++));
                 this.displayed.push(sub);
@@ -59,6 +58,11 @@ Video.Subtitle.Player = new Class({
             }
         }.bind(this));
 
+    },
+    
+    setTimeShift: function(shift) {
+        this.options.time_shift = parseInt(shift);
     }
+    
 
 });
