@@ -1,0 +1,4 @@
+#subtitle div p {margin: 5px 0;padding: 0; font-size: 18px; font-weight: bold; text-align: center;}
+
+#subtitle div.overlapping0 p {color: #f00; }
+#subtitle div.overlapping1 p {color: #f80; }

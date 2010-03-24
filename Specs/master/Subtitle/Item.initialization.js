@@ -10,7 +10,7 @@
         
         before_each: function() {
             
-            item = new Video.Subtitle.Item(start, end, text);
+            item = new Video.Subtitle.Item(start, end, [text]);
             
         },
         
@@ -32,7 +32,7 @@
         },
         
         "item.element should be initialized": function() {
-            value_of(item.element.firstChild.nodeValue).should_be(text);
+            value_of(item.element.firstChild.firstChild.nodeValue).should_be(text);
         }
 
     });

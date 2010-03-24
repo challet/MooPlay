@@ -57,23 +57,25 @@
         },
         
         "should display sub inside": function() {
-            subs_root.subs.push(new Video.Subtitle.Item(3000, 5000, text));
+            var item = new Video.Subtitle.Item(3000, 5000, [text])
+            subs_root.subs.push(item);
             player.tick(4000);
             value_of(on_display_called).should_be_true();
-            value_of(on_display_arg.firstChild.nodeValue).should_be(text);
+            value_of(on_display_arg).should_be(item.element);
         },
         
         "should not display sub outside": function() {
-            subs_root.subs.push(new Video.Subtitle.Item(3000, 5000, text));
+            subs_root.subs.push(new Video.Subtitle.Item(3000, 5000, [text]));
             player.tick(7000);
             value_of(on_display_called).should_be_false();
         },
         
         "should dispose sub inside": function() {
-            player.displayed.push(new Video.Subtitle.Item(3000, 5000, text));
+            var item = new Video.Subtitle.Item(3000, 5000, [text])
+            player.displayed.push(item);
             player.tick(7000);
             value_of(on_dispose_called).should_be_true();
-            value_of(on_dispose_arg.firstChild.nodeValue).should_be(text);
+            value_of(on_dispose_arg).should_be(item.element);
         },
 
     });

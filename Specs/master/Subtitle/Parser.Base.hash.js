@@ -13,13 +13,9 @@
 
         before_each: function() {
             
-            sub_element = new Element('div', {
-                id: 'sub'
-            });
-            
             subs = [
-                new Video.Subtitle.Item(1000, 6000, sub_element),
-                new Video.Subtitle.Item(4000, 9000, sub_element)
+                new Video.Subtitle.Item(1000, 6000, ["mldsfkgl=dfsjgklds"]),
+                new Video.Subtitle.Item(4000, 9000, ["dgdf gdf gdf gdf"])
             ];
             
             // to avoid any ajax call

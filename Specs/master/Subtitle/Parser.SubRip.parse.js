@@ -4,6 +4,7 @@
     var parser = null;
     var raw_one_sub = "1\n00:00:01,150 --> 00:00:05,930\nmysub1\n";
     var raw_subs = "1\n00:00:01,150 --> 00:00:05,930\nmysub1\n\n5\n00:00:012,457 --> 00:00:15,725\nmysub2";
+    var raw_sub_multi_lines = "1\n00:00:01,150 --> 00:00:05,930\nmysubline1\nmysubline2";
     var start_value = null;
     var end_value = null;
     var text_value = null;
@@ -55,7 +56,13 @@
         
         "should get the right text value from the sub": function() {
             var subs = parser.parse(raw_one_sub);
-            value_of(text_value).should_be('mysub1');
+            value_of(text_value).should_include('mysub1');
+        },
+        
+        "should handle multi-lines subs text": function() {
+            var subs = parser.parse(raw_sub_multi_lines);
+            value_of(text_value).should_include('mysubline1');
+            value_of(text_value).should_include('mysubline2');
         }
      
         

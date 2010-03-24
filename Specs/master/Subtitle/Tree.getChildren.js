@@ -16,18 +16,9 @@
             
             tree = new Video.Subtitle.Tree(start, end);
             
-            sub_element = new Element('div', {
-                id: 'video',
-                styles: {
-                    width: 400,
-                    height: 300,
-                    position: 'absolute',
-                    top:0
-                }
-            });
 
-            subtitle_item_inside =  new Video.Subtitle.Item(1000, 4000, sub_element);
-            subtitle_item_outside =  new Video.Subtitle.Item(15000, 20000, sub_element);
+            subtitle_item_inside =  new Video.Subtitle.Item(1000, 4000, ["ljkhsdfg"]);
+            subtitle_item_outside =  new Video.Subtitle.Item(15000, 20000, ["sdfsdfds"]);
             
         },
         

@@ -15,19 +15,9 @@
             end = 10000;
             
             tree = new Video.Subtitle.Tree(start, end);
-            
-            sub_element = new Element('div', {
-                id: 'video',
-                styles: {
-                    width: 400,
-                    height: 300,
-                    position: 'absolute',
-                    top:0
-                }
-            });
 
-            subtitle_item_outside_all_children =  new Video.Subtitle.Item(start, end, sub_element);
-            subtitle_item_inside_first_children =  new Video.Subtitle.Item(start, (end - start) / tree.nb_childs, sub_element);
+            subtitle_item_outside_all_children =  new Video.Subtitle.Item(start, end, ["d54fg4dsf35f4ds23"]);
+            subtitle_item_inside_first_children =  new Video.Subtitle.Item(start, (end - start) / tree.nb_childs, ["d54fg4dsf35f4ds23"]);
             
         },
         

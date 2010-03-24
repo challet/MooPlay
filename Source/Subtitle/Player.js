@@ -35,7 +35,7 @@ Video.Subtitle.Player = new Class({
   
     tick: function(abs_movie_time) {
 
-        var next_displayed = this.subs_hash.getSubs(abs_movie_time + this.options.time_shift);
+        var next_displayed = this.subs_hash.getSubs(abs_movie_time - this.options.time_shift);
         
         // remove subs which are not here anymore
         this.displayed.each(function(sub) {
