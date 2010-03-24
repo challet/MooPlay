@@ -38,7 +38,7 @@ Video.Subtitle.Parser.SubRip = new Class({
                 current_sub.end = Video.Utils.srtToTimestamp(times.slice(5,9));
                 var times = null;
             } else if(line != null && this.regexps.text.test(line)) {
-                current_text = new Element('p').appendText(this.regexps.text.exec(line)[1]);
+                current_text = this.regexps.text.exec(line)[0];
             } else if(current_sub != null) {
                 subs.push(new Video.Subtitle.Item(current_sub.start, current_sub.end, current_text));
                 current_sub = null;

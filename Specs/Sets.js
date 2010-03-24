@@ -15,7 +15,9 @@ context.Sets = {
     'Subtitle/Tree.getSubs',
     'Subtitle/Player.initialization',
     'Subtitle/Player.tick',
-    'Subtitle/Parser.Base.run'
+    'Subtitle/Parser.Base.run',
+    'Subtitle/Parser.Base.hash',
+    'Subtitle/Parser.SubRip.parse'
     
 ],
 

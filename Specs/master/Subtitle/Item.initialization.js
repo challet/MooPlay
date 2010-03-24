@@ -1,38 +1,25 @@
 (function() {
     
     var item = null;
-    var element = null;
-    var start = null;
-    var end = null;
+    var text = "sd4sdf35sd35";
+    var start = 0;
+    var end = 10000;
 
     
     describe('Subtitle.Item.initialization function', {
         
         before_each: function() {
-
-            element = new Element('div', {
-                id: 'video',
-                styles: {
-                    width: 400,
-                    height: 300,
-                    position: 'absolute',
-                    top:0
-                }
-            });
             
-            start = 0;
-            end = 10000;
-            
-            item = new Video.Subtitle.Item(start, end, element);
+            item = new Video.Subtitle.Item(start, end, text);
             
         },
         
         after_each: function() {
 
             item = null;
-            element = null;
-            start = null;
-            end = null;
+            text = "sd4sdf35sd35";
+            start = 0;
+            end = 10000;
             
         },
         
@@ -45,7 +32,7 @@
         },
         
         "item.element should be initialized": function() {
-            value_of(item.element).should_be(element);
+            value_of(item.element.firstChild.nodeValue).should_be(text);
         }
 
     });

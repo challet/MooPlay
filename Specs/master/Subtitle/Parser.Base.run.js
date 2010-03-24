@@ -24,7 +24,7 @@
             ];
             
             // to avoid any ajax call
-            Video.Subtitle.Parser.Base.load = function() {
+            Video.Subtitle.Parser.Base.prototype.load = function() {
                 return;
             }
             
