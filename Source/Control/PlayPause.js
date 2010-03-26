@@ -1,4 +1,4 @@
-Video.Control.PlayPauseButton = new Class({
+Video.Control.PlayPause = new Class({
 
     Implements: [Options],
     

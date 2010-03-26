@@ -19,7 +19,7 @@ context.Sets = {
     'Control/Progress.initialize',
     'Control/Progress.tick',
     'Control/Progress.change',
-    'Control/PlayPauseButton.initialize'
+    'Control/PlayPause.initialize'
     
 ],
 
