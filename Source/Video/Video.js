@@ -1,5 +1,7 @@
 Element.NativeEvents = $merge(Element.NativeEvents, {
-    timeupdate: 2
+    timeupdate: 2,
+    play: 2,
+    pause: 2
 });
 
 var Video = {

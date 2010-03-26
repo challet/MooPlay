@@ -2,3 +2,6 @@
 
 #subtitle div.overlapping0 p {color: #f00; }
 #subtitle div.overlapping1 p {color: #f80; }
+
+a#playpausebutton {width:25px;height:25px;background:#0f0;}
+a#playpausebutton.paused {width:25px;height:25px;background:#f00;}

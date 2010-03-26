@@ -3,21 +3,23 @@
 context.Sets = {
  
 'master': [
-    'Control/Progress.initialization',
-    'Control/Progress.tick',
-    'Control/Progress.change',
-    'Subtitle/Item.initialization',
-    'Subtitle/Tree.initialization',
+
+    'Subtitle/Item.initialize',
+    'Subtitle/Tree.initialize',
     'Subtitle/Tree.buildChildren',
     'Subtitle/Tree.getChildren',
     'Subtitle/Tree.doesSubtitleFit',
     'Subtitle/Tree.addSub',
     'Subtitle/Tree.getSubs',
-    'Subtitle/Player.initialization',
+    'Subtitle/Player.initialize',
     'Subtitle/Player.tick',
     'Subtitle/Parser.Base.run',
     'Subtitle/Parser.Base.hash',
-    'Subtitle/Parser.SubRip.parse'
+    'Subtitle/Parser.SubRip.parse',
+    'Control/Progress.initialize',
+    'Control/Progress.tick',
+    'Control/Progress.change',
+    'Control/PlayPauseButton.initialize'
     
 ],
 
