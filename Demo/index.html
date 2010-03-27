@@ -30,11 +30,6 @@
 
 <body>
     
-<ul>
-    <li><a href="#" id="load">load subtitle</a></li>
-</ul>
-
-
 
 <div style="width:400px; height:300px;">
     <div style="position:relative;">
@@ -59,15 +54,29 @@
     <div id="knob" style="width:5px;height:5px;background:#ffff80;"></div>
 </div>
 <br />
-<form id="time_shift">
-    <label for="time_shift_setter">subs time shift :</label>
-    <input type="text" id="time_shift_setter" value="8050" />
-    <input type="submit" value="set" />
-</form>
 
 <a id="playpausebutton" href="#">
     play/pause
 </a>
+
+<form id="time_shift">
+    
+    <label for="subtitles">subtitle :</label>
+    <select id="subtitles">
+        <option value="">none</option>
+        <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt">FR</option>
+    </select>
+    
+    <br />
+    
+    <label for="time_shift_setter">subs time shift :</label>
+    <input type="text" id="time_shift_setter" value="8050" />
+    
+    <input type="submit" value="set" />
+    
+</form>
+
+
 
 <hr />
 <p> The video used in this demonstration page is from Framasoft and the original file can be found <a href="http://blip.tv/file/2296139">here</a> </p>
@@ -78,17 +87,23 @@ var reader = null;
 
 document.addEvent('domready', function() {
     
-    $('load').addEvent('click', function(e) {
+    reader = new Video.Subtitle.Player($('video'), {
+        container: 'subtitle',
+    });
+    
+    $('subtitles').addEvent('change', function(e) {
         e.preventDefault();
-        new Video.Subtitle.Parser.SubRip({
-            url: '/Assets/Framasoft-WhatsNewInFirefox35717.srt',
-            onComplete: function(subs_hash) {
-                reader = new Video.Subtitle.Player(subs_hash, $('video'), {
-                    container: 'subtitle',
-                    time_container: 'time'
-                });
-            }
-        });
+        if(e.target.value != '') {
+            new Video.Subtitle.Parser.SubRip({
+                url: e.target.value,
+                onComplete: function(subs_hash) {
+                    reader.loadSubtitles(subs_hash);
+                }
+            });
+        } else {
+               reader.unLoad();
+        }
+        
     });
     
     new Video.Control.PlayPause($('playpausebutton'), $('video'));

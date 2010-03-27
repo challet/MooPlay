@@ -5,7 +5,7 @@
     var start = null;
     var end = null;
 
-    describe('Subtitle.Tree.initialization function', {
+    describe('Subtitle.Tree.initialize function', {
         
         before_each: function() {
             

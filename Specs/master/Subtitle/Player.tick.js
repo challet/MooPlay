@@ -8,6 +8,7 @@
     var on_dispose_arg = null;
     var on_display_called = false;
     var on_display_arg = null;
+    var on_dispose_number_of_calls = 0;
     
     describe('Subtitle.Player.tick function', {
         
@@ -30,16 +31,19 @@
             }).inject(document.body);
                     
             
-            player = new Video.Subtitle.Player(subs_root, video_div, {
+            player = new Video.Subtitle.Player(video_div, {
                 onDispose: function(element) {
                     on_dispose_called = true,
                     on_dispose_arg = element;
+                    on_dispose_number_of_calls++;
                 },
                 onDisplay: function(element) {
                     on_display_called = true,
                     on_display_arg = element;
                 }
             });
+            
+            player.loadSubtitles(subs_root);
         
         },
         
@@ -53,6 +57,7 @@
             on_dispose_arg = null;
             on_display_called = false;
             on_display_arg = null;
+            on_dispose_number_of_calls = 0;
             
         },
         
@@ -77,6 +82,23 @@
             value_of(on_dispose_called).should_be_true();
             value_of(on_dispose_arg).should_be(item.element);
         },
+        
+        "should not display any sub if subs are not loaded": function() {
+            player.subs_hash = null;
+            subs_root.subs.push(new Video.Subtitle.Item(3000, 5000, [text]));
+            player.tick(4000);
+            value_of(on_display_called).should_be_false();
+        },
+        
+        "should dispose all displayed sub if subs are not loaded": function() {
+            player.subs_hash = null;
+            var item = new Video.Subtitle.Item(3000, 5000, [text])
+            player.displayed.push(item, item);
+            player.tick(4000);
+            value_of(on_dispose_called).should_be_true();
+            value_of(on_dispose_arg).should_be(item.element);
+            value_of(on_dispose_number_of_calls).should_be(2);
+        }
 
     });
     

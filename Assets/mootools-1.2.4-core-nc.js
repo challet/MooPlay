@@ -296,7 +296,7 @@ function $unlink(object){
 
 script: Browser.js
 
-description: The Browser Core. Contains Browser initialization, Window and Document, and the Browser Hash.
+description: The Browser Core. Contains Browser initialize, Window and Document, and the Browser Hash.
 
 license: MIT-style license.
 

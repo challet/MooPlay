@@ -11,7 +11,7 @@
     var toggle_state_called = false;
     var toggle_state_arg_value = null;
 
-    describe('Control.PlayPause.initialization function', {
+    describe('Control.PlayPause.initialize function', {
         
         before_each: function() {
             

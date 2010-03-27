@@ -6,7 +6,7 @@
     var end = 10000;
 
     
-    describe('Subtitle.Item.initialization function', {
+    describe('Subtitle.Item.initialize function', {
         
         before_each: function() {
             

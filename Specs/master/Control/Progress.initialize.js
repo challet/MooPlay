@@ -10,7 +10,7 @@
     var tick_duration_arg = null;
     var change_executed = false;
     
-    describe('Control.Progress.initialization function', {
+    describe('Control.Progress.initialize function', {
         
         before_each: function() {
 
