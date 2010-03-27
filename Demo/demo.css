@@ -1,7 +1,9 @@
-#subtitle div p {margin: 5px 0;padding: 0; font-size: 18px; font-weight: bold; text-align: center;}
+#subtitle { overflow: hidden; width:400px; height:300px; position:absolute; top:0; z-index:2; }
+#subtitle div { position:absolute; top:0; width:400px; }
+#subtitle div p { margin: 5px 0; padding: 0; font-size: 18px; font-weight: bold; text-align: center;}
 
 #subtitle div.overlapping0 p {color: #f00; }
 #subtitle div.overlapping1 p {color: #f80; }
 
-a#playpausebutton {width:25px;height:25px;background:#0f0;}
-a#playpausebutton.paused {width:25px;height:25px;background:#f00;}
+a#playpausebutton { width:25px; height:25px; background:#0f0; }
+a#playpausebutton.paused { width:25px; height:25px; background:#f00; }

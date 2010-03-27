@@ -7,10 +7,12 @@ Video.Subtitle.Player = new Class({
         subs_hash: null,
         tick_delay: 100, // not in use for now
         time_shift: 0,
-        onDispose: function(element, container) {
+        onDispose: function(element, container, overlapping) {
             element.dispose();
+            sub.element.removeClass('overlapping' + String(overlapping));
         },
-        onDisplay: function(element,container) {
+        onDisplay: function(element, container, overlapping) {
+            sub.element.addClass('overlapping' + String(overlapping));
             element.inject(container, 'bottom');
         }
     },
@@ -54,8 +56,7 @@ Video.Subtitle.Player = new Class({
         this.displayed.each(function(sub) {
             var displayed = [];
             if(!next_displayed.contains(sub) || this.subs_hash == null) {
-                sub.element.removeClass('overlapping' + String(--this.overlapping_level));
-                this.options.onDispose(sub.element, this.container);
+                this.options.onDispose(sub.element, this.container, --this.overlapping_level);
             } else {
                 displayed.push(sub);
             }
@@ -65,9 +66,9 @@ Video.Subtitle.Player = new Class({
         // display subs which should to
         next_displayed.each(function(sub) {
             if(!this.displayed.contains(sub)) {
-                sub.element.addClass('overlapping' + String(this.overlapping_level++));
+                
                 this.displayed.push(sub);
-                this.options.onDisplay(sub.element, this.container);
+                this.options.onDisplay(sub.element, this.container, this.overlapping_level++);
             }
         }.bind(this));
 

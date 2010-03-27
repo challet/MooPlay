@@ -34,7 +34,7 @@
 <div style="width:400px; height:300px;">
     <div style="position:relative;">
         <video id="video" src="http://blip.tv/file/get/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="true" style="width:400px;height:300px;position:absolute;top:0;z-index:1"></video>
-        <div id="subtitle" style="width:400px;height:300px;position:absolute;top:0;z-index:2"></div>
+        <div id="subtitle"></div>
         <div style="clear:both;"></div>
     </div>
     <div style="clear:both;"></div>
@@ -89,6 +89,43 @@ document.addEvent('domready', function() {
     
     reader = new Video.Subtitle.Player($('video'), {
         container: 'subtitle',
+        onDisplay: function(element, container, overlapping) {
+            element.addClass('overlapping' + String(overlapping));
+            element.setStyles({
+                'left': -container.offsetWidth
+            });
+            element.inject(container, 'bottom');
+            var effect = new Fx.Morph(element, {
+                fps: 30,
+                link: 'cancel',
+                duration: 200
+            });
+            effect.start({
+                'left': 0
+            });
+
+        },
+        
+        onDispose: function(element, container, overlapping) {
+            element.setStyles({
+                'margin-left': 0
+            });
+            var effect = new Fx.Morph(element, {
+                fps: 30,
+                link: 'cancel',
+                duration: 100,
+                onComplete: function() {
+                    element.dispose();
+                    element.removeClass('overlapping' + String(overlapping));
+                }
+            });
+            effect.start({
+                'left': container.offsetWidth
+            });
+            
+
+        }
+        
     });
     
     $('subtitles').addEvent('change', function(e) {
