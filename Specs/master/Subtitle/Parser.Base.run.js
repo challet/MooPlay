@@ -15,16 +15,16 @@
         before_each: function() {
             
             subs = [
-                new Mooplay.Subtitle.Item(1000, 6000, ["dsmlkgsmdlkfgmlsdf"]),
-                new Mooplay.Subtitle.Item(4000, 9000, ["25sdf4ds2sd2f14ds2f"])
+                new MooPlay.Subtitle.Item(1000, 6000, ["dsmlkgsmdlkfgmlsdf"]),
+                new MooPlay.Subtitle.Item(4000, 9000, ["25sdf4ds2sd2f14ds2f"])
             ];
             
             // to avoid any ajax call
-            Mooplay.Subtitle.Parser.Base.prototype.load = function() {
+            MooPlay.Subtitle.Parser.Base.prototype.load = function() {
                 return;
             }
             
-            parser = new Mooplay.Subtitle.Parser.Base({
+            parser = new MooPlay.Subtitle.Parser.Base({
                 onComplete: function() {
                     on_complete_called = true;
                 }

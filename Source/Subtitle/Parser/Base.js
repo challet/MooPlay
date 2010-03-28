@@ -8,16 +8,16 @@ authors:
 - Clément Hallet
 
 requires:
-- Mooplay
-- Mooplay.Subtitle.Item
-- Mooplay.Subtitle.Tree
+- MooPlay
+- MooPlay.Subtitle.Item
+- MooPlay.Subtitle.Tree
 
 provides: 
-- Mooplay.Subtitle.Parser.Base
+- MooPlay.Subtitle.Parser.Base
 
 */
 
-Mooplay.Subtitle.Parser.Base = new Class({
+MooPlay.Subtitle.Parser.Base = new Class({
     
     Implements: [Options],
     
@@ -53,7 +53,7 @@ Mooplay.Subtitle.Parser.Base = new Class({
     
     hash: function(abs_start, abs_end, subs) {
         
-        var hash_root = new Mooplay.Subtitle.Tree(abs_start, abs_end);
+        var hash_root = new MooPlay.Subtitle.Tree(abs_start, abs_end);
 
         subs.each(function(sub) {
             hash_root.addSub(sub);

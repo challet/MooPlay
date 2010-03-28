@@ -43,7 +43,7 @@
             }).inject(slider_div);
 
             slider = new Slider(slider_div, knob_div);
-            progress = new Mooplay.Control.Progress(slider, video_div);
+            progress = new MooPlay.Control.Progress(slider, video_div);
 
             progress.tick = function(currentTime, duration) {
                 tick_executed = true;

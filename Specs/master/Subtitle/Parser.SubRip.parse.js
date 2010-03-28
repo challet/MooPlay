@@ -15,17 +15,17 @@
         before_each: function() {
             
             // to avoid any ajax call
-            Mooplay.Subtitle.Parser.Base.prototype.load = function() {
+            MooPlay.Subtitle.Parser.Base.prototype.load = function() {
                 return;
             };
             
-            Mooplay.Subtitle.Item.prototype.initialize = function(start, end, text) {
+            MooPlay.Subtitle.Item.prototype.initialize = function(start, end, text) {
                 start_value = start;
                 end_value = end,
                 text_value = text;
             };
                         
-            parser = new Mooplay.Subtitle.Parser.SubRip();
+            parser = new MooPlay.Subtitle.Parser.SubRip();
 
         },
         

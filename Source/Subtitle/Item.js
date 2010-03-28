@@ -8,15 +8,15 @@ authors:
 - Clément Hallet
 
 requires:
-- Mooplay
+- MooPlay
 
 provides: 
-- Mooplay.Subtitle.Item
+- MooPlay.Subtitle.Item
 
 */
 
 
-Mooplay.Subtitle.Item = new Class({
+MooPlay.Subtitle.Item = new Class({
     
     initialize: function(start, end, texts) {
         

@@ -8,16 +8,16 @@ authors:
 - Clément Hallet
 
 requires:
-- Mooplay
-- Mooplay.Subtitle.Item
+- MooPlay
+- MooPlay.Subtitle.Item
 
 provides: 
-- Mooplay.Subtitle.Tree
+- MooPlay.Subtitle.Tree
 
 */
 
 
-Mooplay.Subtitle.Tree = new Class({
+MooPlay.Subtitle.Tree = new Class({
     
     nb_childs: 2,
     
@@ -34,7 +34,7 @@ Mooplay.Subtitle.Tree = new Class({
        var child_period = Math.ceil((this.end - this.start) / this.nb_childs); 
 
        for (var i = 0; i < this.nb_childs; i++) {
-           this.children.push(new Mooplay.Subtitle.Tree(
+           this.children.push(new MooPlay.Subtitle.Tree(
                this.start + i * child_period, // start
                this.start + (i + 1) * child_period // end
            ));

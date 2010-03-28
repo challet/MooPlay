@@ -8,14 +8,14 @@ authors:
 - Clément Hallet
 
 requires:
-- Mooplay
+- MooPlay
 
 provides: 
-- Mooplay.Control.PlayPause
+- MooPlay.Control.PlayPause
 
 */
 
-Mooplay.Control.PlayPause = new Class({
+MooPlay.Control.PlayPause = new Class({
 
     Implements: [Options],
     

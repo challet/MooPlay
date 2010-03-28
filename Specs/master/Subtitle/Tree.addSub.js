@@ -14,10 +14,10 @@
             start = 0;
             end = 10000;
             
-            tree = new Mooplay.Subtitle.Tree(start, end);
+            tree = new MooPlay.Subtitle.Tree(start, end);
 
-            subtitle_item_outside_all_children =  new Mooplay.Subtitle.Item(start, end, ["d54fg4dsf35f4ds23"]);
-            subtitle_item_inside_first_children =  new Mooplay.Subtitle.Item(start, (end - start) / tree.nb_childs, ["d54fg4dsf35f4ds23"]);
+            subtitle_item_outside_all_children =  new MooPlay.Subtitle.Item(start, end, ["d54fg4dsf35f4ds23"]);
+            subtitle_item_inside_first_children =  new MooPlay.Subtitle.Item(start, (end - start) / tree.nb_childs, ["d54fg4dsf35f4ds23"]);
             
         },
         

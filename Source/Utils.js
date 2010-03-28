@@ -8,14 +8,14 @@ authors:
 - Clément Hallet
 
 requires:
-- Mooplay
+- MooPlay
 
 provides: 
-- Mooplay.Utils
+- MooPlay.Utils
 
 */
 
-Mooplay.Utils = {
+MooPlay.Utils = {
     /**
      *  @param srt_time : format is '00:02:52,406'
      */

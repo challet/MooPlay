@@ -8,17 +8,17 @@ authors:
 - Clément Hallet
 
 requires:
-- Mooplay
-- Mooplay.Subtitle.Item
-- Mooplay.Subtitle.Tree
+- MooPlay
+- MooPlay.Subtitle.Item
+- MooPlay.Subtitle.Tree
 
 provides: 
-- Mooplay.Subtitle.Player
+- MooPlay.Subtitle.Player
 
 */
 
 
-Mooplay.Subtitle.Player = new Class({
+MooPlay.Subtitle.Player = new Class({
 
     Implements: [Options],
 
@@ -31,7 +31,7 @@ Mooplay.Subtitle.Player = new Class({
             sub.element.removeClass('overlapping' + String(overlapping));
         },
         onDisplay: function(element, container, overlapping) {
-            sub.element.addClass('overlapping' + String(overlapping));
+            element.addClass('overlapping' + String(overlapping));
             element.inject(container, 'bottom');
         }
     },

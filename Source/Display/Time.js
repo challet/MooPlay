@@ -8,16 +8,16 @@ authors:
 - Clément Hallet
 
 requires:
-- Mooplay
-- Mooplay.Utils
+- MooPlay
+- MooPlay.Utils
 
 
 provides: 
-- Mooplay.Display.Time
+- MooPlay.Display.Time
 
 */
 
-Mooplay.Display.Time = new Class({
+MooPlay.Display.Time = new Class({
     
     initialize: function(video, container) {
         
@@ -31,7 +31,7 @@ Mooplay.Display.Time = new Class({
     },
     
     tick: function(abs_movie_time) {
-        this.container.empty().appendText(Mooplay.Utils.timestampToSrt(abs_movie_time));
+        this.container.empty().appendText(MooPlay.Utils.timestampToSrt(abs_movie_time));
     }
 
 });

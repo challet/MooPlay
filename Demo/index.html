@@ -12,7 +12,7 @@
     <script src="/Assets/mootools-1.2.4.4-more.js" type="text/javascript"></script>
 
     <!-- SubRipReader -->
-    <script src="/Source/Mooplay.js" type="text/javascript"></script>
+    <script src="/Source/MooPlay.js" type="text/javascript"></script>
     <script src="/Source/Utils.js" type="text/javascript"></script>
     <script src="/Source/Control/Progress.js" type="text/javascript"></script>
     <script src="/Source/Control/PlayPause.js" type="text/javascript"></script>
@@ -33,7 +33,7 @@
 
 <div style="width:400px; height:300px;">
     <div style="position:relative;">
-        <video id="video" src="http://blip.tv/file/get/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="true" style="width:400px;height:300px;position:absolute;top:0;z-index:1"></video>
+        <video id="video" src="/Assets/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="true" style="width:400px;height:300px;position:absolute;top:0;z-index:1"></video>
         <div id="subtitle"></div>
         <div style="clear:both;"></div>
     </div>
@@ -87,8 +87,7 @@ var reader = null;
 
 document.addEvent('domready', function() {
     
-    reader = new Mooplay.Subtitle.Player($('video'), {
-        container: 'subtitle',
+    reader = new MooPlay.Subtitle.Player($('video'), $('subtitle'), {
         onDisplay: function(element, container, overlapping) {
             element.addClass('overlapping' + String(overlapping));
             element.setStyles({
@@ -131,7 +130,7 @@ document.addEvent('domready', function() {
     $('subtitles').addEvent('change', function(e) {
         e.preventDefault();
         if(e.target.value != '') {
-            new Mooplay.Subtitle.Parser.SubRip({
+            new MooPlay.Subtitle.Parser.SubRip({
                 url: e.target.value,
                 onComplete: function(subs_hash) {
                     reader.loadSubtitles(subs_hash);
@@ -143,7 +142,7 @@ document.addEvent('domready', function() {
         
     });
     
-    new Mooplay.Control.PlayPause($('playpausebutton'), $('video'));
+    new MooPlay.Control.PlayPause($('playpausebutton'), $('video'));
     
     $('time_shift').addEvent('submit', function(e){
         e.preventDefault();
@@ -151,10 +150,10 @@ document.addEvent('domready', function() {
     });
     
     var slider = new Slider($('slider'), $('knob'));
-    new Mooplay.Control.Progress(slider, $('video'));
+    new MooPlay.Control.Progress(slider, $('video'));
     
-    new Mooplay.Display.Time($('video'), $('time_container'));
-    new Mooplay.Display.Ratio($('video'), $('ratio_container'));
+    new MooPlay.Display.Time($('video'), $('time_container'));
+    new MooPlay.Display.Ratio($('video'), $('ratio_container'));
     
  
 })

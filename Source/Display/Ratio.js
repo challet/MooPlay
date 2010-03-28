@@ -8,15 +8,15 @@ authors:
 - Clément Hallet
 
 requires:
-- Mooplay
+- MooPlay
 
 
 provides: 
-- Mooplay.Display.Ratio
+- MooPlay.Display.Ratio
 
 */
 
-Mooplay.Display.Ratio = new Class({
+MooPlay.Display.Ratio = new Class({
     
     initialize: function(video, container) {
         

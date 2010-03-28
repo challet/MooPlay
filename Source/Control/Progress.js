@@ -8,15 +8,15 @@ authors:
 - Clément Hallet
 
 requires:
-- Mooplay
+- MooPlay
 - core/1.2.4: [Slider]
 
 provides: 
-- Mooplay.Control.Progress
+- MooPlay.Control.Progress
 
 */
 
-Mooplay.Control.Progress = new Class({
+MooPlay.Control.Progress = new Class({
 
     Implements: [Options],
         

@@ -1,6 +1,6 @@
 /*
 ---
-description: Basic Mooplay object, useful but not really interresting
+description: Base MooPlay object, useful but not really interesting
 
 license: GNU GPL
 
@@ -11,11 +11,11 @@ requires:
 - core/1.2.4: [Core, Element, Element.Event, Element.Style, Class, Class.Extra.Events, Class.Extra.Options]
 
 provides: 
-- Mooplay
-- Mooplay.Subtitle
-- Mooplay.Subtitle.Parser
-- Mooplay.Control
-- Mooplay.Display
+- MooPlay
+- MooPlay.Subtitle
+- MooPlay.Subtitle.Parser
+- MooPlay.Control
+- MooPlay.Display
 
 */
 

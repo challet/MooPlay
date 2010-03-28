@@ -10,7 +10,7 @@
         
         before_each: function() {
             
-            item = new Mooplay.Subtitle.Item(start, end, [text]);
+            item = new MooPlay.Subtitle.Item(start, end, [text]);
             
         },
         
