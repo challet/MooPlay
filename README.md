@@ -12,7 +12,7 @@ The video element can be used by other scripts, MooPlay objects will adapt thems
  
 More functionnalities will be available.
 
-![Screenshot](http://url_to_project_screenshot)
+![Screenshot](http://img94.imageshack.us/img94/47/image3gd.png)
 
 How to use
 ----------
@@ -40,7 +40,7 @@ Then, it will have its css class changed, accordingly to the ones specified in t
     </div>
     
     var slider = new Slider($('slider'), $('knob'));
-    new Mooplay.Control.Progress(slider, $('video'));
+    new MooPlay.Control.Progress(slider, $('video'));
     
 The *knob* position will be set function of the video progress in the playing.
 The *slider* element can be clicked to navigate through the video.
@@ -48,14 +48,14 @@ The *slider* element can be clicked to navigate through the video.
 
 ### MooPlay.Subtitle
 
-    var subs_reader = new Mooplay.Subtitle.Player($('video'), $('subtitles_container'));
-    new Mooplay.Subtitle.Parser.SubRip({
+    var subs_reader = new MooPlay.Subtitle.Player($('video'), $('subtitles_container'));
+    new MooPlay.Subtitle.Parser.SubRip({
         url: 'http://mysubtitles.srt',
         onComplete: function(subs_hash) {
             subs_reader.loadSubtitles(subs_hash);
         }
     });
     
-The subtitles loaded through **Mooplay.Subtitle.Parser.SubRip** will be displayed in the *subtitles_container* element and synchronized with the current position of the video.
+The subtitles loaded through **MooPlay.Subtitle.Parser.SubRip** will be displayed in the *subtitles_container* element and synchronized with the current position of the video.
     
     
