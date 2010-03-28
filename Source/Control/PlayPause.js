@@ -13,6 +13,7 @@ requires:
 provides: 
 - MooPlay.Control.PlayPause
 
+...
 */
 
 MooPlay.Control.PlayPause = new Class({
