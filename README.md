@@ -60,7 +60,8 @@ The *slider* element can be clicked to navigate through the video.
     
 The subtitles loaded through **MooPlay.Subtitle.Parser.SubRip** will be displayed in the *subtitles_container* element and synchronized with the current position of the video.
 
-**MooPlay.Subtitle.Player** can have a third arguments which is the hash options. You could specifiy your own *onDisplay* and *onDispose* callbacks functions. The both of them will received 3 arguments :
+**MooPlay.Subtitle.Player** can have a third argument which is the hash options. You could specifiy your own *onDisplay* and *onDispose* callbacks functions. The both of them will received 3 arguments :
+
 * *the element to be displayed*
 * *the container* as specified at initialization
 * *the overlapping level* : in case several subtitles should be displayed, each one as a different level associated as integer. Most part of the time, the value will be *0*
