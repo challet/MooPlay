@@ -9,7 +9,9 @@ MooPlay give some tools on top of a video html markup. You can have :
 * subtitles synchronized with the video
  
 The video element can be used by other scripts, MooPlay objects will adapt themself to state changes.
- 
+
+All elements are css customizable. Actually, none great css has already been wrote for it. Then, you're welcome to make your own :) 
+
 More functionnalities will be available.
 
 ![Screenshot](http://img94.imageshack.us/img94/47/image3gd.png)
@@ -57,5 +59,9 @@ The *slider* element can be clicked to navigate through the video.
     });
     
 The subtitles loaded through **MooPlay.Subtitle.Parser.SubRip** will be displayed in the *subtitles_container* element and synchronized with the current position of the video.
-    
+
+**MooPlay.Subtitle.Player** can have a third arguments which is the hash options. You could specifiy your own *onDisplay* and *onDispose* callbacks functions. The both of them will received 3 arguments :
+* *the element to be displayed*
+* *the container* as specified at initialization
+* *the overlapping level* : in case several subtitles should be displayed, each one as a different level associated as integer. Most part of the time, the value will be *0*
     
