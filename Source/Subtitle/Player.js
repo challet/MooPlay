@@ -3,7 +3,6 @@ Mooplay.Subtitle.Player = new Class({
     Implements: [Options],
 
     options: {
-        container: 'subtitle',
         subs_hash: null,
         tick_delay: 100, // not in use for now
         time_shift: 0,
@@ -17,12 +16,12 @@ Mooplay.Subtitle.Player = new Class({
         }
     },
 
-    initialize: function( video, options) {
+    initialize: function( video, container, options) {
 
         this.setOptions(options);
         
         this.video = $(video);
-        this.container = $(this.options.container);
+        this.container = $(container);
         
         if(this.options.subs_hash != null) {
             this.loadSubtitles(this.options.subs_hash);
