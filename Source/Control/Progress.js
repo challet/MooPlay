@@ -9,7 +9,7 @@ authors:
 
 requires:
 - MooPlay
-- core/1.2.4: [Slider]
+- more/1.2.4: [Slider]
 
 provides: 
 - MooPlay.Control.Progress
