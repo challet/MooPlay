@@ -1,4 +1,4 @@
-Video.Control.Progress = new Class({
+Mooplay.Control.Progress = new Class({
 
     Implements: [Options],
         

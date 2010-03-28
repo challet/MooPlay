@@ -12,7 +12,7 @@
     <script src="/Assets/mootools-1.2.4.4-more.js" type="text/javascript"></script>
 
     <!-- SubRipReader -->
-    <script src="/Source/Video/Video.js" type="text/javascript"></script>
+    <script src="/Source/Video/Mooplay.js" type="text/javascript"></script>
     <script src="/Source/Utils.js" type="text/javascript"></script>
     <script src="/Source/Control/Progress.js" type="text/javascript"></script>
     <script src="/Source/Control/PlayPause.js" type="text/javascript"></script>
@@ -87,7 +87,7 @@ var reader = null;
 
 document.addEvent('domready', function() {
     
-    reader = new Video.Subtitle.Player($('video'), {
+    reader = new Mooplay.Subtitle.Player($('video'), {
         container: 'subtitle',
         onDisplay: function(element, container, overlapping) {
             element.addClass('overlapping' + String(overlapping));
@@ -131,7 +131,7 @@ document.addEvent('domready', function() {
     $('subtitles').addEvent('change', function(e) {
         e.preventDefault();
         if(e.target.value != '') {
-            new Video.Subtitle.Parser.SubRip({
+            new Mooplay.Subtitle.Parser.SubRip({
                 url: e.target.value,
                 onComplete: function(subs_hash) {
                     reader.loadSubtitles(subs_hash);
@@ -143,7 +143,7 @@ document.addEvent('domready', function() {
         
     });
     
-    new Video.Control.PlayPause($('playpausebutton'), $('video'));
+    new Mooplay.Control.PlayPause($('playpausebutton'), $('video'));
     
     $('time_shift').addEvent('submit', function(e){
         e.preventDefault();
@@ -151,10 +151,10 @@ document.addEvent('domready', function() {
     });
     
     var slider = new Slider($('slider'), $('knob'));
-    new Video.Control.Progress(slider, $('video'));
+    new Mooplay.Control.Progress(slider, $('video'));
     
-    new Video.Display.Time($('video'), $('time_container'));
-    new Video.Display.Ratio($('video'), $('ratio_container'));
+    new Mooplay.Display.Time($('video'), $('time_container'));
+    new Mooplay.Display.Ratio($('video'), $('ratio_container'));
     
  
 })

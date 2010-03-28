@@ -1,4 +1,4 @@
-Video.Subtitle.Player = new Class({
+Mooplay.Subtitle.Player = new Class({
 
     Implements: [Options],
 

@@ -41,7 +41,7 @@
             }).inject(slider_div);
 
             slider = new Slider(slider_div, knob_div);
-            progress = new Video.Control.Progress(slider, video_div);
+            progress = new Mooplay.Control.Progress(slider, video_div);
 
             slider.set = function(step) {
                 set_executed = true;

@@ -31,22 +31,22 @@
                 }
             }).inject(document.body);
             
-            Video.Control.PlayPause.prototype.changePausedStatus = function(state) {
+            Mooplay.Control.PlayPause.prototype.changePausedStatus = function(state) {
                 change_paused_status_called = true;
                 change_paused_arg_value = state;
             };
             
-            Video.Control.PlayPause.prototype.changeMouseOverStatus = function(state) {
+            Mooplay.Control.PlayPause.prototype.changeMouseOverStatus = function(state) {
                 change_over_status_called = true;
                 change_over_arg_value = state;
             };
             
-            Video.Control.PlayPause.prototype.changeClickStatus = function(state) {
+            Mooplay.Control.PlayPause.prototype.changeClickStatus = function(state) {
                 change_click_status_called = true;
                 change_click_arg_value = state;
             };
             
-            Video.Control.PlayPause.prototype.toggleState = function() {
+            Mooplay.Control.PlayPause.prototype.toggleState = function() {
                 toggle_state_called = true;
             };
             
@@ -72,55 +72,55 @@
         },
         
         "should call the changePausedStatus with current video state": function() {
-            new Video.Control.PlayPause(element, video);
+            new Mooplay.Control.PlayPause(element, video);
             value_of(change_paused_status_called).should_be_true();
             value_of(change_paused_arg_value).should_be(video.paused)
         },
         
         "should handle the play video event": function() {
-            new Video.Control.PlayPause(element, video);
+            new Mooplay.Control.PlayPause(element, video);
             video.fireEvent('play');
             value_of(change_paused_status_called).should_be_true();
             value_of(change_paused_arg_value).should_be_false();
         },
         
         "should handle the pause video event": function() {
-            new Video.Control.PlayPause(element, video);
+            new Mooplay.Control.PlayPause(element, video);
             video.fireEvent('pause', {preventDefault: $empty});
             value_of(change_paused_status_called).should_be_true();
             value_of(change_paused_arg_value).should_be_true();
         },
         
         "should handle the mouseenter element event": function() {
-            new Video.Control.PlayPause(element, video);
+            new Mooplay.Control.PlayPause(element, video);
             element.fireEvent('mouseenter', {preventDefault: $empty});
             value_of(change_over_status_called).should_be_true();
             value_of(change_over_arg_value).should_be_true();
         },
         
         "should handle the mouseleave element event": function() {
-            new Video.Control.PlayPause(element, video);
+            new Mooplay.Control.PlayPause(element, video);
             element.fireEvent('mouseleave', {preventDefault: $empty});
             value_of(change_over_status_called).should_be_true();
             value_of(change_over_arg_value).should_be_false();
         },
         
         "should handle the mousedown element event": function() {
-            new Video.Control.PlayPause(element, video);
+            new Mooplay.Control.PlayPause(element, video);
             element.fireEvent('mousedown', {preventDefault: $empty});
             value_of(change_click_status_called).should_be_true();
             value_of(change_click_arg_value).should_be_true();
         },
         
         "should handle the mouseup element event": function() {
-            new Video.Control.PlayPause(element, video);
+            new Mooplay.Control.PlayPause(element, video);
             element.fireEvent('mouseup', {preventDefault: $empty});
             value_of(change_click_status_called).should_be_true();
             value_of(change_click_arg_value).should_be_false();
         },
         
         "should handle the click element event": function() {
-            new Video.Control.PlayPause(element, video);
+            new Mooplay.Control.PlayPause(element, video);
             element.fireEvent('click',{ preventDefault: $empty});
             value_of(toggle_state_called).should_be_true();
         },

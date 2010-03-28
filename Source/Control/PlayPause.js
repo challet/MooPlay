@@ -1,4 +1,4 @@
-Video.Control.PlayPause = new Class({
+Mooplay.Control.PlayPause = new Class({
 
     Implements: [Options],
     

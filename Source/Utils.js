@@ -1,4 +1,4 @@
-Video.Utils = {
+Mooplay.Utils = {
     /**
      *  @param srt_time : format is '00:02:52,406'
      */

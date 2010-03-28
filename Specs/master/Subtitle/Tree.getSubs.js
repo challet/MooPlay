@@ -14,11 +14,11 @@
             start = 0;
             end = 10000;
             
-            tree = new Video.Subtitle.Tree(start, end);
+            tree = new Mooplay.Subtitle.Tree(start, end);
             
 
-            subtitle_item_inside =  new Video.Subtitle.Item(1000, 6000, ["lmdfkgmldfk"]);
-            subtitle_item_inside_child =  new Video.Subtitle.Item(2000, 4000, ["sdf24sd1f23"]);
+            subtitle_item_inside =  new Mooplay.Subtitle.Item(1000, 6000, ["lmdfkgmldfk"]);
+            subtitle_item_inside_child =  new Mooplay.Subtitle.Item(2000, 4000, ["sdf24sd1f23"]);
             
         },
         
@@ -49,14 +49,14 @@
         },
         
         "should return subs from children": function() {
-            var sub_tree = new Video.Subtitle.Tree(0, 5000);
+            var sub_tree = new Mooplay.Subtitle.Tree(0, 5000);
             sub_tree.subs.push(subtitle_item_inside_child);
             tree.children.push(sub_tree);
             value_of(tree.getSubs(3000)).should_include(subtitle_item_inside_child);
         },
         
         "should not return subs from children": function() {
-            var sub_tree = new Video.Subtitle.Tree(0, 5000);
+            var sub_tree = new Mooplay.Subtitle.Tree(0, 5000);
             sub_tree.subs.push(subtitle_item_inside_child);
             tree.children.push(sub_tree);
             value_of(tree.getSubs(7000)).should_be_empty();
@@ -64,7 +64,7 @@
         
         "should return both subs from children and itself": function() {
             tree.subs.push(subtitle_item_inside);
-            var sub_tree = new Video.Subtitle.Tree(0, 5000);
+            var sub_tree = new Mooplay.Subtitle.Tree(0, 5000);
             sub_tree.subs.push(subtitle_item_inside_child);
             tree.children.push(sub_tree);
             value_of(tree.getSubs(3000)).should_include(subtitle_item_inside);

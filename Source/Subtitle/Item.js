@@ -1,4 +1,4 @@
-Video.Subtitle.Item = new Class({
+Mooplay.Subtitle.Item = new Class({
     
     initialize: function(start, end, texts) {
         

@@ -1,4 +1,4 @@
-Video.Display.Time = new Class({
+Mooplay.Display.Time = new Class({
     
     initialize: function(video, container) {
         
@@ -12,7 +12,7 @@ Video.Display.Time = new Class({
     },
     
     tick: function(abs_movie_time) {
-        this.container.empty().appendText(Video.Utils.timestampToSrt(abs_movie_time));
+        this.container.empty().appendText(Mooplay.Utils.timestampToSrt(abs_movie_time));
     }
 
 });

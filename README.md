@@ -22,7 +22,7 @@ How to use
     <a href="#" id='playpause'>play / pause</a>
     <video id="video" src="http://myvideo.ogv"></video>
 
-    new Video.Control.PlayPause($('playpause'), $('video'), {
+    new MooPlay.Control.PlayPause($('playpause'), $('video'), {
         paused_state_class: 'paused',
         over_state_class: 'over',
         click_state_class: 'clicked'

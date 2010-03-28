@@ -1,6 +1,6 @@
-Video.Subtitle.Parser.SubRip = new Class({
+Mooplay.Subtitle.Parser.SubRip = new Class({
 
-    Extends: Video.Subtitle.Parser.Base,
+    Extends: Mooplay.Subtitle.Parser.Base,
     
     regexps: {
         new_sub: /^(\d+)$/,
@@ -34,13 +34,13 @@ Video.Subtitle.Parser.SubRip = new Class({
                 current_sub = {};
             } else if(line != null && this.regexps.time.test(line)) {
                 var times = this.regexps.time.exec(line);
-                current_sub.start = Video.Utils.srtToTimestamp(times.slice(1,5));
-                current_sub.end = Video.Utils.srtToTimestamp(times.slice(5,9));
+                current_sub.start = Mooplay.Utils.srtToTimestamp(times.slice(1,5));
+                current_sub.end = Mooplay.Utils.srtToTimestamp(times.slice(5,9));
                 var times = null;
             } else if(line != null && this.regexps.text.test(line)) {
                 current_text.push(this.regexps.text.exec(line)[0]);
             } else if(current_sub != null) {
-                subs.push(new Video.Subtitle.Item(current_sub.start, current_sub.end, current_text));
+                subs.push(new Mooplay.Subtitle.Item(current_sub.start, current_sub.end, current_text));
                 current_sub = null;
                 current_text = null;
             }

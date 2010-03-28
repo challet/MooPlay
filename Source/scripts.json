@@ -12,24 +12,24 @@
     "Display": {
         "Ratio": {},
         "Time": {
-            "deps": ["Video.Utils"]
+            "deps": ["Mooplay.Utils"]
         }
     },
     "Subtitle": {
         "Parser": {
             "Base": {
-                "deps": ["Video.Subtitle.Tree"]
+                "deps": ["Mooplay.Subtitle.Tree"]
             },
             "SubRip": {
-                "deps": ["Video.Subtitle.Parser.Base", "Video.Utils"]
+                "deps": ["Mooplay.Subtitle.Parser.Base", "Mooplay.Utils"]
             }
         },
         "Item": {},
         "Player": {
-            "deps": ["Video.Subtitle.Tree"]
+            "deps": ["Mooplay.Subtitle.Tree"]
         },
         "Tree": {
-            "deps": ["Video.Subtitle.Item"]
+            "deps": ["Mooplay.Subtitle.Item"]
         }
     }
 

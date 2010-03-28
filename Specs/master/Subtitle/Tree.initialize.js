@@ -12,7 +12,7 @@
             start = 0;
             end = 10000;
             
-            tree = new Video.Subtitle.Tree(start, end);
+            tree = new Mooplay.Subtitle.Tree(start, end);
             
         },
         

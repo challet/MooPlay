@@ -14,20 +14,20 @@
         before_each: function() {
             
             subs = [
-                new Video.Subtitle.Item(1000, 6000, ["mldsfkgl=dfsjgklds"]),
-                new Video.Subtitle.Item(4000, 9000, ["dgdf gdf gdf gdf"])
+                new Mooplay.Subtitle.Item(1000, 6000, ["mldsfkgl=dfsjgklds"]),
+                new Mooplay.Subtitle.Item(4000, 9000, ["dgdf gdf gdf gdf"])
             ];
             
             // to avoid any ajax call
-            Video.Subtitle.Parser.Base.prototype.load = function() {
+            Mooplay.Subtitle.Parser.Base.prototype.load = function() {
                 return;
             }
             
-            Video.Subtitle.Tree.prototype.addSub = function(sub) {
+            Mooplay.Subtitle.Tree.prototype.addSub = function(sub) {
                 subs_passed_to_hash.push(sub);
             }
             
-            parser = new Video.Subtitle.Parser.Base();
+            parser = new Mooplay.Subtitle.Parser.Base();
 
         },
         

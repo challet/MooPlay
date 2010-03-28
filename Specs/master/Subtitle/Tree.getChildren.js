@@ -14,11 +14,11 @@
             start = 0;
             end = 10000;
             
-            tree = new Video.Subtitle.Tree(start, end);
+            tree = new Mooplay.Subtitle.Tree(start, end);
             
 
-            subtitle_item_inside =  new Video.Subtitle.Item(1000, 4000, ["ljkhsdfg"]);
-            subtitle_item_outside =  new Video.Subtitle.Item(15000, 20000, ["sdfsdfds"]);
+            subtitle_item_inside =  new Mooplay.Subtitle.Item(1000, 4000, ["ljkhsdfg"]);
+            subtitle_item_outside =  new Mooplay.Subtitle.Item(15000, 20000, ["sdfsdfds"]);
             
         },
         

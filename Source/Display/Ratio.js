@@ -1,4 +1,4 @@
-Video.Display.Ratio = new Class({
+Mooplay.Display.Ratio = new Class({
     
     initialize: function(video, container) {
         
