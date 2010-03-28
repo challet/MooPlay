@@ -15,6 +15,7 @@ requires:
 provides: 
 - MooPlay.Subtitle.Player
 
+...
 */
 
 

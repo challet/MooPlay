@@ -14,6 +14,7 @@ requires:
 provides: 
 - MooPlay.Control.Progress
 
+...
 */
 
 MooPlay.Control.Progress = new Class({

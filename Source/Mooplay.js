@@ -17,6 +17,7 @@ provides:
 - MooPlay.Control
 - MooPlay.Display
 
+...
 */
 
 

@@ -13,6 +13,7 @@ requires:
 provides: 
 - MooPlay.Utils
 
+...
 */
 
 MooPlay.Utils = {

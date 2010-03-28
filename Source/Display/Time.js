@@ -15,6 +15,7 @@ requires:
 provides: 
 - MooPlay.Display.Time
 
+...
 */
 
 MooPlay.Display.Time = new Class({

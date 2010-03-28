@@ -14,6 +14,7 @@ requires:
 provides: 
 - MooPlay.Display.Ratio
 
+...
 */
 
 MooPlay.Display.Ratio = new Class({

@@ -16,6 +16,7 @@ requires:
 provides: 
 - MooPlay.Subtitle.Parser.SubRip
 
+...
 */
 
 

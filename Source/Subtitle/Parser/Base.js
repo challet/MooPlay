@@ -15,6 +15,7 @@ requires:
 provides: 
 - MooPlay.Subtitle.Parser.Base
 
+...
 */
 
 MooPlay.Subtitle.Parser.Base = new Class({
