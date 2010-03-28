@@ -1,3 +1,21 @@
+/*
+---
+description: proxy between any DOM element and a video element, controls and displays the current position inside the video
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- Mooplay
+- core/1.2.4: [Slider]
+
+provides: 
+- Mooplay.Control.Progress
+
+*/
+
 Mooplay.Control.Progress = new Class({
 
     Implements: [Options],

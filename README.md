@@ -28,7 +28,7 @@ How to use
         click_state_class: 'clicked'
     })
 
-When the 'playpause' receive clicks, it will toggle the player state.
+When the *playpause* receive clicks, it will toggle the player state.
 Then, it will have its css class changed, accordingly to the ones specified in the options
 
 
@@ -42,8 +42,8 @@ Then, it will have its css class changed, accordingly to the ones specified in t
     var slider = new Slider($('slider'), $('knob'));
     new Mooplay.Control.Progress(slider, $('video'));
     
-The 'knob' position will be set Function of the video progress in the playing.
-The 'slider' element can be clicked to navigate through the video.
+The *knob* position will be set function of the video progress in the playing.
+The *slider* element can be clicked to navigate through the video.
 
 
 ### MooPlay.Subtitle
@@ -56,6 +56,6 @@ The 'slider' element can be clicked to navigate through the video.
         }
     });
     
-The subtitles loaded through Mooplay.Subtitle.Parser.SubRip will be displayed in the 'subtitles_container' element and synchronized with the current position of the video.
+The subtitles loaded through **Mooplay.Subtitle.Parser.SubRip** will be displayed in the *subtitles_container* element and synchronized with the current position of the video.
     
     

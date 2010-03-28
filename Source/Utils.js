@@ -1,3 +1,20 @@
+/*
+---
+description: some utility functions
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- Mooplay
+
+provides: 
+- Mooplay.Utils
+
+*/
+
 Mooplay.Utils = {
     /**
      *  @param srt_time : format is '00:02:52,406'

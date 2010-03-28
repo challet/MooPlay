@@ -1,3 +1,24 @@
+/*
+---
+description: specific class for parsing subtitles file in SubRip format (.srt)
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- Mooplay
+- Mooplay.Utils
+- Mooplay.Subtitle.Parser.Base
+- Mooplay.Subtitle.Item
+
+provides: 
+- Mooplay.Subtitle.Parser.SubRip
+
+*/
+
+
 Mooplay.Subtitle.Parser.SubRip = new Class({
 
     Extends: Mooplay.Subtitle.Parser.Base,

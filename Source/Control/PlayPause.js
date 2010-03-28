@@ -1,3 +1,20 @@
+/*
+---
+description: proxy between any DOM element and a video element, controls and displays the play and pause video states
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- Mooplay
+
+provides: 
+- Mooplay.Control.PlayPause
+
+*/
+
 Mooplay.Control.PlayPause = new Class({
 
     Implements: [Options],

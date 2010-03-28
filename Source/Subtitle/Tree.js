@@ -1,3 +1,22 @@
+/*
+---
+description: hash tree store for subtitles
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- Mooplay
+- Mooplay.Subtitle.Item
+
+provides: 
+- Mooplay.Subtitle.Tree
+
+*/
+
+
 Mooplay.Subtitle.Tree = new Class({
     
     nb_childs: 2,

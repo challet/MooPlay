@@ -1,3 +1,22 @@
+/*
+---
+description: display position in the video, in human readable time
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- Mooplay
+- Mooplay.Utils
+
+
+provides: 
+- Mooplay.Display.Time
+
+*/
+
 Mooplay.Display.Time = new Class({
     
     initialize: function(video, container) {

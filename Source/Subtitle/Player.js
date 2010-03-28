@@ -1,3 +1,23 @@
+/*
+---
+description: diplay subtitles synchronised with a video element
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- Mooplay
+- Mooplay.Subtitle.Item
+- Mooplay.Subtitle.Tree
+
+provides: 
+- Mooplay.Subtitle.Player
+
+*/
+
+
 Mooplay.Subtitle.Player = new Class({
 
     Implements: [Options],

@@ -1,3 +1,22 @@
+/*
+---
+description: base class for ajax-loading and parsing subtitles file
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- Mooplay
+- Mooplay.Subtitle.Item
+- Mooplay.Subtitle.Tree
+
+provides: 
+- Mooplay.Subtitle.Parser.Base
+
+*/
+
 Mooplay.Subtitle.Parser.Base = new Class({
     
     Implements: [Options],

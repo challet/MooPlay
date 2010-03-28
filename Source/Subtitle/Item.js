@@ -1,3 +1,21 @@
+/*
+---
+description: object representation of a subtitle line
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- Mooplay
+
+provides: 
+- Mooplay.Subtitle.Item
+
+*/
+
+
 Mooplay.Subtitle.Item = new Class({
     
     initialize: function(start, end, texts) {

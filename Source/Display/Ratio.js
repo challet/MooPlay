@@ -1,3 +1,21 @@
+/*
+---
+description: display position in the video, in percentage
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- Mooplay
+
+
+provides: 
+- Mooplay.Display.Ratio
+
+*/
+
 Mooplay.Display.Ratio = new Class({
     
     initialize: function(video, container) {
