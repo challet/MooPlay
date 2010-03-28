@@ -64,5 +64,5 @@ The subtitles loaded through **MooPlay.Subtitle.Parser.SubRip** will be displaye
 
 * *the element to be displayed*
 * *the container* as specified at initialization
-* *the overlapping level* : in case several subtitles should be displayed, each one as a different level associated as integer. Most part of the time, the value will be *0*
+* *the overlapping level* : in case several subtitles should be displayed at the same time, each one as a different level associated as integer. Most part of the time, the value will be *0*
     
