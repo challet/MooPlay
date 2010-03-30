@@ -58,7 +58,7 @@ The *slider* element can be clicked to navigate through the video.
     
 The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing an ajax request. They will be then displayed in the *subtitles_container* element and synchronized with the current position of the video.
 
-**MooPlay.Subtitle.Player** can have a third argument as a hash options. You could specifiy your own *onDisplay* and *onDispose* callbacks functions. The both of them will received 3 arguments :
+**MooPlay.Subtitle.Player** can have a third argument as a hash options. In which could specifiy your own *onDisplay* and *onDispose* callbacks functions. When called, the both of them will received 3 arguments :
 
 * *the element to be displayed*
 * *the container* as specified at initialization
