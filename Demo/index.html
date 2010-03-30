@@ -91,13 +91,13 @@ document.addEvent('domready', function() {
         onDisplay: function(element, container, overlapping) {
             element.addClass('overlapping' + String(overlapping));
             element.setStyles({
-                'left': -container.offsetWidth
+                'left': container.offsetWidth
             });
             element.inject(container, 'bottom');
             var effect = new Fx.Morph(element, {
                 fps: 30,
                 link: 'cancel',
-                duration: 200
+                duration: 300
             });
             effect.start({
                 'left': 0
@@ -112,14 +112,14 @@ document.addEvent('domready', function() {
             var effect = new Fx.Morph(element, {
                 fps: 30,
                 link: 'cancel',
-                duration: 100,
+                duration: 150,
                 onComplete: function() {
                     element.dispose();
                     element.removeClass('overlapping' + String(overlapping));
                 }
             });
             effect.start({
-                'left': container.offsetWidth
+                'left': -container.offsetWidth
             });
             
 
