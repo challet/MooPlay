@@ -70,7 +70,7 @@
     <br />
     
     <label for="time_shift_setter">subs time shift :</label>
-    <input type="text" id="time_shift_setter" value="8050" />
+    <input type="text" id="time_shift_setter" value="8050" /> 
     
     <input type="submit" value="set" />
     
@@ -127,6 +127,11 @@ document.addEvent('domready', function() {
         
     });
     
+    var slider = new Slider($('slider'), $('knob'));
+    new MooPlay.Control.Progress(slider, $('video'));
+    
+    new MooPlay.Control.PlayPause($('playpausebutton'), $('video'));
+    
     $('subtitles').addEvent('change', function(e) {
         e.preventDefault();
         if(e.target.value != '') {
@@ -142,15 +147,15 @@ document.addEvent('domready', function() {
         
     });
     
-    new MooPlay.Control.PlayPause($('playpausebutton'), $('video'));
+    
     
     $('time_shift').addEvent('submit', function(e){
         e.preventDefault();
         reader.setTimeShift($('time_shift_setter').value);
     });
+    reader.setTimeShift(8050); // this is the actual value of time shifting due to the files used here
     
-    var slider = new Slider($('slider'), $('knob'));
-    new MooPlay.Control.Progress(slider, $('video'));
+    
     
     new MooPlay.Display.Time($('video'), $('time_container'));
     new MooPlay.Display.Ratio($('video'), $('ratio_container'));

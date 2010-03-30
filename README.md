@@ -2,19 +2,17 @@ MooPlay
 =======
 
 
-MooPlay give some tools on top of a video html markup. You can have :
+MooPlay give some tools on top of a video html markup. You can build your own player with :
 
 * a play / pause control
 * a play progress bar
 * subtitles synchronized with the video
  
-The video element can be used by other scripts, MooPlay objects will adapt themself to state changes.
-
-All elements are css customizable. Actually, none great css has already been wrote for it. Then, you're welcome to make your own :) 
+The video element can be used by other scripts, MooPlay objects will adapt themself to state changes.   
 
 More functionnalities will be available.
 
-![Screenshot](http://img94.imageshack.us/img94/47/image3gd.png)
+![Screenshot](http://img441.imageshack.us/img441/1659/image4kp.png)
 
 How to use
 ----------
