@@ -18,21 +18,14 @@ provides:
 
 MooPlay.Control.PlayPause = new Class({
 
-    Implements: [Options],
+    Implements: [MooPlay.Control.ButtonBase],
     
     options: {
-        paused_state_class: 'paused',
-        over_state_class: 'over',
-        click_state_class: 'clicked'
+        paused_state_class: 'paused'
     },
     
-    
-    initialize: function(element, video, options) {
+    specificInitialize: function() {
         
-        this.setOptions(options);
-        
-        this.element = element;
-        this.video = $(video);
         this.changePausedStatus(this.video.paused);
         
         this.video.addEvents({
@@ -48,26 +41,6 @@ MooPlay.Control.PlayPause = new Class({
         });
 
         this.element.addEvents({
-            
-            'mouseenter': function(event) {
-                event.preventDefault();
-                this.changeMouseOverStatus(true);
-            }.bind(this),
-            
-            'mouseleave': function(event) {
-                event.preventDefault();
-                this.changeMouseOverStatus(false);
-            }.bind(this),
-        
-            'mousedown': function(event) {
-                event.preventDefault();
-                this.changeClickStatus(true);
-            }.bind(this),
-        
-            'mouseup': function(event) {
-                event.preventDefault();
-                this.changeClickStatus(false);
-            }.bind(this),
         
             'click': function(event) {
                 event.preventDefault();
@@ -84,22 +57,6 @@ MooPlay.Control.PlayPause = new Class({
             this.element.addClass(this.options.paused_state_class);
         } else {
             this.element.removeClass(this.options.paused_state_class);
-        }
-    },
-    
-    changeMouseOverStatus: function(over) {
-        if(this.over) {
-            this.element.addClass(this.options.over_state_class);
-        } else {
-            this.element.removeClass(this.options.over_state_class);
-        }
-    },
-    
-    changeClickStatus: function(down) {
-        if(down) {
-            this.element.addClass(this.options.click_state_class);
-        } else {
-            this.element.removeClass(this.options.click_state_classc);
         }
     },
     

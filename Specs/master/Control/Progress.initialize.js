@@ -10,7 +10,7 @@
     var tick_duration_arg = null;
     var change_executed = false;
     
-    describe('Control.Progress.initialize function', {
+    describe('Control.PlayProgress.initialize function', {
         
         before_each: function() {
 
@@ -43,7 +43,7 @@
             }).inject(slider_div);
 
             slider = new Slider(slider_div, knob_div);
-            progress = new MooPlay.Control.Progress(slider, video_div);
+            progress = new MooPlay.Control.PlayProgress(slider, video_div);
 
             progress.tick = function(currentTime, duration) {
                 tick_executed = true;

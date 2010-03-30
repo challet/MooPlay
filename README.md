@@ -34,7 +34,7 @@ When the *playpause* receive clicks, it will toggle the player state.
 Then, it will have its css class changed, accordingly to the ones specified in the options
 
 
-### MooPlay.Control.Progress
+### MooPlay.Control.PlayProgress
 
     <video id="video" src="http://myvideo.ogv"></video>
     <div id="slider" style="width:400px;height:5px;background:#a0a0a0;">
@@ -42,7 +42,7 @@ Then, it will have its css class changed, accordingly to the ones specified in t
     </div>
     
     var slider = new Slider($('slider'), $('knob'));
-    new MooPlay.Control.Progress(slider, $('video'));
+    new MooPlay.Control.PlayProgress(slider, $('video'));
     
 The *knob* position will be set function of the video progress in the playing.
 The *slider* element can be clicked to navigate through the video.

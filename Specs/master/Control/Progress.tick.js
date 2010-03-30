@@ -8,7 +8,7 @@
     var set_executed = false;
     var set_step_arg = null;
     
-    describe('Control.Progress.tick function', {
+    describe('Control.PlayProgress.tick function', {
         
         before_each: function() {
 
@@ -41,7 +41,7 @@
             }).inject(slider_div);
 
             slider = new Slider(slider_div, knob_div);
-            progress = new MooPlay.Control.Progress(slider, video_div);
+            progress = new MooPlay.Control.PlayProgress(slider, video_div);
 
             slider.set = function(step) {
                 set_executed = true;

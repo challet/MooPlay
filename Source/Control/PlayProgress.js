@@ -12,12 +12,12 @@ requires:
 - more/1.2.4: [Slider]
 
 provides: 
-- MooPlay.Control.Progress
+- MooPlay.Control.PlayProgress
 
 ...
 */
 
-MooPlay.Control.Progress = new Class({
+MooPlay.Control.PlayProgress = new Class({
 
     Implements: [Options],
         

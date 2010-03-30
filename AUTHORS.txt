@@ -1,2 +1,3 @@
 SubRipReader by Clément Hallet http://twitter.com/challet
 Mootools and Slick by the Mootools dev team http://mootools.net
+MoogressBar is from Christopher Beloch http://mootools.net/forge/p/moogressbar

@@ -5,7 +5,7 @@
     var knob_div = null;
     var slider = null;
     
-    describe('Control.Progress.change function', {
+    describe('Control.PlayProgress.change function', {
         
         before_each: function() {
 
@@ -39,7 +39,7 @@
             }).inject(slider_div);
 
             slider = new Slider(slider_div, knob_div);
-            progress = new MooPlay.Control.Progress(slider, mock_video_div);
+            progress = new MooPlay.Control.PlayProgress(slider, mock_video_div);
 
         },
         
