@@ -8,7 +8,7 @@ authors:
 - Clément Hallet
 
 requires:
-- MooPlay
+ MooPlay
 
 provides: 
 - MooPlay.Control.PlayPause
