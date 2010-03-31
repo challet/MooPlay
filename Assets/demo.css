@@ -7,3 +7,7 @@
 
 a#playpausebutton { width:25px; height:25px; background:#0f0; }
 a#playpausebutton.paused { width:25px; height:25px; background:#f00; }
+
+
+#progress-bar-box-id {width:100%; height:100%;}
+#progress-bar-percentage-id {background-color: #0f0; height:100%;}

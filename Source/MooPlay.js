@@ -24,7 +24,8 @@ provides:
 Element.NativeEvents = $merge(Element.NativeEvents, {
     timeupdate: 2,
     play: 2,
-    pause: 2
+    pause: 2,
+    progress: 2
 });
 
 var MooPlay = {

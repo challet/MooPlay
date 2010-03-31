@@ -21,22 +21,24 @@ MooPlay.Control.LoadProgress = new Class({
 
     Implements: [Options],
         
-    initialize: function(bar, video, options) {
+    initialize: function(progressbar, video, options) {
         
         this.setOptions(options);
         
-        this.bar = bar;
+        this.progressbar = progressbar;
         this.video = $(video);
         
-        this.video.addEvent('progress', function(event) {
-            this.tick(event.target.currentTime * 1000, event.target.duration * 1000);
+        this.video.addEvent('progress', function(e, video, data) {
+            if(e.event.lengthComputable) {
+                this.tick(e.event.loaded, e.event.total);
+            }
         }.bind(this));
         
         
     },
     
-    tick: function(currentTime, duration) {
-        this.slider.set(this.slider.steps * currentTime / duration);
+    tick: function(loaded, total) {
+        this.progressbar.set(loaded / total * 100);
     },
 
 
