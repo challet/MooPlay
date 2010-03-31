@@ -22,7 +22,7 @@ provides:
 
 MooPlay.Subtitle.Parser.SubRip = new Class({
 
-    Extends: MooPlay.Subtitle.Parser.Base,
+    Implements: MooPlay.Subtitle.Parser.Base,
     
     regexps: {
         new_sub: /^(\d+)$/,
