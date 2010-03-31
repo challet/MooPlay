@@ -97,7 +97,7 @@ document.addEvent('domready', function() {
             var effect = new Fx.Morph(element, {
                 fps: 30,
                 link: 'cancel',
-                duration: 300
+                duration: 150
             });
             effect.start({
                 'left': 0
@@ -112,7 +112,7 @@ document.addEvent('domready', function() {
             var effect = new Fx.Morph(element, {
                 fps: 30,
                 link: 'cancel',
-                duration: 150,
+                duration: 80,
                 onComplete: function() {
                     element.dispose();
                     element.removeClass('overlapping' + String(overlapping));
