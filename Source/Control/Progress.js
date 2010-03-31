@@ -28,31 +28,41 @@ MooPlay.Control.Progress = new Class({
         this.slider = slider;
         this.video = $(video);
         
+        this.suspended = false;
+        
         this.video.addEvent('timeupdate', function(event) {
             this.tick(event.target.currentTime * 1000, event.target.duration * 1000);
         }.bind(this));
         
-        this.slider.element.addEvent('click', function(event) {
-            this.change(event);
-        }.bind(this));
+        this.video.addEvent('seeking', this.suspend.bind(this));
+        this.video.addEvent('seeked', this.resume.bind(this));
+        this.slider.knob.addEvent('mousedown',this.suspend.bind(this));
+        this.slider.knob.addEvent('mouseup', this.resume.bind(this));
         
+        this.slider.addEvent('change', this.change.bind(this));
+
+    },
+    
+    
+    suspend: function() {
+        this.suspended = true;
+    },
+    
+    resume: function() {
+        this.suspended = false;
     },
     
     tick: function(currentTime, duration) {
-        this.slider.set(this.slider.steps * currentTime / duration);
+        if(!this.suspended) {
+            position = this.slider.toPosition( currentTime / duration * this.slider.range );
+            this.slider.knob.setStyle(this.slider.property, position);
+        }
+
     },
 
-    change: function(event) {
-        
-        if(this.slider.axis == 'x') {
-            var ratio =  (event.client.x - event.target.offsetLeft) / event.target.offsetWidth ;
-        } else if(this.slider.axis == 'y') {
-            var ratio =  (event.client.y - event.target.offsetTop) / event.target.offsetHeight ;
-        } else {
-            return;
-        }
-        
-        this.video.currentTime = ratio * this.video.duration;
+    change: function(pos) {
+        this.suspended = true;
+        this.video.currentTime = this.video.duration * pos / this.slider.steps;
     }
 
 });
