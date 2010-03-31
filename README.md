@@ -2,7 +2,7 @@ MooPlay
 =======
 
 
-MooPlay give some tools on top of a video html markup. You can build your own player with :
+MooPlay give some tools on top of an html5 video markup. You can build your own player with :
 
 * a play / pause control
 * a play progress bar
