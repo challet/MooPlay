@@ -2,7 +2,7 @@ MooPlay
 =======
 
 
-MooPlay give some tools on top of a video html markup. You can build your own player with :
+MooPlay give some tools on top of an html5 video markup. You can build your own player with :
 
 * a play / pause control
 * a play progress bar
@@ -58,7 +58,7 @@ The *slider* element can be clicked to navigate through the video.
     
 The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing an ajax request. They will be then displayed in the *subtitles_container* element and synchronized with the current position of the video.
 
-**MooPlay.Subtitle.Player** can have a third argument as a hash options. In which could specifiy your own *onDisplay* and *onDispose* callbacks functions. When called, the both of them will received 3 arguments :
+**MooPlay.Subtitle.Player** can have an options hash as the third. Through it, you can specifiy your own *onDisplay* and *onDispose* callbacks functions. When called, the both of them will received 3 arguments :
 
 * *the element to be displayed*
 * *the container* as specified at initialization
