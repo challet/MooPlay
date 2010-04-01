@@ -100,8 +100,8 @@ var reader = null;
 document.addEvent('domready', function() {
     
     new MooPlay.Control.PlayPause($('playpausebutton'), $('video'));
-    new MooPlay.Control.FastForward($('fastforwardbutton'), $('video'));
-    new MooPlay.Control.FastRewind($('fastrewindbutton'), $('video'));
+    new MooPlay.Control.FastMove($('fastforwardbutton'), $('video'), {speed_factor: 6});
+    new MooPlay.Control.FastMove($('fastrewindbutton'), $('video'), {speed_factor: -4});
     
     var slider = new Slider($('slider'), $('knob'));
     new MooPlay.Control.PlayProgress(slider, $('video'));

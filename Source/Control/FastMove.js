@@ -29,9 +29,9 @@ MooPlay.Control.FastMove = new Class({
     
     beginMove: function(down) {
         if(this.timer == null) {
-            this.video.pause();
             this.start_time = $time();
-            this.timer = this.tick.bind(this).periodical(10);
+            this.start_pos = this.video.currentTime;
+            this.timer = this.tick.bind(this).periodical(50);
         }
     },
     
@@ -40,18 +40,18 @@ MooPlay.Control.FastMove = new Class({
             this.start_time = null;
             $clear(this.timer);
             this.timer = null;
-            this.video.play();
         }
     },
     
     tick: function() {
+        
         if(this.start_time == null) {
             return;
         }
         
         var time_for_moving = ($time() - this.start_time) * this.options.speed_factor;
         
-        this.video.currentTime = this.video.currentTime + (time_for_moving / 1000);
+        this.video.currentTime = this.start_pos + (time_for_moving / 1000);
         
     }
 
