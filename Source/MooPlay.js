@@ -45,6 +45,7 @@ Element.NativeEvents = $merge(Element.NativeEvents, {
     durationchange: 2,
     volumechange: 2
 });
+
 var MooPlay = {
     Subtitle: {
         Parser: {}

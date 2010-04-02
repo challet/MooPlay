@@ -62,18 +62,9 @@
             var click_position = 50;
             
             mock_video_div.duration = duration;
-            
-            progress.change({
-                client: {
-                    x: click_position
-                },
-                target: {
-                    offsetLeft: 0,
-                    offsetWidth: slider_length
-                }
-            });
+            progress.change(50);
 
-            value_of(mock_video_div.currentTime).should_be(duration * click_position / slider_length);
+            value_of(mock_video_div.currentTime).should_be(5000);
         }
         
     });

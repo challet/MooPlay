@@ -16,10 +16,10 @@ context.Sets = {
     'Subtitle/Parser.Base.run',
     'Subtitle/Parser.Base.hash',
     'Subtitle/Parser.SubRip.parse',
-    'Control/Progress.initialize',
-    'Control/Progress.tick',
-    'Control/Progress.change',
-    'Control/PlayPause.initialize'
+    'Control/PlayProgress.initialize',
+    'Control/PlayProgress.tick',
+    'Control/PlayProgress.change',
+    'Control/PlayPlayPause.initialize'
     
 ],
 

@@ -32,7 +32,6 @@ MooPlay.Subtitle.Parser.SubRip = new Class({
     
     options: {
         srt_end_of_line: '\n',
-        url: 'fun.srt',
         onComplete: $empty
     },
 

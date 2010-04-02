@@ -9,7 +9,21 @@
     var load_subtitles_called = false;
     var load_subtitles_arg = null;
     
+    var initial_prototype = {};
+    
     describe('Subtitle.Player.initialize function', {
+        
+        before_all: function() {
+            initial_prototype = {
+                tick: MooPlay.Subtitle.Player.prototype.tick,
+                loadSubtitles: MooPlay.Subtitle.Player.prototype.loadSubtitles
+            };
+        },
+        
+        after_all: function() {
+            MooPlay.Subtitle.Player.prototype.tick = initial_prototype.tick;
+            MooPlay.Subtitle.Player.prototype.loadSubtitles = initial_prototype.loadSubtitles;
+        },
         
         before_each: function() {
             

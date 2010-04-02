@@ -30,19 +30,16 @@ MooPlay.Control.PlayProgress = new Class({
         
         this.suspended = false;
         
-        this.video.addEvent('timeupdate', function(event) {
-            this.tick(event.target.currentTime * 1000, event.target.duration * 1000);
-        }.bind(this));
-        
+        this.video.addEvent('timeupdate', this.tick.bind(this));        
         this.video.addEvent('seeking', this.suspend.bind(this));
         this.video.addEvent('seeked', this.resume.bind(this));
+        
         this.slider.knob.addEvent('mousedown',this.suspend.bind(this));
         this.slider.knob.addEvent('mouseup', this.resume.bind(this));
         
         this.slider.addEvent('change', this.change.bind(this));
 
     },
-    
     
     suspend: function() {
         this.suspended = true;
@@ -52,9 +49,10 @@ MooPlay.Control.PlayProgress = new Class({
         this.suspended = false;
     },
     
-    tick: function(currentTime, duration) {
+    tick: function(event) {
+
         if(!this.suspended) {
-            position = this.slider.toPosition( currentTime / duration * this.slider.range );
+            position = this.slider.toPosition( event.target.currentTime / event.target.duration * this.slider.range );
             this.slider.knob.setStyle(this.slider.property, position);
         }
 

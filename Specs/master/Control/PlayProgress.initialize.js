@@ -41,19 +41,21 @@
                     background: '#ffff80'
                 }
             }).inject(slider_div);
-
-            slider = new Slider(slider_div, knob_div);
-            progress = new MooPlay.Control.PlayProgress(slider, video_div);
-
-            progress.tick = function(currentTime, duration) {
+            
+            MooPlay.Control.PlayProgress.prototype.tick = function(currentTime, duration) {
                 tick_executed = true;
                 tick_currentTime_arg = currentTime;
                 tick_duration_arg = duration;
             };
 
-            progress.change = function(event) {
+            MooPlay.Control.PlayProgress.prototype.change = function(event) {
                 change_executed = true;
             };
+            
+            slider = new Slider(slider_div, knob_div);
+            progress = new MooPlay.Control.PlayProgress(slider, video_div);
+
+            
         },
         
         after_each: function() {
@@ -85,16 +87,9 @@
             value_of(tick_executed).should_be_true();
         },
         
-        "the tick function should get ms values as args": function() {
-            var currentTime = 215.32;
-            var duration = 1695.684;
-            video_div.fireEvent('timeupdate', {target: {currentTime: currentTime, duration: duration}});
-            value_of(tick_currentTime_arg).should_be(currentTime * 1000);
-            value_of(tick_duration_arg).should_be(duration * 1000);
-        },
         
-        "'slider.element.click' should callback the change function": function() {
-            slider.element.fireEvent('click');
+        "'slider.change' should callback the change function": function() {
+            slider.fireEvent('change');
             value_of(change_executed).should_be_true();
         }
 
