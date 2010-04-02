@@ -103,7 +103,7 @@ document.addEvent('domready', function() {
     new MooPlay.Control.FastMove($('fastforwardbutton'), $('video'), {speed_factor: 6});
     new MooPlay.Control.FastMove($('fastrewindbutton'), $('video'), {speed_factor: -4});
     
-    var slider = new Slider($('slider'), $('knob'));
+    var slider = new Slider($('slider'), $('knob'), {steps: 400});
     new MooPlay.Control.PlayProgress(slider, $('video'));
     
     var progressbar = new ProgressBar({

@@ -5,7 +5,6 @@ MooPlay.Control.ButtonBase = new Class({
     Implements: [Options],
     
     options: {
-        paused_state_class: 'paused',
         over_state_class: 'over',
         click_state_class: 'clicked'
     },
@@ -22,44 +21,29 @@ MooPlay.Control.ButtonBase = new Class({
             
             'mouseenter': function(event) {
                 event.preventDefault();
-                this.changeMouseOverStatus(true);
+                this.element.addClass(this.options.over_state_class);
             }.bind(this),
             
             'mouseleave': function(event) {
                 event.preventDefault();
-                this.changeMouseOverStatus(false);
+                this.element.removeClass(this.options.over_state_class);
             }.bind(this),
         
             'mousedown': function(event) {
                 event.preventDefault();
-                this.changeClickStatus(true);
+                this.element.addClass(this.options.click_state_class);
             }.bind(this),
         
             'mouseup': function(event) {
                 event.preventDefault();
-                this.changeClickStatus(false);
+                this.element.removeClass(this.options.click_state_class);
             }.bind(this)
             
         });
         
         this.specificInitialize();
         
-    },
-    
-    changeMouseOverStatus: function(over) {
-        if(this.over) {
-            this.element.addClass(this.options.over_state_class);
-        } else {
-            this.element.removeClass(this.options.over_state_class);
-        }
-    },
-    
-    changeClickStatus: function(down) {
-        if(down) {
-            this.element.addClass(this.options.click_state_class);
-        } else {
-            this.element.removeClass(this.options.click_state_classc);
-        }
     }
+    
 
 });
