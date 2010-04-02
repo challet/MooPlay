@@ -10,7 +10,22 @@
     var tick_duration_arg = null;
     var change_executed = false;
     
+    var initial_prototype = {};
+    
     describe('Control.PlayProgress.initialize function', {
+        
+        before_all: function() {
+            initial_prototype = {
+                tick: MooPlay.Control.PlayProgress.prototype.tick,
+                change: MooPlay.Control.PlayProgress.prototype.change
+            };
+        },
+        
+        after_all: function() {
+            MooPlay.Control.PlayProgress.prototype.tick = initial_prototype.tick;
+            MooPlay.Control.PlayProgress.prototype.change = initial_prototype.change;
+        },
+        
         
         before_each: function() {
 

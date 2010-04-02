@@ -3,7 +3,11 @@
 context.Sets = {
  
 'master': [
+
+    'Control/BaseButton/initialize',
+    
     'Control/PlayPause/initialize',
+    'Control/PlayPause/toggleState',
     
     'Control/PlayProgress/initialize',
     'Control/PlayProgress/tick', //todo

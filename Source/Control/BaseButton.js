@@ -2,7 +2,7 @@
 
 MooPlay.Control.BaseButton = new Class({
 
-    Implements: [Options],
+    Implements: Options,
     
     options: {
         over_state_class: 'over',

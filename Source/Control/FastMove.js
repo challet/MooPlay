@@ -3,31 +3,23 @@
 MooPlay.Control.FastMove = new Class({
     
 
-    Implements: [MooPlay.Control.BaseButton],
+    Implements: MooPlay.Control.BaseButton,
     
     options: {
         speed_factor: 1
     },
     
     specificInitialize: function() {
-        this.element.addEvents({
-            
-            'mousedown': function() {
-                this.beginMove(false);
-            }.bind(this),
         
-            'mouseup': function() {
-                this.stopMove(true);
-            }.bind(this),
-            
-            'mouseleave': function() {
-                this.stopMove(true);
-            }.bind(this)
-            
+        this.element.addEvents({
+            'mousedown': this.beginMove.bind(this),
+            'mouseup': this.stopMove.bind(this),
+            'mouseleave': this.stopMove.bind(this)
         });
+        
     },
     
-    beginMove: function(down) {
+    beginMove: function() {
         if(this.timer == null) {
             this.start_time = $time();
             this.start_pos = this.video.currentTime;
@@ -49,9 +41,9 @@ MooPlay.Control.FastMove = new Class({
             return;
         }
         
-        var time_for_moving = ($time() - this.start_time) * this.options.speed_factor;
+        var time_to_move = ($time() - this.start_time) * this.options.speed_factor;
         
-        this.video.currentTime = this.start_pos + (time_for_moving / 1000);
+        this.video.currentTime = this.start_pos + (time_to_move / 1000);
         
     }
 

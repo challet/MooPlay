@@ -8,10 +8,24 @@
     var start_value = null;
     var end_value = null;
     var text_value = null;
-    
+
+    var initial_prototype = {};
     
     describe('Subtitle.Parser.SubRip.parse function', {
-
+        
+        before_all: function() {
+            initial_prototype = {
+                load: MooPlay.Subtitle.Parser.Base.prototype.load,
+                initialize: MooPlay.Subtitle.Item.prototype.initialize
+            };
+        },
+        
+        after_all: function() {
+            MooPlay.Subtitle.Parser.Base.prototype.load = initial_prototype.load;
+            MooPlay.Subtitle.Item.prototype.initialize = initial_prototype.initialize;
+        },
+        
+        
         before_each: function() {
             
             // to avoid any ajax call

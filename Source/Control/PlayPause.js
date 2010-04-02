@@ -26,16 +26,18 @@ MooPlay.Control.PlayPause = new Class({
     
     specificInitialize: function() {
         
-        this.changePausedStatus(this.video.paused);
-        
+        if(this.video.paused) {
+            this.element.addClass(this.options.paused_state_class);
+        }
+
         this.video.addEvents({
             
             'play': function() {
-                this.changePausedStatus(false);
+                this.element.removeClass(this.options.paused_state_class);
             }.bind(this),
         
             'pause': function() {
-                this.changePausedStatus(true);
+                this.element.addClass(this.options.paused_state_class);
             }.bind(this)
             
         });
@@ -50,18 +52,10 @@ MooPlay.Control.PlayPause = new Class({
         });
         
     },
-    
-    changePausedStatus: function(paused) {
-        this.paused = paused;
-        if(this.paused) {
-            this.element.addClass(this.options.paused_state_class);
-        } else {
-            this.element.removeClass(this.options.paused_state_class);
-        }
-    },
+
     
     toggleState: function() {
-        if(this.paused) {
+        if(this.video.paused) {
             this.video.play();
         } else {
             this.video.pause();

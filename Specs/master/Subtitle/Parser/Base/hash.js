@@ -8,9 +8,22 @@
     var abs_start_value = 16513;
     var abs_end_value = 367992;
     
+    var initial_prototype = {};
     
     describe('Subtitle.Parser.Base.hash function', {
-
+        
+        before_all: function() {
+            initial_prototype = {
+                load: MooPlay.Subtitle.Parser.Base.prototype.load,
+                addSub: MooPlay.Subtitle.Tree.prototype.addSub
+            };
+        },
+        
+        after_all: function() {
+            MooPlay.Subtitle.Parser.Base.prototype.load = initial_prototype.load;
+            MooPlay.Subtitle.Tree.prototype.addSub = initial_prototype.addSub;
+        },
+        
         before_each: function() {
             
             subs = [

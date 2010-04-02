@@ -58,8 +58,9 @@
         "progress.change should set the video.currentTime": function() {
             
             var duration = 10000;
-            var slider_length = 100;
             var click_position = 50;
+            
+            slider.steps = 100;
             
             mock_video_div.duration = duration;
             progress.change(50);
