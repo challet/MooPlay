@@ -18,7 +18,7 @@ provides:
 
 MooPlay.Control.PlayPause = new Class({
 
-    Implements: [MooPlay.Control.ButtonBase],
+    Implements: [MooPlay.Control.BaseButton],
     
     options: {
         paused_state_class: 'paused'

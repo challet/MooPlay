@@ -3,7 +3,7 @@
 MooPlay.Control.FastMove = new Class({
     
 
-    Implements: [MooPlay.Control.ButtonBase],
+    Implements: [MooPlay.Control.BaseButton],
     
     options: {
         speed_factor: 1
