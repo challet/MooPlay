@@ -17,6 +17,10 @@ MooPlay.Control.FastMove = new Class({
             'mouseleave': this.stopMove.bind(this)
         });
         
+        this.start_time = null;
+        this.timer = null;
+        this.start_pos = null;
+        
     },
     
     beginMove: function() {
@@ -30,6 +34,7 @@ MooPlay.Control.FastMove = new Class({
     stopMove: function() {
         if(this.timer != null) {
             this.start_time = null;
+            this.start_pos = null;
             $clear(this.timer);
             this.timer = null;
         }
@@ -37,7 +42,7 @@ MooPlay.Control.FastMove = new Class({
     
     tick: function() {
         
-        if(this.start_time == null) {
+        if(this.timer == null) {
             return;
         }
         

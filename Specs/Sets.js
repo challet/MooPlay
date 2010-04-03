@@ -6,10 +6,20 @@ context.Sets = {
 
     'Control/BaseButton/initialize',
     
+    'Control/FastMove/initialize',
+    'Control/FastMove/beginMove',
+    'Control/FastMove/stopMove',
+    'Control/FastMove/tick',
+    
+    'Control/LoadProgress/initialize', //todo
+    'Control/LoadProgress/tick', //todo
+    
     'Control/PlayPause/initialize',
     'Control/PlayPause/toggleState',
-    
+
     'Control/PlayProgress/initialize',
+    'Control/PlayProgress/suspend', //todo
+    'Control/PlayProgress/resume', //todo
     'Control/PlayProgress/tick', //todo
     'Control/PlayProgress/change',
     

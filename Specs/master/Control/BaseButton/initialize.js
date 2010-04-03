@@ -9,9 +9,7 @@
     describe('Control.BaseButton.initialize function', {
         
         before_each: function() {
-            
-            
-            
+
             element = new Element('a', {
                 id: 'playpause',
                 styles: {
