@@ -5,7 +5,9 @@ MooPlay
 MooPlay give some tools on top of an html5 video markup. You can build your own player with :
 
 * a play / pause control
+* buttons to move inside the video (rewind and fast forward)
 * a play progress bar
+* a load progress bar
 * subtitles loaded through an ajax request and synchronized with the video ( only .srt format support for now )
  
 The video element methods can be called by other scripts, MooPlay objects will adapt themself to state changes.   
@@ -31,6 +33,32 @@ How to use
 When the *playpause* receive clicks, it will toggle the player state.
 Then, it will have its css class changed, accordingly to the ones specified in the options
 
+### MooPlay.Control.FastMove
+
+    <video id="video" src="http://myvideo.ogv"></video>
+    <a id="fastrewindbutton" href="#">fast rewind</a>
+    <a id="fastforwardbutton" href="#">fast forward</a>
+    
+    new MooPlay.Control.FastMove($('fastforwardbutton'), $('video'), {speed_factor: 6});
+    new MooPlay.Control.FastMove($('fastrewindbutton'), $('video'), {speed_factor: -4});
+    
+The *element* passed as the first element will control move inside the *video* element (second argument).
+As option you can set the *speed_factor*, for example 6 to fast_forward, -4 to rewind
+
+
+### MooPlay.Control.LoadProgress
+    
+    <video id="video" src="http://myvideo.ogv"></video>
+    <div id="progress_container" style="width:400px;height:5px;background:#a0a0a0;">
+    
+    var progressbar = new ProgressBar({
+        container: $('progress_container'),
+        startPercentage: 0,
+        step: 0,
+    });
+    new MooPlay.Control.LoadProgress(progressbar, $('video'));
+    
+The *progress_container* element will be filled function of the video file load state
 
 ### MooPlay.Control.PlayProgress
 
