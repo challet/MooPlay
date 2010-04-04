@@ -30,12 +30,16 @@ MooPlay.Control.PlayProgress = new Class({
         
         this.suspended = false;
         
-        this.video.addEvent('timeupdate', this.tick.bind(this));        
-        //this.video.addEvent('seeking', this.suspend.bind(this));
-        this.video.addEvent('seeked', this.resume.bind(this));
+        this.video.addEvents({
+            'timeupdate': this.tick.bind(this),        
+            'seeking': this.suspend.bind(this),
+            'seeked': this.resume.bind(this)
+        });
         
-        this.slider.knob.addEvent('mousedown',this.suspend.bind(this));
-        this.slider.knob.addEvent('mouseup', this.resume.bind(this));
+        this.slider.knob.addEvents({
+            'mousedown': this.suspend.bind(this),
+            'mouseup': this.resume.bind(this)
+        });
         
         this.slider.addEvent('change', this.change.bind(this));
 

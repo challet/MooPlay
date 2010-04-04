@@ -1,4 +1,20 @@
+/*
+---
+description: Allows to move inside the video, with a pscific speed factor
 
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- MooPlay.Control.BaseButton
+
+provides:
+- MooPlay.Control.FastMove
+
+...
+*/
 
 MooPlay.Control.FastMove = new Class({
     

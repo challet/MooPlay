@@ -1,6 +1,6 @@
 /*
 ---
-description: proxy between any DOM element and a video element, controls and displays the current position inside the video
+description: proxy between any DOM element and a video element,  displays the loading progress of the video
 
 license: GNU GPL
 
@@ -9,10 +9,11 @@ authors:
 
 requires:
 - MooPlay
+- progressbar: *
 - more/1.2.4: [Slider]
 
 provides: 
-- MooPlay.Control.PlayProgress
+- MooPlay.Control.LoadProgress
 
 ...
 */

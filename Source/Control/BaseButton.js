@@ -1,4 +1,20 @@
+/*
+---
+description: make an element to act as a button.
 
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- MooPlay
+
+provides:
+- MooPlay.Control.BaseButton
+
+...
+*/
 
 MooPlay.Control.BaseButton = new Class({
 
