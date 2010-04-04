@@ -18,8 +18,6 @@ context.Sets = {
     'Control/PlayPause/toggleState',
 
     'Control/PlayProgress/initialize',
-    'Control/PlayProgress/suspend', //todo
-    'Control/PlayProgress/resume', //todo
     'Control/PlayProgress/tick', //todo
     'Control/PlayProgress/change',
     
