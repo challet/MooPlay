@@ -2,11 +2,11 @@ MooPlay
 =======
 
 
-MooPlay give some tools on top of an html5 video markup. You can build your own player with :
+MooPlay gives some tools on top of an html5 video markup. You can build your own player with :
 
 * a play / pause control
 * buttons to move inside the video (rewind and fast forward)
-* a play progress bar
+* an interactive play progress slider
 * a load progress bar
 * subtitles loaded through an ajax request and synchronized with the video ( only .srt format support for now )
  
@@ -91,4 +91,17 @@ The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing a
 * *the element to be displayed*
 * *the container* as specified at initialization
 * *the overlapping level* : in case several subtitles should be displayed at the same time, each one has a different level associated as integer, beggining to 0.
+
+Demo
+----
+
+A demo page is available at http://mooplay.challet.eu/ : not a pretty design, but all the features are viewable.
+
+
+Any feedback ? Ideas about a feature ?
+--------------------------------------
+
+Please [fill the issue form on GitHub](http://github.com/challet/MooPlay/issues) or [send me message](http://github.com/inbox/new/challet)
+
+
     
