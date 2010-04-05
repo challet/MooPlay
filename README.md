@@ -95,7 +95,7 @@ The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing a
 Demo
 ----
 
-A demo page is available at http://mooplay.challet.eu/ : not a pretty design, but all the features are viewable.
+A demo page is available at [http://mooplay.challet.eu/](http://mooplay.challet.eu/) : not a pretty design, but all the features are viewable.
 
 
 Any feedback ? Ideas about a feature ?
