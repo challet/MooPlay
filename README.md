@@ -16,6 +16,13 @@ More functionnalities will be available.
 
 ![Screenshot](http://img441.imageshack.us/img441/1659/image4kp.png)
 
+
+Demo
+----
+
+A demo page is available at [http://mooplay.challet.eu/](http://mooplay.challet.eu/) : not a pretty design, but all the features are viewable. You should use an html5 browser supporting ogg codecs.
+
+
 How to use
 ----------
 
@@ -92,10 +99,6 @@ The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing a
 * *the container* as specified at initialization
 * *the overlapping level* : in case several subtitles should be displayed at the same time, each one has a different level associated as integer, beggining to 0.
 
-Demo
-----
-
-A demo page is available at [http://mooplay.challet.eu/](http://mooplay.challet.eu/) : not a pretty design, but all the features are viewable.
 
 
 Any feedback ? Ideas about a feature ?
