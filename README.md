@@ -100,6 +100,13 @@ The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing a
 * *the overlapping level* : in case several subtitles should be displayed at the same time, each one has a different level associated as integer, beggining to 0.
 
 
+Screenshots
+-----------
+
+![Screenshot 1](http://img594.imageshack.us/i/image1g.png)
+![Screenshot 2](http://img707.imageshack.us/i/image2rx.png)
+![Screenshot 3](http://img641.imageshack.us/img641/4585/img0353s.jpg)
+
 
 Any feedback ? Ideas about a feature ?
 --------------------------------------
