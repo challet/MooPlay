@@ -22,11 +22,18 @@ MooPlay.Subtitle.Parser.Base = new Class({
     
     Implements: [Options],
     
+    options: {
+        onComplete: $empty
+    },
+    
     initialize: function(data, options) {
         this.setOptions(options);
         this.hash(
             this.parse(data)
         );
+        
+        this.options.onComplete(this.hash_root);
+        
     },
     
     hash: function(subs) {
@@ -44,7 +51,6 @@ MooPlay.Subtitle.Parser.Base = new Class({
             this.hash_root.addSub(sub);
         }.bind(this));
         
-        this.options.onComplete(this.hash_root);
     }
 
 });

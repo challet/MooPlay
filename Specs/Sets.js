@@ -18,14 +18,19 @@ context.Sets = {
     'Control/PlayPause/toggleState',
 
     'Control/PlayProgress/initialize',
-    'Control/PlayProgress/tick', //todo
+    'Control/PlayProgress/tick',
     'Control/PlayProgress/change',
     
     'Subtitle/Item/initialize',
     
-    'Subtitle/Parser/Base/run',
+    'Subtitle/Loader/initialize', // todo
+    'Subtitle/Loader/load', // todo
+    'Subtitle/Loader/run', // todo
+    
+    'Subtitle/Parser/Base/initialize',
     'Subtitle/Parser/Base/hash',
     'Subtitle/Parser/SubRip/parse',
+    'Subtitle/Parser/SubViewer/parse', // todo
     
     'Subtitle/Player/initialize',
     'Subtitle/Player/tick',

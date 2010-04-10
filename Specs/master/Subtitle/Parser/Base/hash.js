@@ -14,14 +14,14 @@
         
         before_all: function() {
             initial_prototype = {
-                load: MooPlay.Subtitle.Parser.Base.prototype.load,
-                addSub: MooPlay.Subtitle.Tree.prototype.addSub
+                addSub: MooPlay.Subtitle.Tree.prototype.addSub,
+                initialize: MooPlay.Subtitle.Parser.Base.prototype.initialize
             };
         },
         
         after_all: function() {
-            MooPlay.Subtitle.Parser.Base.prototype.load = initial_prototype.load;
             MooPlay.Subtitle.Tree.prototype.addSub = initial_prototype.addSub;
+            MooPlay.Subtitle.Parser.Base.prototype.initialize = initial_prototype.initialize;
         },
         
         before_each: function() {
@@ -31,11 +31,8 @@
                 new MooPlay.Subtitle.Item(4000, 9000, ["dgdf gdf gdf gdf"])
             ];
             
-            // to avoid any ajax call
-            MooPlay.Subtitle.Parser.Base.prototype.load = function() {
-                return;
-            }
-            
+
+            MooPlay.Subtitle.Parser.Base.prototype.initialize = $empty;
             MooPlay.Subtitle.Tree.prototype.addSub = function(sub) {
                 subs_passed_to_hash.push(sub);
             }
@@ -57,17 +54,17 @@
         },  
         
         "should set the start of the hash root": function() { 
-            var hash_root = parser.hash(abs_start_value, abs_end_value, subs);
-            value_of(hash_root.start).should_be(abs_start_value);
+            var hash_root = parser.hash(subs);
+            value_of(parser.hash_root.start).should_be(subs[0].start);
         },
         
         "should set the end of the hash root": function() { 
-            var hash_root = parser.hash(abs_start_value, abs_end_value, subs);
-            value_of(hash_root.end).should_be(abs_end_value);
+            var hash_root = parser.hash(subs);
+            value_of(parser.hash_root.end).should_be(subs[1].end);
         },
         
         "should pass all the subs to the hash root": function() { 
-            var hash_root = parser.hash(abs_start_value, abs_end_value, subs);
+            var hash_root = parser.hash(subs);
             value_of(subs_passed_to_hash).should_include(subs[0]);
             value_of(subs_passed_to_hash).should_include(subs[1]);
         }
