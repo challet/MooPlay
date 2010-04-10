@@ -28,6 +28,7 @@
     <script src="/Source/Display/Time.js" type="text/javascript"></script>
     <script src="/Source/Subtitle/Item.js" type="text/javascript"></script>
     <script src="/Source/Subtitle/Tree.js" type="text/javascript"></script>
+    <script src="/Source/Subtitle/Loader.js" type="text/javascript"></script>
     <script src="/Source/Subtitle/Player.js" type="text/javascript"></script>
     <script src="/Source/Subtitle/Parser/Base.js" type="text/javascript"></script>
     <script src="/Source/Subtitle/Parser/SubRip.js" type="text/javascript"></script>
@@ -78,7 +79,8 @@
     <label for="subtitles">subtitle :</label>
     <select id="subtitles">
         <option value="">none</option>
-        <option value="/Assets/Framasoft-WhatsNewInFirefox35717.sub">FR</option>
+        <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt">FR (SubRip format)</option>
+        <option value="/Assets/Framasoft-WhatsNewInFirefox35717.sub">FR (SubViewer format)</option>
     </select>
     
     <br />
@@ -155,8 +157,7 @@ document.addEvent('domready', function() {
     $('subtitles').addEvent('change', function(e) {
         e.preventDefault();
         if(e.target.value != '') {
-            new MooPlay.Subtitle.Parser.SubViewer({
-                url: e.target.value,
+            var loader = new MooPlay.Subtitle.Loader( e.target.value, {
                 onComplete: function(subs_hash) {
                     reader.loadSubtitles(subs_hash);
                 }
