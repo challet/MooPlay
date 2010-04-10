@@ -8,8 +8,10 @@ MooPlay gives some tools on top of an html5 video markup. You can build your own
 * buttons to move inside the video (rewind and fast forward)
 * an interactive play progress slider
 * a load progress bar
-* subtitles loaded through an ajax request and synchronized with the video ( only .srt format support for now )
- 
+* subtitles loaded through an ajax request and synchronized with the video. Supported formats are :
+ * SubRip (.srt)
+ * SubViewer (.sub)
+  
 The video element methods can be called by other scripts, MooPlay objects will adapt themself to state changes.   
 
 More functionnalities will be available.
