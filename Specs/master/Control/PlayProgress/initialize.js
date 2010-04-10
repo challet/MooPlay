@@ -111,12 +111,7 @@
             video_div.fireEvent('timeupdate', {target: video_div});
             value_of(tick_executed).should_be_true();
         },
-        
-        "'video.seeking' event should callback the suspend function": function() {
-            video_div.fireEvent('seeking', {target: video_div});
-            value_of(suspend_executed).should_be_true();
-        },
-        
+                
         "'video.seeked' event should callback the resume function": function() {
             video_div.fireEvent('seeked', {target: video_div});
             value_of(resume_executed).should_be_true();
