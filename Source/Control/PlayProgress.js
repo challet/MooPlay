@@ -31,8 +31,7 @@ MooPlay.Control.PlayProgress = new Class({
         this.suspended = false;
         
         this.video.addEvents({
-            'timeupdate': this.tick.bind(this),        
-            'seeking': this.suspend.bind(this),
+            'timeupdate': this.tick.bind(this),
             'seeked': this.resume.bind(this)
         });
         
