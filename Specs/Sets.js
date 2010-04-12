@@ -11,8 +11,8 @@ context.Sets = {
     'Control/FastMove/stopMove',
     'Control/FastMove/tick',
     
-    'Control/LoadProgress/initialize', //todo
-    'Control/LoadProgress/tick', //todo
+    'Control/LoadProgress/initialize', // todo
+    'Control/LoadProgress/tick', // todo
     
     'Control/PlayPause/initialize',
     'Control/PlayPause/toggleState',
@@ -25,12 +25,13 @@ context.Sets = {
     
     'Subtitle/Loader/initialize', // todo
     'Subtitle/Loader/load', // todo
-    'Subtitle/Loader/run', // todo
+    'Subtitle/Loader/run',
+    'Subtitle/Loader/selectParser',
     
     'Subtitle/Parser/Base/initialize',
     'Subtitle/Parser/Base/hash',
     'Subtitle/Parser/SubRip/parse',
-    'Subtitle/Parser/SubViewer/parse', // todo
+    'Subtitle/Parser/SubViewer/parse',
     
     'Subtitle/Player/initialize',
     'Subtitle/Player/tick',

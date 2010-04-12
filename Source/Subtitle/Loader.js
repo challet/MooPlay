@@ -25,11 +25,10 @@ MooPlay.Subtitle.Loader = new Class({
     initialize: function(url, options) {
         this.url = url;
         this.setOptions(options);
-        this.load();            
+        this.load();
     },
 
     load: function() {
-
         var request = new Request({
             url: this.url,
             method: 'get',
@@ -39,16 +38,23 @@ MooPlay.Subtitle.Loader = new Class({
     },
     
     run: function (data) {
-        
+        var parser = this.selectParser();
+        return new parser(data, {onComplete: this.options.onComplete});
+    },
+    
+    selectParser: function() {
         var ext = this.url.split('.').pop();
         switch(ext) {
             case 'srt':
-                var parser = new MooPlay.Subtitle.Parser.SubRip(data, {onComplete: this.options.onComplete});
+                return MooPlay.Subtitle.Parser.SubRip;
             break;
             case 'sub':
-                var parser = new MooPlay.Subtitle.Parser.SubViewer(data, {onComplete: this.options.onComplete});
+                return MooPlay.Subtitle.Parser.SubViewer;
+            break;
+            default:
+                throw 'the ' + ext + ' format is not known or supported as a subtitle file';
             break;
         }
-        
     }
+    
 });
