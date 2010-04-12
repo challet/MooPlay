@@ -78,7 +78,7 @@ The *progress_container* element will be filled function of the video file load 
     new MooPlay.Control.PlayProgress(slider, $('video'));
     
 The *knob* position will be set function of the video progress in the playing.
-The *slider* element can be clicked to navigate through the video.
+The *slider* element can be used to navigate through the video : by clicking anywhere on the bar, or dragging the knob.
 
 
 ### MooPlay.Subtitle
