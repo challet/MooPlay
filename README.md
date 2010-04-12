@@ -28,7 +28,7 @@ How to use
 
 ### MooPlay.Control.PlayPause
     
-    <video id="video" src="http://myvideo.ogv"></video>
+    <video id="video" src="myvideo.ogv"></video>
     <a href="#" id='playpause'>play / pause</a>
 
     new MooPlay.Control.PlayPause($('playpause'), $('video'), {
@@ -42,7 +42,7 @@ Then, it will have its css class changed, accordingly to the ones specified in t
 
 ### MooPlay.Control.FastMove
 
-    <video id="video" src="http://myvideo.ogv"></video>
+    <video id="video" src="myvideo.ogv"></video>
     <a id="fastrewindbutton" href="#">fast rewind</a>
     <a id="fastforwardbutton" href="#">fast forward</a>
     
@@ -55,7 +55,7 @@ As option you can set the *speed_factor*, for example 6 to fast_forward, -4 to r
 
 ### MooPlay.Control.LoadProgress
     
-    <video id="video" src="http://myvideo.ogv"></video>
+    <video id="video" src="myvideo.ogv"></video>
     <div id="progress_container" style="width:400px;height:5px;background:#a0a0a0;">
     
     var progressbar = new ProgressBar({
@@ -69,7 +69,7 @@ The *progress_container* element will be filled function of the video file load 
 
 ### MooPlay.Control.PlayProgress
 
-    <video id="video" src="http://myvideo.ogv"></video>
+    <video id="video" src="myvideo.ogv"></video>
     <div id="slider" style="width:400px;height:5px;background:#a0a0a0;">
         <div id="knob" style="width:5px;height:5px;background:#ffff80;"></div>
     </div>
@@ -82,14 +82,17 @@ The *slider* element can be clicked to navigate through the video.
 
 
 ### MooPlay.Subtitle
-
-    var subs_reader = new MooPlay.Subtitle.Player($('video'), $('subtitles_container'));
-    new MooPlay.Subtitle.Parser.SubRip({
-        url: 'http://mysubtitles.srt',
+    
+    <video id="video" src="myvideo.ogv"></video>
+    <div id="subtitles_container"></div>
+    
+    var subs_player = new MooPlay.Subtitle.Player($('video'), $('subtitles_container'));
+    var loader = new MooPlay.Subtitle.Loader( 'mysubtitles.srt', {
         onComplete: function(subs_hash) {
-            subs_reader.loadSubtitles(subs_hash);
+            subs_player.loadSubtitles(subs_hash);
         }
     });
+
     
 The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing an ajax request. They will be then displayed in the *subtitles_container* element and synchronized with the current position of the video.
 
