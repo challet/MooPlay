@@ -29,14 +29,19 @@ MooPlay.Utils = {
     /**
      *  @return format is '00:02:52,406'
      */
-    timestampToSrt: function(timestamp) {
+    timestampToSexagesimal: function(timestamp) {
 
-        var ms = timestamp;
+        var ms = timestamp.floor();
         var s = (ms / 1000).floor() ;
         var m = (s / 60).floor();
         var h = (m / 60).floor();
 
-        return  String(h) + ':' + String(m % 60) + ':' + String(s % 60) + ',' + String(ms % 1000);
+        return {
+            h: h,
+            m: m % 60,
+            s: s % 60,
+            ms: ms % 1000
+        };
 
     }
 }

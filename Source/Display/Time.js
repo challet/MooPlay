@@ -20,19 +20,36 @@ provides:
 
 MooPlay.Display.Time = new Class({
     
-    initialize: function(video, container) {
+    Implements: [Options],
+    
+    options: {
+        pattern: '{h}:{m}:{s},{ms}',
+        actual: true // vs 'remaining'
+    },
+    
+    initialize: function(video, container, options) {
+        
+        this.setOptions(options);
         
         this.container = $(container);
         this.video = $(video);
         
         this.video.addEvent('timeupdate', function(event) {
-            this.tick(event.target.currentTime * 1000);
+            if(this.options.actual) {
+                this.tick(event.target.currentTime * 1000);
+            } else {
+                this.tick(Math.max(0, event.target.duration - event.target.currentTime) * 1000);
+            }
         }.bind(this));
         
     },
     
     tick: function(abs_movie_time) {
-        this.container.empty().appendText(MooPlay.Utils.timestampToSrt(abs_movie_time));
+        this.container.empty().appendText(
+            this.options.pattern.substitute(
+                MooPlay.Utils.timestampToSexagesimal(abs_movie_time)
+            )
+        );
     }
 
 });

@@ -56,14 +56,16 @@
 <div style="clear:both;"></div>
 
 
-<div id="slider" style="width:400px;height:5px;background:#a0a0a0;">
-    <div id="knob" style="width:5px;height:5px;background:#ffff80;"></div>
+<div id="slider_progress" style="width:400px;height:5px;background:#a0a0a0;">
+    <div id="knob_progress" style="width:5px;height:5px;background:#ffff80;"></div>
 </div>
 <div id="progress_container" style="width:400px;height:5px;background:#a0a0a0;">
 </div>
 <br />
 
-<div id="time_container"></div>
+<div>
+    time : <span id="actual_time_container">-</span> | <span id="remaining_time_container">-</span>
+</div>
 
 <a id="fastrewindbutton" href="#">
     fast rewind
@@ -112,7 +114,8 @@ document.addEvent('domready', function() {
     new MooPlay.Control.FastMove($('fastforwardbutton'), $('video'), {speed_factor: 6});
     new MooPlay.Control.FastMove($('fastrewindbutton'), $('video'), {speed_factor: -4});
     
-    new MooPlay.Display.Time($('video'), $('time_container'))
+    new MooPlay.Display.Time($('video'), $('actual_time_container'), {pattern: '{h}:{m}:{s}', actual: true});
+    new MooPlay.Display.Time($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', actual: false});    
     
     var slider_progress = new Slider($('slider_progress'), $('knob_progress'), {steps: 400});
     new MooPlay.Control.PlayProgress(slider_progress, $('video'));
