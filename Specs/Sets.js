@@ -14,12 +14,20 @@ context.Sets = {
     'Control/LoadProgress/initialize', // todo
     'Control/LoadProgress/tick', // todo
     
+    'Control/Mute/initialize', // todo
+    'Control/Mute/update', // todo
+    'Control/Mute/toggleState', // todo
+    
     'Control/PlayPause/initialize',
     'Control/PlayPause/toggleState',
 
     'Control/PlayProgress/initialize',
     'Control/PlayProgress/tick',
     'Control/PlayProgress/change',
+    
+    'Control/Volume/initialize', // todo
+    'Control/Volume/update', // todo
+    'Control/Volume/change', // todo
     
     'Subtitle/Item/initialize',
     
