@@ -63,6 +63,7 @@
 </div>
 <br />
 
+<div id="time_container"></div>
 
 <a id="fastrewindbutton" href="#">
     fast rewind
@@ -111,8 +112,10 @@ document.addEvent('domready', function() {
     new MooPlay.Control.FastMove($('fastforwardbutton'), $('video'), {speed_factor: 6});
     new MooPlay.Control.FastMove($('fastrewindbutton'), $('video'), {speed_factor: -4});
     
-    var slider = new Slider($('slider'), $('knob'), {steps: 400});
-    new MooPlay.Control.PlayProgress(slider, $('video'));
+    new MooPlay.Display.Time($('video'), $('time_container'))
+    
+    var slider_progress = new Slider($('slider_progress'), $('knob_progress'), {steps: 400});
+    new MooPlay.Control.PlayProgress(slider_progress, $('video'));
     
     var progressbar = new ProgressBar({
         container: $('progress_container'),
