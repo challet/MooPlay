@@ -89,7 +89,7 @@
             knob_div.dispose();
             slider_div.dispose();
             
-            vvideo_div = null;
+            video_div = null;
             slider = null;
             progress = null;
             tick_executed = false;

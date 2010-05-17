@@ -22,7 +22,7 @@ context.Sets = {
     'Control/PlayProgress/change',
     
     'Control/Time/initialize',
-    'Control/Time/tick',
+    'Control/Time/update',
     
     'Subtitle/Item/initialize',
     

@@ -64,7 +64,7 @@
 <br />
 
 <div>
-    time : <span id="actual_time_container">-</span> | <span id="remaining_time_container">-</span>
+    time : <span id="current_time_container">-</span> | <span id="remaining_time_container">-</span>
 </div>
 
 <a id="fastrewindbutton" href="#">
@@ -114,8 +114,8 @@ document.addEvent('domready', function() {
     new MooPlay.Control.FastMove($('fastforwardbutton'), $('video'), {speed_factor: 6});
     new MooPlay.Control.FastMove($('fastrewindbutton'), $('video'), {speed_factor: -4});
     
-    new MooPlay.Control.Time($('video'), $('actual_time_container'), {pattern: '{h}:{m}:{s}', actual: true});
-    new MooPlay.Control.Time($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', actual: false});    
+    new MooPlay.Control.Time($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
+    new MooPlay.Control.Time($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});    
     
     var slider_progress = new Slider($('slider_progress'), $('knob_progress'), {steps: 400});
     new MooPlay.Control.PlayProgress(slider_progress, $('video'));
