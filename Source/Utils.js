@@ -20,9 +20,9 @@ MooPlay.Utils = {
     /**
      *  @param srt_time : format is '00:02:52,406'
      */
-    srtToTimestamp: function(srt_time) {
+    sexagesimalToTimestamp: function(srt_time) {
 
-        return ((srt_time[0].toInt() * 60 + srt_time[1].toInt()) * 60 + srt_time[2].toInt()) * 1000 + srt_time[3].toInt();
+        return ((srt_time.h * 60 + srt_time.m) * 60 + srt_time.s) * 1000 + srt_time.ms;
 
     },
 
