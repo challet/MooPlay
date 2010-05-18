@@ -3,18 +3,13 @@ MooPlay.Control.Volume = new Class({
     Implements: [Options],
         
     initialize: function(slider, video, options) {
-        
         this.setOptions(options);
         
         this.slider = slider;
         this.video = $(video);
 
-        this.video.addEvents({
-            'volumechange': this.update.bind(this)
-        });
-
+        this.video.addEvent('volumechange': this.update.bind(this));
         this.slider.addEvent('change', this.change.bind(this));
-
     },
 
     update: function(event) {
