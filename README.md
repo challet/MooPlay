@@ -59,7 +59,8 @@ As option you can set the *speed_factor*, for example 6 to fast_forward, -4 to r
     new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
     new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
 
-The *element* will display the current time or the remaining time of the video according to 
+The *element* will display the current time or the remaining time of the video according to
+
 * the value of the **current** option (default is true)
 * the format specified by the **pattern** option (default is '{h}:{m}:{s},{ms}')
 
