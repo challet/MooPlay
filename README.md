@@ -37,8 +37,8 @@ How to use
         click_state_class: 'clicked'
     })
 
-When the *playpause* receive clicks, it will toggle the player state.
-Then, it will have its css class changed, accordingly to the ones specified in the options
+When the *playpause* element receive clicks, the playing stat is toggled.
+It's css classes match the current state of the *video* element, accordingly to the *options*.
 
 ### MooPlay.Control.FastMove
 
@@ -49,8 +49,8 @@ Then, it will have its css class changed, accordingly to the ones specified in t
     new MooPlay.Control.FastMove($('fastforwardbutton'), $('video'), {speed_factor: 6});
     new MooPlay.Control.FastMove($('fastrewindbutton'), $('video'), {speed_factor: -4});
     
-The *element* passed as the first element will control move inside the *video* element (second argument).
-As option you can set the *speed_factor*, for example 6 to fast_forward, -4 to rewind
+The *element* passed as the first argument is a control to move in the *video* element (second argument) when it's clicked.
+*speed_factor* is passed as an option to specify the behavior, for example 6 would fast forward while -4 would rewind.
 
 ### MooPlay.Control.TimeDisplay
 
@@ -60,7 +60,7 @@ As option you can set the *speed_factor*, for example 6 to fast_forward, -4 to r
     new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
     new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
 
-The *element* will display the current time or the remaining time of the video according to :
+The *element* will display the current time or the remaining time of the *video* according to :
 
 * the value of the **current** option (default is true)
 * the format specified by the **pattern** option (default is '{h}:{m}:{s},{ms}')
