@@ -55,8 +55,8 @@ MooPlay.Subtitle.Parser.SubRip = new Class({
                 current_sub = {};
             } else if(line != null && this.regexps.time.test(line)) {
                 var times = this.regexps.time.exec(line);
-                current_sub.start = MooPlay.Utils.srtToTimestamp(times.slice(1,5));
-                current_sub.end = MooPlay.Utils.srtToTimestamp(times.slice(5,9));
+                current_sub.start = MooPlay.Utils.sexagesimalToTimestamp({ h: times[1].toInt(), m: times[2].toInt(), s: times[3].toInt(), ms: times[4].toInt() });
+                current_sub.end = MooPlay.Utils.sexagesimalToTimestamp({ h: times[5].toInt(), m: times[6].toInt(), s: times[7].toInt(), ms: times[8].toInt() });
                 var times = null;
             } else if(line != null && this.regexps.text.test(line)) {
                 current_text.push(this.regexps.text.exec(line)[0]);
