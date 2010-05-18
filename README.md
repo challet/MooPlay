@@ -116,8 +116,8 @@ The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing a
 
 
 
-Any feedback ? Ideas about a feature ?
---------------------------------------
+Any feedback or ideas about a feature ?
+---------------------------------------
 
 Please [fill the issue form on GitHub](http://github.com/challet/MooPlay/issues) or [send me message](http://github.com/inbox/new/challet)
 
