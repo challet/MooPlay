@@ -13,12 +13,12 @@ requires:
 
 
 provides: 
-- MooPlay.Control.Time
+- MooPlay.Control.TimeDisplay
 
 ...
 */
 
-MooPlay.Control.Time = new Class({
+MooPlay.Control.TimeDisplay = new Class({
     
     Implements: [Options],
     

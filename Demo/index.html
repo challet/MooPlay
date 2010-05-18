@@ -26,7 +26,7 @@
     <script src="/Source/Control/PlayPause.js" type="text/javascript"></script>
     <script src="/Source/Control/FastMove.js" type="text/javascript"></script>
     <script src="/Source/Display/Ratio.js" type="text/javascript"></script>
-    <script src="/Source/Control/Time.js" type="text/javascript"></script>
+    <script src="/Source/Control/TimeDisplay.js" type="text/javascript"></script>
     <script src="/Source/Subtitle/Item.js" type="text/javascript"></script>
     <script src="/Source/Subtitle/Tree.js" type="text/javascript"></script>
     <script src="/Source/Subtitle/Loader.js" type="text/javascript"></script>
@@ -114,8 +114,8 @@ document.addEvent('domready', function() {
     new MooPlay.Control.FastMove($('fastforwardbutton'), $('video'), {speed_factor: 6});
     new MooPlay.Control.FastMove($('fastrewindbutton'), $('video'), {speed_factor: -4});
     
-    new MooPlay.Control.Time($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
-    new MooPlay.Control.Time($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});    
+    new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
+    new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});    
     
     var slider_progress = new Slider($('slider_progress'), $('knob_progress'), {steps: 400});
     new MooPlay.Control.PlayProgress(slider_progress, $('video'));

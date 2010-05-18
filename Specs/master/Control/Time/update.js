@@ -23,7 +23,7 @@
                 }
             }).inject(document.body);
             
-            time_control = new MooPlay.Control.Time(video, element, {pattern: 'a{h}b{m}c{s}d{ms}e'});
+            time_control = new MooPlay.Control.TimeDisplay(video, element, {pattern: 'a{h}b{m}c{s}d{ms}e'});
 
         },
         

@@ -15,12 +15,12 @@
         
         before_all: function() {
             initial_prototype = {
-                update: MooPlay.Control.Time.prototype.update
+                update: MooPlay.Control.TimeDisplay.prototype.update
             };
         },
         
         after_all: function() {
-            MooPlay.Control.Time.prototype.update = initial_prototype.update;
+            MooPlay.Control.TimeDisplay.prototype.update = initial_prototype.update;
         },
         
         before_each: function() {
@@ -41,7 +41,7 @@
                 }
             }).inject(document.body);
             
-            MooPlay.Control.Time.prototype.update = function(timestamp) {
+            MooPlay.Control.TimeDisplay.prototype.update = function(timestamp) {
                 update_called = true;
                 update_arg_value = timestamp;
             }
@@ -61,19 +61,19 @@
         },
                 
         "should call update on 'timeupdate' event": function() {
-            new MooPlay.Control.Time(video, element);
+            new MooPlay.Control.TimeDisplay(video, element);
             video.fireEvent('timeupdate', fake_event);
             value_of(update_called).should_be_true();
         },
         
         "should pass the current time if 'current' option is true": function() {
-            new MooPlay.Control.Time(video, element, { current: true });
+            new MooPlay.Control.TimeDisplay(video, element, { current: true });
             video.fireEvent('timeupdate', fake_event);
             value_of(update_arg_value).should_be(fake_event.target.currentTime * 1000);
         },
         
         "should pass the remaining time if 'current' option is false": function() {
-            new MooPlay.Control.Time(video, element, { current: false });
+            new MooPlay.Control.TimeDisplay(video, element, { current: false });
             video.fireEvent('timeupdate', fake_event);
             value_of(update_arg_value).should_be((fake_event.target.duration - fake_event.target.currentTime) * 1000 );
         }
