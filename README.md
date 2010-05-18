@@ -10,7 +10,7 @@ MooPlay gives some tools on top of an html5 video markup. You can build your own
 * a load progress bar
 * subtitles loaded through an ajax request and synchronized with the video. Supported formats are SubRip (.srt) and SubViewer (.sub)
   
-The video element methods can be called by other scripts, MooPlay objects will adapt themself to state changes.   
+The video element methods can be called by other scripts, MooPlay objects will adapt themself to state changes.
 
 More functionnalities will be available.
 
@@ -56,10 +56,11 @@ As option you can set the *speed_factor*, for example 6 to fast_forward, -4 to r
 
     <span id="current_time_container"></span>
     <span id="remaining_time_container"></span>
+    
     new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
     new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
 
-The *element* will display the current time or the remaining time of the video according to
+The *element* will display the current time or the remaining time of the video according to :
 
 * the value of the **current** option (default is true)
 * the format specified by the **pattern** option (default is '{h}:{m}:{s},{ms}')
