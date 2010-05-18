@@ -10,7 +10,7 @@ MooPlay gives some tools on top of an html5 video markup. You can build your own
 * a load progress bar
 * subtitles loaded through an ajax request and synchronized with the video. Supported formats are SubRip (.srt) and SubViewer (.sub)
   
-The video element methods can be called by other scripts, MooPlay objects will adapt themself to state changes.   
+The video element methods can be called by other scripts, MooPlay objects will adapt themself to state changes.
 
 More functionnalities will be available.
 
@@ -52,6 +52,18 @@ Then, it will have its css class changed, accordingly to the ones specified in t
 The *element* passed as the first element will control move inside the *video* element (second argument).
 As option you can set the *speed_factor*, for example 6 to fast_forward, -4 to rewind
 
+### MooPlay.Control.TimeDisplay
+
+    <span id="current_time_container"></span>
+    <span id="remaining_time_container"></span>
+    
+    new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
+    new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
+
+The *element* will display the current time or the remaining time of the video according to :
+
+* the value of the **current** option (default is true)
+* the format specified by the **pattern** option (default is '{h}:{m}:{s},{ms}')
 
 ### MooPlay.Control.LoadProgress
     
@@ -104,8 +116,8 @@ The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing a
 
 
 
-Any feedback ? Ideas about a feature ?
---------------------------------------
+Any feedback or ideas about a feature ?
+---------------------------------------
 
 Please [fill the issue form on GitHub](http://github.com/challet/MooPlay/issues) or [send me message](http://github.com/inbox/new/challet)
 

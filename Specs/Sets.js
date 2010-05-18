@@ -25,10 +25,13 @@ context.Sets = {
     'Control/PlayProgress/tick',
     'Control/PlayProgress/change',
     
+    'Control/TimeDisplay/initialize',
+    'Control/TimeDisplay/update',
+
     'Control/Volume/initialize', // todo
     'Control/Volume/update', // todo
     'Control/Volume/change', // todo
-    
+
     'Subtitle/Item/initialize',
     
     'Subtitle/Loader/initialize', // todo
