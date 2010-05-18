@@ -115,7 +115,7 @@ document.addEvent('domready', function() {
     new MooPlay.Control.FastMove($('fastrewindbutton'), $('video'), {speed_factor: -4});
     
     new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
-    new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});    
+    new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
     
     var slider_progress = new Slider($('slider_progress'), $('knob_progress'), {steps: 400});
     new MooPlay.Control.PlayProgress(slider_progress, $('video'));
