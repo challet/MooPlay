@@ -1,0 +1,28 @@
+#video_container { width:560px;height:420px;position:relative; border: 1px #d0d0d0 dashed;}
+
+#video_container #video { width:100%;height:100%;position:absolute;top:0;z-index:1 }
+
+#video_container #subtitle { overflow: hidden; width:100%; position:absolute; bottom:0; z-index:2; }
+#video_container #subtitle div { position:relative; width:100% }
+#video_container #subtitle div p { margin: 5px 0; padding: 0; font-size: 18px; font-weight: bold; text-align: center;}
+
+#video_container #playpausebutton { width:100%;height:100%;position:absolute; z-index: 3; cursor: pointer;}
+#video_container #playpausebutton #pause { width: 57px; height:57px; background: #ffffff ; margin: 180px 250px; border: 3px #000000 solid; display:none;}
+#video_container #playpausebutton.paused #pause { display: block; }
+
+#subtitle div.overlapping0 p {color: #f00; }
+#subtitle div.overlapping1 p {color: #f80; }
+
+a#playpausebutton { width:25px; height:25px; background:#0f0; }
+a#playpausebutton.paused { width:25px; height:25px; background:#f00; }
+
+#progress-bar-box-id {width:100%; height:100%;}
+#progress-bar-percentage-id {background-color: #0f0; height:100%;}
+
+
+div.times { float:left; width:80px; height: 16px; text-align:center; line-height: 18px; white-space: nowrap;}
+
+div#progresses_bar { float:left; width:400px; height:6px; margin: 5px 0; background:#a0a0a0; position:relative;}
+div#progresses_bar div#load { width:100%; height:100%; background:none; position:absolute; top:0; left: 0; }
+div#progresses_bar div#play_slider { width:100%; height:100%; background:none; position:absolute; top:0; left: 0; cursor: pointer;}
+div#progresses_bar div#play_slider div#knob_slider { width:6px;height:6px;background:#ff5050; cursor: col-resize;}
