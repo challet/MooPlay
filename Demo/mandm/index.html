@@ -46,7 +46,8 @@
         <video id="video" src="http://blip.tv/file/get/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="false" style=""></video>
         <div id="subtitle"></div>
         <div id="playpausebutton">
-            <div id="pause">pause</div>
+            <div id="layer"></div>
+            <div id="pause">play</div>
         </div>
 </div>
 
@@ -100,9 +101,9 @@
 var reader = null;
 
 document.addEvent('domready', function() {
-    
+
     new MooPlay.Control.PlayPause($('playpausebutton'), $('video'));
-    
+
     new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
     new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
     
