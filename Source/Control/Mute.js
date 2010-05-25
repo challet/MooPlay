@@ -1,3 +1,23 @@
+/*
+---
+description: control mute with a button
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- MooPlay
+- MooPlay.Utils
+
+
+provides: 
+- MooPlay.Control.Mute
+
+...
+*/
+
 MooPlay.Control.Mute = new Class({
 
     Implements: [MooPlay.Control.BaseButton],

@@ -1,3 +1,23 @@
+/*
+---
+description: control volume through a slider
+
+license: GNU GPL
+
+authors:
+- Clément Hallet
+
+requires:
+- MooPlay
+- MooPlay.Utils
+
+
+provides: 
+- MooPlay.Control.Volume
+
+...
+*/
+
 MooPlay.Control.Volume = new Class({
 
     Implements: [Options],
