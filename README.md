@@ -92,6 +92,28 @@ The *progress_container* element will be filled function of the video file load 
 The *knob* position will be set function of the video progress in the playing.
 The *slider* element can be used to navigate through the video : by clicking anywhere on the bar, or dragging the knob.
 
+### MooPlay.Control.Mute
+
+    <video id="video" src="myvideo.ogv"></video>
+    <a id="mute" href="#">mute</a>
+    
+    new MooPlay.Control.Mute($('mute'), $('video'));
+    
+The *mute* element will toggle the mute state of the *video* throucg user clicks.
+
+
+### MooPlay.Control.Volume
+
+    <video id="video" src="myvideo.ogv"></video>
+    <div id="slider_volume" style="width:100px;height:5px;background:#a0a0a0;">
+        <div id="knob_volume" style="width:5px;height:5px;background:#ff4040;"></div>
+    </div>
+    
+    var slider_volume = new Slider($('slider_volume'), $('knob_volume'), {steps: 100});
+    new MooPlay.Control.Volume(slider_volume, $('video'));
+    new MooPlay.Control.PlayProgress(slider, $('video'));
+    
+The user can set the volume of the *video* through the *slider*.
 
 ### MooPlay.Subtitle
     
