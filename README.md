@@ -111,7 +111,6 @@ The *mute* element will toggle the mute state of the *video* throucg user clicks
     
     var slider_volume = new Slider($('slider_volume'), $('knob_volume'), {steps: 100});
     new MooPlay.Control.Volume(slider_volume, $('video'));
-    new MooPlay.Control.PlayProgress(slider, $('video'));
     
 The user can set the volume of the *video* through the *slider*.
 
