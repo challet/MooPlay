@@ -92,6 +92,27 @@ The *progress_container* element will be filled function of the video file load 
 The *knob* position will be set function of the video progress in the playing.
 The *slider* element can be used to navigate through the video : by clicking anywhere on the bar, or dragging the knob.
 
+### MooPlay.Control.Mute
+
+    <video id="video" src="myvideo.ogv"></video>
+    <a id="mute" href="#">mute</a>
+    
+    new MooPlay.Control.Mute($('mute'), $('video'));
+    
+The *mute* element will toggle the mute state of the *video* throucg user clicks.
+
+
+### MooPlay.Control.Volume
+
+    <video id="video" src="myvideo.ogv"></video>
+    <div id="slider_volume" style="width:100px;height:5px;background:#a0a0a0;">
+        <div id="knob_volume" style="width:5px;height:5px;background:#ff4040;"></div>
+    </div>
+    
+    var slider_volume = new Slider($('slider_volume'), $('knob_volume'), {steps: 100});
+    new MooPlay.Control.Volume(slider_volume, $('video'));
+    
+The user can set the volume of the *video* through the *slider*.
 
 ### MooPlay.Subtitle
     
@@ -114,7 +135,10 @@ The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing a
 * *the container* as specified at initialization
 * *the overlapping level* : in case several subtitles should be displayed at the same time, each one has a different level associated as integer, beggining to 0 and going up according to the displaying order through time.
 
+Unit Tests
+----------
 
+About [a hundred tests are running](http://mooplay.challet.eu/Specs/?specs=master) on each new step, to make sure all the functionnalities are available.
 
 Any feedback or ideas about a feature ?
 ---------------------------------------

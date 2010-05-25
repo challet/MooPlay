@@ -7,9 +7,6 @@
 
 	<title>Mooplay demonstration : build your own player on top of an html5 video element</title>
 	
-	
-
-    	
 	<!-- MooTools -->
     <script src="/Assets/mootools-1.2.4-core-nc.js" type="text/javascript"></script>
     <script src="/Assets/mootools-1.2.4.4-more.js" type="text/javascript"></script>
@@ -25,6 +22,8 @@
     <script src="/Source/Control/BaseButton.js" type="text/javascript"></script>
     <script src="/Source/Control/PlayPause.js" type="text/javascript"></script>
     <script src="/Source/Control/FastMove.js" type="text/javascript"></script>
+    <script src="/Source/Control/Volume.js" type="text/javascript"></script>
+    <script src="/Source/Control/Mute.js" type="text/javascript"></script>
     <script src="/Source/Display/Ratio.js" type="text/javascript"></script>
     <script src="/Source/Control/TimeDisplay.js" type="text/javascript"></script>
     <script src="/Source/Subtitle/Item.js" type="text/javascript"></script>
@@ -98,6 +97,15 @@
     
 </form>
 
+Volume :
+<div id="slider_volume" style="width:100px;height:5px;background:#a0a0a0;">
+    <div id="knob_volume" style="width:5px;height:5px;background:#ff4040;"></div>
+</div>
+
+<a id="mute" href="#">
+    mute
+</a>
+
 <hr />
 <p> The video used in this demonstration page is from Framasoft and the original file can be found <a href="http://blip.tv/file/2296139">here</a> </p>
 <p> The subtitle file is a french translation made by Joan from Framalang and can be found <a href="http://www.framalang.org/wiki/Whats_new_in_firefox_three_five">here</a> </p>
@@ -114,11 +122,16 @@ document.addEvent('domready', function() {
     new MooPlay.Control.FastMove($('fastforwardbutton'), $('video'), {speed_factor: 6});
     new MooPlay.Control.FastMove($('fastrewindbutton'), $('video'), {speed_factor: -4});
     
+    var slider_progress = new Slider($('slider_progress'), $('knob_progress'), {steps: 400});
+    new MooPlay.Control.PlayProgress(slider_progress, $('video'));
+    
+    var slider_volume = new Slider($('slider_volume'), $('knob_volume'), {steps: 100});
+    new MooPlay.Control.Volume(slider_volume, $('video'));
+    new MooPlay.Control.Mute($('mute'), $('video'));
+    
     new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
     new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
     
-    var slider_progress = new Slider($('slider_progress'), $('knob_progress'), {steps: 400});
-    new MooPlay.Control.PlayProgress(slider_progress, $('video'));
     
     var progressbar = new ProgressBar({
         container: $('progress_container'),
