@@ -114,7 +114,10 @@ The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing a
 * *the container* as specified at initialization
 * *the overlapping level* : in case several subtitles should be displayed at the same time, each one has a different level associated as integer, beggining to 0 and going up according to the displaying order through time.
 
+Unit Tests
+----------
 
+About [http://mooplay.challet.eu/Specs/?specs=master](a hundred tests are running) on each new step, to make sure all the functionnalities are available.
 
 Any feedback or ideas about a feature ?
 ---------------------------------------
