@@ -138,7 +138,7 @@ The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing a
 Unit Tests
 ----------
 
-About [http://mooplay.challet.eu/Specs/?specs=master](a hundred tests are running) on each new step, to make sure all the functionnalities are available.
+About [a hundred tests are running](http://mooplay.challet.eu/Specs/?specs=master) on each new step, to make sure all the functionnalities are available.
 
 Any feedback or ideas about a feature ?
 ---------------------------------------
