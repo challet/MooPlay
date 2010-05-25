@@ -25,3 +25,8 @@ div#progresses_bar { float:left; width:400px; height:6px; margin: 5px 0; backgro
 div#progresses_bar div#load { width:100%; height:100%; background:none; position:absolute; top:0; left: 0; }
 div#progresses_bar div#play_slider { width:100%; height:100%; background:none; position:absolute; top:0; left: 0; cursor: pointer;}
 div#progresses_bar div#play_slider div#knob_slider { width:6px;height:6px;background:#ff5050; cursor: col-resize;}
+
+a#mute{ width:25px; height:25px; background:#0f0; }
+a#mute.muted { width:25px; height:25px; background:#f00; }
+div#slider_volume { width:100px;height:5px;background:#a0a0a0; }
+div#slider_volume div#knob_volume { width:5px;height:5px;background:#ff4040; }
