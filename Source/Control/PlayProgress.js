@@ -37,18 +37,21 @@ MooPlay.Control.PlayProgress = new Class({
         
         this.slider.knob.addEvents({
             'mousedown': this.suspend.bind(this),
-            'mouseup': this.resume.bind(this)
+            'mouseup': this.resume.bind(this),
+            'click': function(event) { event.stop(); }
         });
         
         this.slider.addEvent('change', this.change.bind(this));
 
     },
     
-    suspend: function() {
+    suspend: function(event) {
+        event.preventDefault();
         this.suspended = true;
     },
     
-    resume: function() {
+    resume: function(event) {
+        event.preventDefault();
         this.suspended = false;
     },
     

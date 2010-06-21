@@ -47,29 +47,35 @@
         <video id="video" src="http://blip.tv/file/get/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="false" style=""></video>
         <div id="subtitle"></div>
         <div id="playpausebutton">
+            
             <div id="layer"></div>
+            
+            <div id="controls">
+
+                <div class="times">
+                    <span id="current_time_container">00:00:00</span>
+                </div>
+
+                <div id="progresses_bar">
+                    <div id="load"></div>
+                    <div id="play_slider">
+                        <div id="knob_slider"></div>
+                    </div>
+                </div>
+
+                <div class="times">
+                    - <span id="remaining_time_container">00:00:00</span>
+                </div>
+
+            </div>
+            
+            <!--
             <div id="pause">play</div>
+            -->
         </div>
 </div>
 
-<div id="controls">
-    
-    <div class="times">
-        <span id="current_time_container">00:00:00</span>
-    </div>
-    
-    <div id="progresses_bar">
-        <div id="load"></div>
-        <div id="play_slider">
-            <div id="knob_slider"></div>
-        </div>
-    </div>
-    
-    <div class="times">
-        - <span id="remaining_time_container">00:00:00</span>
-    </div>
-    
-</div>
+
 
 <br />
 
@@ -104,7 +110,7 @@ Volume :
 <p> The video used in this demonstration page is from Framasoft and the original file can be found <a href="http://blip.tv/file/2296139">here</a> </p>
 <p> The subtitle file is a french translation made by Joan from Framalang and can be found <a href="http://www.framalang.org/wiki/Whats_new_in_firefox_three_five">here</a> </p>
 <p>
-    Want to see unit tests running ? you should go <a href="/Specs/?specs=master">here</a>
+    Want to see unit tests running ? you may go <a href="/Specs/?specs=master">here</a>
 </p>
 <script>
 
@@ -130,6 +136,18 @@ document.addEvent('domready', function() {
         step: 0,
     });
     new MooPlay.Control.LoadProgress(progressbar, $('video'));
+        
+    $('playpausebutton').addEvent('mousemove', function() {
+        if(!$('playpausebutton').hasClass('paused') && !$('controls').hasClass('displayed')) {
+            $('controls').addClass('displayed');
+            $('controls').removeClass.delay(5000,$('controls'),'displayed');
+        }
+    });
+    $('playpausebutton').addEvent('mouseleave', function() {
+        if(!$('playpausebutton').hasClass('paused')) {
+            $('controls').removeClass('displayed');
+        }
+    });
     
     reader = new MooPlay.Subtitle.Player($('video'), $('subtitle'), {
         onDisplay: function(element, container, overlapping) {
@@ -190,15 +208,17 @@ document.addEvent('domready', function() {
 
 <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-16704860-1']);
-  _gaq.push(['_trackPageview']);
+  if(document.location.host == 'mooplay.challet.eu') {
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-16704860-1']);
+      _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  }
 
 </script>
 
