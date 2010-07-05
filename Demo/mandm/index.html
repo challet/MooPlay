@@ -11,6 +11,9 @@
     <script src="/Assets/mootools-1.2.4-core-nc.js" type="text/javascript"></script>
     <script src="/Assets/mootools-1.2.4.4-more.js" type="text/javascript"></script>
     
+    <!-- MavSelectBox -->
+    <script src="/Assets/class.MavSelectBox.js" type="text/javascript"></script>
+    
     <!-- ProgressBar -->
     <script src="/Assets/ProgressBar.js" type="text/javascript"></script>
 
@@ -27,16 +30,40 @@
     <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub" />
 </a>
 
-<div id="video_container">
-        <video id="video" src="http://blip.tv/file/get/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="false" style=""></video>
-        <div id="subtitle"></div>
-        <div id="playpausebutton">
-            
-            <div id="layer"></div>
-            
-            <div id="controls">
+<div id="player">
+    <video id="video" src="http://blip.tv/file/get/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="false" style=""></video>
+    <div id="subtitle"></div>
 
-                <div class="times">
+    <div id="controls">
+
+        <div class="layer"></div>
+        
+        <div class="pannel">
+            <div id="line1">
+
+                <select id="subtitles_select">
+                    <option value="none" class="none">none</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="en">en</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="fr">fr</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="es">es</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="it">it</option>
+                </select>
+                
+                <a id="playpause" href="#"></a>
+            
+                <div id="sounds">
+                    <a id="mute" href="#"></a>
+                
+                    <div id="slider_volume">
+                        <div id="knob_volume"></div>
+                        <div id="full_volume"></div>
+                    </div>
+                
+                </div>
+            </div>
+
+            <div id="line2">
+                <div class="time">
                     <span id="current_time_container">00:00:00</span>
                 </div>
 
@@ -47,30 +74,31 @@
                     </div>
                 </div>
 
-                <div class="times">
+                <div class="time">
                     - <span id="remaining_time_container">00:00:00</span>
                 </div>
-
             </div>
             
-            <!--
-            <div id="pause">play</div>
-            -->
         </div>
+
+    </div>
+    
+    <!--
+    <div id="pause">play</div>
+    -->
+
 </div>
 
-
+<div class="clear"></div>
 
 <br />
 
+
+
+
 <form id="time_shift">
     
-    <label for="subtitles">subtitle :</label>
-    <select id="subtitles">
-        <option value="">none</option>
-        <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt">FR (SubRip format)</option>
-        <option value="/Assets/Framasoft-WhatsNewInFirefox35717.sub">FR (SubViewer format)</option>
-    </select>
+    
     
     <br />
     
@@ -81,14 +109,10 @@
     
 </form>
 
-Volume :
-<div id="slider_volume">
-    <div id="knob_volume"></div>
-</div>
 
-<a id="mute" href="#">
-    mute
-</a>
+                                                                  
+
+
 
 <hr />
 <p> The video used in this demonstration page is from Framasoft and the original file can be found <a href="http://blip.tv/file/2296139">here</a> </p>
@@ -102,13 +126,17 @@ var reader = null;
 
 document.addEvent('domready', function() {
 
-    new MooPlay.Control.PlayPause($('playpausebutton'), $('video'));
+    new MooPlay.Control.PlayPause($('playpause'), $('video'));
 
     new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
     new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
 
     var slider_volume = new Slider($('slider_volume'), $('knob_volume'), {steps: 100});
-    new MooPlay.Control.Volume(slider_volume, $('video'));
+    var volume_ctrl = new MooPlay.Control.Volume(slider_volume, $('video'));
+    $('video').addEvent('volumechange', function(event) {
+        var volume = event.target.muted ? 0 : event.target.volume;
+        $('full_volume').setStyle('width', String(volume * 100) + '%');
+    });
     new MooPlay.Control.Mute($('mute'), $('video'));
     
     var slider_progress = new Slider($('play_slider'), $('knob_slider'), {steps: 400});
@@ -121,14 +149,14 @@ document.addEvent('domready', function() {
     });
     new MooPlay.Control.LoadProgress(progressbar, $('video'));
         
-    $('playpausebutton').addEvent('mousemove', function() {
-        if(!$('playpausebutton').hasClass('paused') && !$('controls').hasClass('displayed')) {
+    $('playpause').addEvent('mousemove', function() {
+        if(!$('playpause').hasClass('paused') && !$('controls').hasClass('displayed')) {
             $('controls').addClass('displayed');
             $('controls').removeClass.delay(5000,$('controls'),'displayed');
         }
     });
-    $('playpausebutton').addEvent('mouseleave', function() {
-        if(!$('playpausebutton').hasClass('paused')) {
+    $('playpause').addEvent('mouseleave', function() {
+        if(!$('playpause').hasClass('paused')) {
             $('controls').removeClass('displayed');
         }
     });
@@ -169,7 +197,14 @@ document.addEvent('domready', function() {
         }
     });
     
-    $('subtitles').addEvent('change', function(e) {
+    var mySelect = new MavSelectBox({
+        elem: $('subtitles_select'),
+        
+    });
+    
+    
+    
+    $('subtitles_select').addEvent('change', function(e) {
         e.preventDefault();
         if(e.target.value != '') {
             var loader = new MooPlay.Subtitle.Loader( e.target.value, {
@@ -178,7 +213,7 @@ document.addEvent('domready', function() {
                 }
             });
         } else {
-               reader.unLoad();
+            reader.unLoad();
         }
         
     });
