@@ -41,6 +41,8 @@
         <div class="pannel">
             <div id="line1">
 
+                <a id="info" href="http://mootools.net/forge/p/mooplay" target="_blank"></a>
+
                 <select id="subtitles_select">
                     <option value="none" class="none">none</option>
                     <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="en">en</option>
@@ -61,7 +63,7 @@
                 
                 </div>
             </div>
-
+            <div class="clear"></div>
             <div id="line2">
                 <div class="time">
                     <span id="current_time_container">00:00:00</span>
@@ -199,7 +201,7 @@ document.addEvent('domready', function() {
     
     var mySelect = new MavSelectBox({
         elem: $('subtitles_select'),
-        
+        selectboxClass: 'subtitles_select'
     });
     
     
