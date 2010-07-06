@@ -128,7 +128,7 @@ The user can set the volume of the *video* through the *slider*.
     });
 
     
-The subtitles are loaded through **MooPlay.Subtitle.Parser.SubRip** performing an ajax request. They will be then displayed in the *subtitles_container* element and synchronized with the current position of the video.
+The subtitles are loaded through **MooPlay.Subtitle.Loader** performing an ajax request. They will be then displayed in the *subtitles_container* element and synchronized with the current position of the *video* element.
 
 **MooPlay.Subtitle.Player** can have an options hash as the third. Through it, you can specifiy your own *onDisplay* and *onDispose* callbacks functions. When called, the both of them will received 3 arguments :
 
