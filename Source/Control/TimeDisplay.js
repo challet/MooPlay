@@ -45,9 +45,12 @@ MooPlay.Control.TimeDisplay = new Class({
     },
     
     update: function(abs_movie_time) {
+        
+        var time = MooPlay.Utils.readable(MooPlay.Utils.timestampToSexagesimal(abs_movie_time));
+        
         this.container.empty().appendText(
             this.options.pattern.substitute(
-                MooPlay.Utils.timestampToSexagesimal(abs_movie_time)
+                time
             )
         );
     }

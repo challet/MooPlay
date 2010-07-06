@@ -44,29 +44,32 @@
                 <a id="info" href="http://mootools.net/forge/p/mooplay" target="_blank"></a>
 
                 <select id="subtitles_select">
-                    <option value="none" class="none">none</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="en">en</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="fr">fr</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="es">es</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="it">it</option>
+                    <option value="" class="none">none</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="en" disabled="disabled">en</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="fr">fr (.srt)</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.sub" class="fr">fr (.sub)</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="es" disabled="disabled">es</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="it" disabled="disabled">it</option>
                 </select>
                 
                 <a id="playpause" href="#"></a>
+
+                <a id="mute" href="#"></a>
             
-                <div id="sounds">
-                    <a id="mute" href="#"></a>
-                
-                    <div id="slider_volume">
-                        <div id="knob_volume"></div>
-                        <div id="full_volume"></div>
-                    </div>
-                
+                <div id="slider_volume">
+                    <div id="knob_volume"></div>
+                    <div id="full_volume"></div>
                 </div>
+                
+                <div id="separator"></div>
+                
+                <a id="fullscreen" href="#"></a>
+                
             </div>
             <div class="clear"></div>
             <div id="line2">
                 <div class="time">
-                    <span id="current_time_container">00:00:00</span>
+                    <span id="current_time_container">0:00:00</span>
                 </div>
 
                 <div id="progresses_bar">
@@ -77,7 +80,7 @@
                 </div>
 
                 <div class="time">
-                    - <span id="remaining_time_container">00:00:00</span>
+                    - <span id="remaining_time_container">0:00:00</span>
                 </div>
             </div>
             
@@ -100,8 +103,6 @@
 
 <form id="time_shift">
     
-    
-    
     <br />
     
     <label for="time_shift_setter">subs time shift :</label>
@@ -110,11 +111,6 @@
     <input type="submit" value="set" />
     
 </form>
-
-
-                                                                  
-
-
 
 <hr />
 <p> The video used in this demonstration page is from Framasoft and the original file can be found <a href="http://blip.tv/file/2296139">here</a> </p>
@@ -206,10 +202,10 @@ document.addEvent('domready', function() {
     
     
     
-    $('subtitles_select').addEvent('change', function(e) {
-        e.preventDefault();
-        if(e.target.value != '') {
-            var loader = new MooPlay.Subtitle.Loader( e.target.value, {
+    mySelect.addEvent('select', function() {
+        var value = $('subtitles_select').value;
+        if(value != '') {
+            var loader = new MooPlay.Subtitle.Loader( value, {
                 onComplete: function(subs_hash) {
                     reader.loadSubtitles(subs_hash);
                 }
