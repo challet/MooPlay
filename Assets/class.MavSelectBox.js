@@ -118,7 +118,7 @@ var MavSelectBox = new Class({
 		}).inject(this.element, 'after');
 		
 		// create display element for selectbox
-		this.elementDisplay = new Element('a', {'href':'javascript:void(0)'}).inject(this.elementSelect, 'top');
+		this.elementDisplay = new Element('a', {'href':'#'}).inject(this.elementSelect, 'top');
 		if (this.elementCopy.get('tabindex') != 0) {
 			this.elementDisplay.set('tabindex', this.elementCopy.get('tabindex'));
 		}
@@ -128,7 +128,7 @@ var MavSelectBox = new Class({
 
 		// create the options element
 		this.elementOptions = new Element('ul', {
-			'styles': { 'width': wh.x },
+			//'styles': { 'width': wh.x },
 			'opacity': (this.options.useFx ? 0 : 1),
 			'class': this.options.selectmenuClass
 		}).inject(this.elementSelect);
@@ -368,7 +368,8 @@ var MavSelectBox = new Class({
 		}
 	},
 
-	show: function() {
+	show: function(e) {
+	    e.preventDefault();
 		var coords = this.elementOptions.retrieve('coords');
 		var sElem = this.elementSelect.getCoordinates(), sElem_top = (sElem.top + sElem.height);
 
@@ -394,10 +395,7 @@ var MavSelectBox = new Class({
 
 		this.elementOptions.setStyles({
 			'display': '', 
-			'height': height, 
-			'top': sElem_top, 
-			'left': sElem.left,
-			'margin': 0
+			'height': height
 		});
 		this.scroll();
 

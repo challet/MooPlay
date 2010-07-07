@@ -22,28 +22,26 @@
 #subtitles_select {width: 105px; height:22px; margin: 18px 0 19px 0; float: left; }
 div.subtitles_select {width: 105px; height:22px; margin: 18px 0 19px 0; float: left; }
 div.subtitles_select a { display: block; background: url(img/fond_soustitres.png); width: 90px; height: 20px; padding: 2px 15px 0 0; text-align:center; text-decoration: none; color: #c3e1e6; font-size: 14px; }
-ul.select-box-options { list-style: none; background: #fff; border: 1px solid #ccc; overflow-y: auto; z-index: 690; }
-.select-box-alt { background-color: #eaf4ff; }
-ul.select-box-options { margin:0; padding:0; }
-ul.select-box-options li {padding: 0 0 0 20px; background: no-repeat 2px ;} 
-ul.select-box-options li.optgroup>span { font-size: 105%; font-style: italic; }
-ul.select-box-options li>span { display: block; padding: 2px 5px; }
-ul.select-box-options li.selected { background-color: highlight !important; color: highlighttext !important; }
-ul.select-box-options li.disabled { color: gray; }
-ul.select-box-options li.none { background:url(img/drapeau_no.png) no-repeat 2px ;}
-ul.select-box-options li.fr   { background:url(img/drapeau_fr.png) no-repeat 2px ;}
-ul.select-box-options li.en   { background:url(img/drapeau_en.png) no-repeat 2px ;}
-ul.select-box-options li.es   { background:url(img/drapeau_es.png) no-repeat 2px ;}
-ul.select-box-options li.it   { background:url(img/drapeau_it.png) no-repeat 2px ;}
+div.subtitles_select ul.options { list-style: none; background: url(img/fond_soustitreDeplie.png) repeat-y; overflow-y: auto; width:51px; margin: -6px 0 0 0; padding: 4px 0 0 0 ; float:right;}
+div.subtitles_select ul.options li {background-repeat: no-repeat; background-position: 2px center ; width: 44px; margin: 1px 4px 1px 3px; padding: 2px 0 ; font-size: 13px; text-align:center; color: gray;} 
+div.subtitles_select ul.options li.selected { background-color: #3d3d3d; color: #c3e1e6; }
+div.subtitles_select ul.options li.none { background-image:url(img/drapeau_no.png);}
+div.subtitles_select ul.options li.fr   { background-image:url(img/drapeau_fr.png);}
+div.subtitles_select ul.options li.en   { background-image:url(img/drapeau_en.png);}
+div.subtitles_select ul.options li.es   { background-image:url(img/drapeau_es.png);}
+div.subtitles_select ul.options li.it   { background-image:url(img/drapeau_it.png);}
+div.subtitles_select ul.options li span { margin: 0 0 0 18px; white-space: nowrap;}
+
+
 /* fin de séléction des sous-titres */
 
 #player #controls .pannel #line1 #playpause {display:block; width: 60px; height:59px; background: url(img/bt_play.png); float: left; margin: 0 92px 0 51px;}
 #player #controls .pannel #line1 #playpause.paused {background: url(img/bt_pause.png);}
 #player #controls .pannel #line1 #mute {display:block; width:21px; height:20px; background: url(img/bt_mute.png); float: left; margin: 19px 0 21px 0; }
-#player #controls .pannel #line1 #mute.muted {background: #ff0000}
-#player #controls .pannel #line1 #slider_volume {width:22px; height:18px; background: url(img/volume_off.png); float: left; margin: 19px 0 21px 5px;}
-#player #controls .pannel #line1 #slider_volume #full_volume {width:50%; height:100%; background: url(img/volume_on.png);}
-#player #controls .pannel #line1 #slider_volume #knob_volume {width:1px; background:transparent;}
+#player #controls .pannel #line1 #mute.muted {background: url(img/bt_muteOn.png);}
+#player #controls .pannel #line1 #slider_volume {width:22px; height:18px; background: url(img/volume_off.png); float: left; margin: 19px 0 21px 5px; position:relative;}
+#player #controls .pannel #line1 #slider_volume #full_volume {width:50%; height:100%; background: url(img/volume_on.png);position:absolute;top:0;left:0;}
+#player #controls .pannel #line1 #slider_volume #knob_volume {width:3px; height:100%; background:transparent; cursor:pointer;}
 #player #controls .pannel #line1 #separator {display:block; float:left; width:1px; height:20px; border-left: 1px #000 solid; background:#c3e1e6;margin: 17px 0 21px 12px;}
 #player #controls .pannel #line1 #fullscreen {display:block; width: 17px; height:16px; background: url(img/bt_fullscreen.png); float: left; margin: 19px 0 21px 12px; }
 

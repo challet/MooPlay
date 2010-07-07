@@ -44,12 +44,12 @@
                 <a id="info" href="http://mootools.net/forge/p/mooplay" target="_blank"></a>
 
                 <select id="subtitles_select">
-                    <option value="" class="none">none</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="en" disabled="disabled">en</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="fr">fr (.srt)</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.sub" class="fr">fr (.sub)</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="es" disabled="disabled">es</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="it" disabled="disabled">it</option>
+                    <option value="" class="none">no</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="en">en</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="fr">fr</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.sub" class="fr">fr</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="es">es</option>
+                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="it">it</option>
                 </select>
                 
                 <a id="playpause" href="#"></a>
@@ -57,8 +57,8 @@
                 <a id="mute" href="#"></a>
             
                 <div id="slider_volume">
-                    <div id="knob_volume"></div>
                     <div id="full_volume"></div>
+                    <div id="knob_volume"></div>
                 </div>
                 
                 <div id="separator"></div>
@@ -197,7 +197,9 @@ document.addEvent('domready', function() {
     
     var mySelect = new MavSelectBox({
         elem: $('subtitles_select'),
-        selectboxClass: 'subtitles_select'
+        selectboxClass: 'subtitles_select',
+        selectmenuClass: 'options',
+        optionClass: ''
     });
     
     
