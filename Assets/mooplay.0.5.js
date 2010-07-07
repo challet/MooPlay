@@ -212,7 +212,11 @@ provides:
 */
 
 MooPlay.Control.LoadProgress = new Class({
-
+    
+    options: {
+        preload_class: 'preloading'
+    },
+    
     Implements: [Options],
         
     initialize: function(progressbar, video, options) {
@@ -222,13 +226,30 @@ MooPlay.Control.LoadProgress = new Class({
         this.progressbar = progressbar;
         this.video = $(video);
         
-        this.video.addEvent('progress', function(e, video, data) {
-            if(e.event.lengthComputable) {
-                this.tick(e.event.loaded, e.event.total);
-            }
-        }.bind(this));
+        this.video.addEvents({
+            'progress': function(e, video, data) {
+                if(e.event.lengthComputable) {
+                    this.tick(e.event.loaded, e.event.total);
+                } else {
+                    this.preload.pass(true, this);
+                }
+            }.bind(this),
+            'loadstart': this.preload.pass(true, this),
+            'seeking': this.preload.pass(true, this),
+            'dataunavailable': this.preload.pass(true, this),
+            'loadedmetadata': this.preload.pass(false, this),
+            'seeked': this.preload.pass(false, this)
+        });
         
         
+    },
+    
+    preload: function(state) {
+        if(state) {
+            this.progressbar.options.container.addClass(this.options.preload_class);
+        } else {
+            this.progressbar.options.container.removeClass(this.options.preload_class);
+        }
     },
     
     tick: function(loaded, total) {
