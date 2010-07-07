@@ -236,7 +236,6 @@ MooPlay.Control.LoadProgress = new Class({
             }.bind(this),
             'loadstart': this.preload.pass(true, this),
             'seeking': this.preload.pass(true, this),
-            'dataunavailable': this.preload.pass(true, this),
             'loadedmetadata': this.preload.pass(false, this),
             'seeked': this.preload.pass(false, this)
         });
