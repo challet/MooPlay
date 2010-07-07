@@ -71,9 +71,10 @@
                 <div class="time">
                     <span id="current_time_container">0:00:00</span>
                 </div>
-
+                
                 <div id="progresses_bar">
                     <div id="load"></div>
+                    <div id="time_tooltip"></div>
                     <div id="play_slider">
                         <div id="knob_slider"></div>
                     </div>
@@ -140,6 +141,24 @@ document.addEvent('domready', function() {
     var slider_progress = new Slider($('play_slider'), $('knob_slider'), {steps: 400});
     new MooPlay.Control.PlayProgress(slider_progress, $('video'));
     
+    var time_tooltip = new MooPlay.Control.TimeDisplay($('video'), $('time_tooltip'), { pattern: '{h}:{m}', auto_update: false});
+    
+    $('play_slider').addEvents({
+        'mousemove':  function(event) {
+            // make tooltip to appear
+            var position = event.page[slider_progress.axis] - slider_progress.element.getPosition()[slider_progress.axis] - slider_progress.half;
+    		position = position.limit(-slider_progress.options.offset, slider_progress.full -slider_progress.options.offset);
+            time_tooltip.update(1000 * $('video').duration * slider_progress.toStep(position) / slider_progress.steps);
+            $('time_tooltip').setStyle('left', (String(Math.round(position - 9)) + 'px'));
+        },
+        'mouseenter': function() {
+            $('time_tooltip').setStyle('display', 'block');
+        },
+        'mouseleave': function() {
+            $('time_tooltip').setStyle('display', 'none');
+        }
+    });
+    
     var progressbar = new ProgressBar({
         container: $('load'),
         startPercentage: 0,
@@ -159,7 +178,7 @@ document.addEvent('domready', function() {
         }
     });
     
-    reader = new MooPlay.Subtitle.Player($('video'), $('subtitle'), {
+    var reader = new MooPlay.Subtitle.Player($('video'), $('subtitle'), {
         onDisplay: function(element, container, overlapping) {
             element.addClass('overlapping' + String(overlapping));
             element.setStyles({
@@ -202,7 +221,8 @@ document.addEvent('domready', function() {
         optionClass: '',
         fxProperty: 'height',
         fxFrom: 0,
-        fxTo: 115
+        fxTo: 115,
+        showStyles: true
     });
     
     

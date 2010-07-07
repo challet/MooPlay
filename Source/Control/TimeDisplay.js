@@ -24,7 +24,8 @@ MooPlay.Control.TimeDisplay = new Class({
     
     options: {
         pattern: '{h}:{m}:{s},{ms}',
-        current: true // vs 'remaining'
+        current: true, // vs 'remaining'
+        auto_update: true
     },
     
     initialize: function(video, container, options) {
@@ -34,13 +35,15 @@ MooPlay.Control.TimeDisplay = new Class({
         this.container = $(container);
         this.video = $(video);
         
-        this.video.addEvent('timeupdate', function(event) {
-            if(this.options.current) {
-                this.update(event.target.currentTime * 1000);
-            } else {
-                this.update(Math.max(0, event.target.duration - event.target.currentTime) * 1000);
-            }
-        }.bind(this));
+        if(this.options.auto_update) {
+            this.video.addEvent('timeupdate', function(event) {
+                if(this.options.current) {
+                    this.update(event.target.currentTime * 1000);
+                } else {
+                    this.update(Math.max(0, event.target.duration - event.target.currentTime) * 1000);
+                }
+            }.bind(this));
+        }
         
     },
     

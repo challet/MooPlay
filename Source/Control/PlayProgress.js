@@ -56,17 +56,15 @@ MooPlay.Control.PlayProgress = new Class({
     },
     
     tick: function(event) {
-
         if(!this.suspended) {
             position = this.slider.toPosition( event.target.currentTime / event.target.duration * this.slider.range );
             this.slider.knob.setStyle(this.slider.property, position);
         }
-
     },
 
-    change: function(pos) {
+    change: function(step) {
         this.suspended = true;
-        this.video.currentTime = this.video.duration * pos / this.slider.steps;
+        this.video.currentTime = this.video.duration * step / this.slider.steps;
     }
 
 });

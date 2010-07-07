@@ -373,6 +373,11 @@ var MavSelectBox = new Class({
 
 	show: function(e) {
 	    e.preventDefault();
+	    
+	    if(this.showing) {
+	        return this.hide();
+	    }
+	    
 		var coords = this.elementOptions.retrieve('coords');
 		var sElem = this.elementSelect.getCoordinates(), sElem_top = (sElem.top + sElem.height);
 
