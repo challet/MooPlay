@@ -47,7 +47,7 @@ div.subtitles_select ul.options li span { margin: 0 0 0 18px; white-space: nowra
 #player #controls .pannel #line1 #fullscreen {display:block; width: 17px; height:16px; background: url(img/bt_fullscreen.png); float: left; margin: 19px 0 21px 12px; }
 
 /* 2nd line of controls pannel */
-#player #controls .pannel #line2 {width:100%;}
+#player #controls .pannel #line2 {width:100%; margin: 16px 0 0 0 ;}
 #player #controls .pannel #line2 div.time { float:left; width:60px; text-align:center; line-height: 18px; white-space: nowrap; font-size:14px; color:#c3e1e6; margin: 0 4px; font-size: 13px;}
 #player #controls .pannel #line2 div#progresses_bar { float:left; width:312px; height:6px; margin: 5px 0; background:#a0a0a0; position:relative; -moz-border-radius: 3px;
 -webkit-border-radius: 3px;}
@@ -59,7 +59,7 @@ div.subtitles_select ul.options li span { margin: 0 0 0 18px; white-space: nowra
 -webkit-border-radius: 3px;}
 #player #controls .pannel #line2 div#progresses_bar div#load #progress-bar-box-id #progress-bar-percentage-id {background-color: #00d8ff; height:100%; -moz-border-radius: 3px;
 -webkit-border-radius: 3px;}
-#player #controls .pannel #line2 div#progresses_bar #time_tooltip {position: absolute; top: -17px; left: -12px; width: 26px; height: 17px; background: url(img/etiquette_temps.png); font-size: 12px; text-align: center; display: none;}
+#player #controls .pannel #line2 div#progresses_bar #time_tooltip {position: absolute; top: -18px; left: -12px; width: 26px; height: 17px; background: url(img/etiquette_temps.png); font-size: 12px; text-align: center; display: none;}
 
     
 
