@@ -25,6 +25,9 @@ var MavSelectBox = new Class({
 		elem: null,
 		filter: null,
 		fxOptions: {},
+		fxProperty: 'opacity',
+		fxFrom: 0, // when appears
+		fxTo: 1, // when appears
 		groupClass: 'select-box-options-group',
 		maxShow: null,
 		minShow: 3,
@@ -129,7 +132,7 @@ var MavSelectBox = new Class({
 		// create the options element
 		this.elementOptions = new Element('ul', {
 			//'styles': { 'width': wh.x },
-			'opacity': (this.options.useFx ? 0 : 1),
+			//'opacity': (this.options.useFx ? 0 : 1),
 			'class': this.options.selectmenuClass
 		}).inject(this.elementSelect);
 
@@ -140,7 +143,7 @@ var MavSelectBox = new Class({
 
 		// create the fx object if useFx is set
 		this.fx = this.options.useFx ? new Fx.Tween(this.elementOptions, $merge({
-			'duration': '200', 
+			'duration': 150, 
 			'link': 'cancel'
 		}, this.options.fxOptions)) : null;
 
@@ -379,7 +382,7 @@ var MavSelectBox = new Class({
 		}
 
 		var h = ((window.getSize().y + window.getScroll().y) - sElem_top);
-		var height = (coords.height >= h ? 0 : 'auto'), showing = 0;
+		var height = (coords.height >= h ? 0 : ''), showing = 0;
 
 		if (coords.height >= h) {
 			$each(this.get_options(), function(_elem) {
@@ -394,8 +397,7 @@ var MavSelectBox = new Class({
 		}
 
 		this.elementOptions.setStyles({
-			'display': '', 
-			'height': height
+			'display': '' 
 		});
 		this.scroll();
 
@@ -404,7 +406,7 @@ var MavSelectBox = new Class({
 		this.focused.addClass(this.options.selectClass);
 		this.fireEvent('show');
 
-		if (this.options.useFx) { this.fx.start('opacity', 0, 1); }
+		if (this.options.useFx) { this.fx.start(this.options.fxProperty, this.options.fxFrom, this.options.fxTo); }
 		
 		// fixes chrome/safari focus bug
 		this.elementDisplay.focus();
@@ -417,7 +419,7 @@ var MavSelectBox = new Class({
 		}
 		else if (this.showing) {
 			if (this.options.useFx) {
-				this.fx.start('opacity', 1, 0).chain(function() {
+				this.fx.start(this.options.fxProperty, this.options.fxTo, this.options.fxFrom).chain(function() {
 					this.elementOptions.scrollTop = 0;
 					this.elementOptions.setStyle('display', 'none');
 

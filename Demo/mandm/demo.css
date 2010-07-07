@@ -21,9 +21,9 @@
 /* sélection des sous-titres, TODO: adapter */
 #subtitles_select {width: 105px; height:22px; margin: 18px 0 19px 0; float: left; }
 div.subtitles_select {width: 105px; height:22px; margin: 18px 0 19px 0; float: left; }
-div.subtitles_select a { display: block; background: url(img/fond_soustitres.png); width: 90px; height: 20px; padding: 2px 15px 0 0; text-align:center; text-decoration: none; color: #c3e1e6; font-size: 14px; }
-div.subtitles_select ul.options { list-style: none; background: url(img/fond_soustitreDeplie.png) repeat-y; overflow-y: auto; width:51px; margin: -6px 0 0 0; padding: 4px 0 0 0 ; float:right;}
-div.subtitles_select ul.options li {background-repeat: no-repeat; background-position: 2px center ; width: 44px; margin: 1px 4px 1px 3px; padding: 2px 0 ; font-size: 13px; text-align:center; color: gray;} 
+div.subtitles_select a { position:relative; z-index:8; display: block; background: url(img/fond_soustitres.png); width: 90px; height: 20px; padding: 2px 15px 0 0; text-align:center; text-decoration: none; color: #c3e1e6; font-size: 14px; outline:none }
+div.subtitles_select ul.options { position:relative;z-index:7;list-style: none; background: url(img/fond_soustitreDeplie.png) repeat-y; overflow-y: hidden; width:51px; margin: -8px -1px 0 0; padding: 6px 0 0 0 ; float:right; height:0px; }
+div.subtitles_select ul.options li {background-repeat: no-repeat; background-position: 2px center ; width: 43px; margin: 1px 5px 1px 3px; padding: 2px 0 ; font-size: 13px; text-align:center; color: gray;} 
 div.subtitles_select ul.options li.selected { background-color: #3d3d3d; color: #c3e1e6; }
 div.subtitles_select ul.options li.none { background-image:url(img/drapeau_no.png);}
 div.subtitles_select ul.options li.fr   { background-image:url(img/drapeau_fr.png);}
