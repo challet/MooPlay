@@ -246,32 +246,33 @@ document.addEvent('domready', function() {
         reader.setTimeShift($('time_shift_setter').value);
     });
     
+
     var controls_fx = new Fx.Tween($('controls'), {property: 'opacity', link: 'ignore', duration: 300});
     var timer_hide = null;
-    $('player').addEvents({
-        'mousemove': function() {
-            $clear(timer_hide);
-            $('player').setStyle('cursor', 'default');
+    var visible = false;
+    function pannel_show() {
+        $clear(timer_hide);
+        timer_hide = window.setTimeout(pannel_hide, 5000);
+        if(!visible) {
             controls_fx.cancel();
+            visible = true;
+            $('player').setStyle('cursor', 'default');
             controls_fx.start(1);
-            timer_hide = window.setTimeout(function() {
-                $('player').setStyle('cursor', 'none');
-                controls_fx.start(0);
-            }, 4000);
-        },
-        'mouseleave': function() {
-            $clear(timer_hide);
-            $('player').setStyle('cursor', 'default');
-            controls_fx.cancel();
-            controls_fx.start(0);
-        },
-        'click': function() {
-            $clear(timer_hide);
-            timer_hide = window.setTimeout(function() {
-                $('player').setStyle('cursor', 'none');
-                controls_fx.start(0);
-            }, 4000);
         }
+        
+    }
+    function pannel_hide() {
+        if(visible) {
+            controls_fx.cancel();
+            visible = false;
+            $('player').setStyle('cursor', 'none');
+            controls_fx.start(0);
+        }
+    }
+    $('player').addEvents({
+        'mousemove': pannel_show,
+        'click': pannel_show,
+        'mouseleave': pannel_hide
     });
     
     
