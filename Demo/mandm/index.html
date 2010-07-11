@@ -264,6 +264,13 @@ document.addEvent('domready', function() {
             $('player').setStyle('cursor', 'default');
             controls_fx.cancel();
             controls_fx.start(0);
+        },
+        'click': function() {
+            $clear(timer_hide);
+            timer_hide = window.setTimeout(function() {
+                $('player').setStyle('cursor', 'none');
+                controls_fx.start(0);
+            }, 4000);
         }
     });
     
