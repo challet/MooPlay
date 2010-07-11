@@ -20,6 +20,10 @@ provides:
 
 MooPlay.Control.Volume = new Class({
 
+    options: {
+        auto_unmute: true
+    },
+    
     Implements: [Options],
         
     initialize: function(slider, video, options) {
@@ -40,6 +44,9 @@ MooPlay.Control.Volume = new Class({
 
     change: function(pos) {
         this.video.volume = pos / this.slider.steps;
+        if(this.options.auto_unmute && this.video.muted) {
+            this.video.muted = false;
+        }
     }
 
 });
