@@ -32,11 +32,9 @@ div.subtitles_select ul.options li.es   { background-image:url(img/drapeau_es.pn
 div.subtitles_select ul.options li.it   { background-image:url(img/drapeau_it.png);}
 div.subtitles_select ul.options li span { margin: 0 0 0 18px; white-space: nowrap;}
 
-
 /* fin de séléction des sous-titres */
-
-#player #controls .pannel #line1 #playpause {display:block; width: 60px; height:59px; background: url(img/bt_play.png); float: left; margin: 0 92px 0 51px;}
-#player #controls .pannel #line1 #playpause.paused {background: url(img/bt_pause.png);}
+#player #controls .pannel #line1 #playpause {display:block; width: 60px; height:59px; background: url(img/bt_pause.png); float: left; margin: 0 92px 0 51px;}
+#player #controls .pannel #line1 #playpause.paused {background: url(img/bt_play.png);}
 #player #controls .pannel #line1 #mute {display:block; width:21px; height:20px; background: url(img/bt_mute.png); float: left; margin: 19px 0 21px 0; }
 #player #controls .pannel #line1 #mute.muted {background: url(img/bt_muteOn.png);}
 #player #controls .pannel #line1 #slider_volume {width:22px; height:18px; background: url(img/volume_off.png); float: left; margin: 19px 0 21px 5px; position:relative;}
