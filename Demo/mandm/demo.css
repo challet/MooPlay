@@ -37,9 +37,9 @@ div.subtitles_select ul.options li span { margin: 0 0 0 18px; white-space: nowra
 #player #controls .pannel #line1 #playpause.paused {background: url(img/bt_play.png);}
 #player #controls .pannel #line1 #mute {display:block; width:21px; height:20px; background: url(img/bt_mute.png); float: left; margin: 19px 0 21px 0; }
 #player #controls .pannel #line1 #mute.muted {background: url(img/bt_muteOn.png);}
-#player #controls .pannel #line1 #slider_volume {width:22px; height:18px; background: url(img/volume_off.png); float: left; margin: 19px 0 21px 5px; position:relative;}
-#player #controls .pannel #line1 #slider_volume #full_volume {width:50%; height:100%; background: url(img/volume_on.png);position:absolute;top:0;left:0;}
-#player #controls .pannel #line1 #slider_volume #knob_volume {width:3px; height:100%; background:transparent; cursor:pointer;}
+#player #controls .pannel #line1 #slider_volume {width:22px; height:18px; background: url(img/volume_off.png); float: left; margin: 19px 0 21px 5px; position:relative; cursor:pointer;}
+#player #controls .pannel #line1 #slider_volume #full_volume {width:100%; height:100%; background: url(img/volume_on.png);position:absolute;top:0;left:0;}
+#player #controls .pannel #line1 #slider_volume #knob_volume {width:0px; height:100%; background:transparent; cursor:pointer;}
 #player #controls .pannel #line1 #separator {display:block; float:left; width:1px; height:20px; border-left: 1px #000 solid; background:#c3e1e6;margin: 17px 0 21px 12px;}
 #player #controls .pannel #line1 #fullscreen {display:block; width: 17px; height:16px; background: url(img/bt_fullscreen.png); float: left; margin: 19px 0 21px 12px; }
 
