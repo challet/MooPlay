@@ -11,6 +11,9 @@ context.Sets = {
     'Control/FastMove/stopMove',
     'Control/FastMove/tick',
     
+    'Control/FullScreen/specificInitialize', // todo
+    'Control/FullScreen/toggleState', // todo
+    
     'Control/LoadProgress/initialize', // todo
     'Control/LoadProgress/tick', // todo
     
