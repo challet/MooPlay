@@ -27,9 +27,9 @@
     <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub" />
 </a>
 
-<div style="width:400px; height:300px;">
-    <div style="position:relative;">
-        <video id="video" src="http://blip.tv/file/get/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="false" style="width:400px;height:300px;position:absolute;top:0;z-index:1"></video>
+<div style="width:400px; height:300px; background: #000" id="container">
+    <div style="position:relative;width:100%; height:100%;">
+        <video id="video" src="http://blip.tv/file/get/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="false" style="width:100%;height:100%;position:absolute;top:0;z-index:1"></video>
         <div id="subtitle"></div>
         <div style="clear:both;"></div>
     </div>
@@ -89,6 +89,12 @@ Volume :
     mute
 </a>
 
+<br />
+
+<a id="fullscreen" href="#">
+    fullscreen
+</a>
+
 <hr />
 <p> The video used in this demonstration page is from Framasoft and the original file can be found <a href="http://blip.tv/file/2296139">here</a> </p>
 <p> The subtitle file is a french translation made by Joan from Framalang and can be found <a href="http://www.framalang.org/wiki/Whats_new_in_firefox_three_five">here</a> </p>
@@ -115,6 +121,7 @@ document.addEvent('domready', function() {
     new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
     new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
     
+    new MooPlay.Control.FullScreen($('fullscreen'), $('container') );
     
     var progressbar = new ProgressBar({
         container: $('progress_container'),
