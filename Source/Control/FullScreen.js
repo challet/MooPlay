@@ -36,7 +36,7 @@ MooPlay.Control.FullScreen = new Class({
             }.bind(this)
         });
         
-        this.initialState: {
+        this.initialState = {
             coordinates: this.video.getCoordinates(document.body),
             position: this.video.getStyle('position')
         };
