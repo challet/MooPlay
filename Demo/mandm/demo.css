@@ -1,6 +1,6 @@
-#player { width:560px;height:420px;position:relative; border: 1px #d0d0d0 dashed;}
+#player { width:560px;height:420px;position:relative; border: 1px #d0d0d0 dashed; background:#000;}
 
-#player #video { width:100%;height:100%;position:absolute;top:0;z-index:1; }
+#player #video { width:100%;height:100%;position:absolute;top:0;left:0;z-index:1; }
 
 #player #subtitle { overflow: hidden; width:100%; position:absolute; bottom:0; z-index:2; }
 #player #subtitle div { position:relative; width:100%; }

@@ -143,6 +143,8 @@ document.addEvent('domready', function() {
     
     var time_tooltip = new MooPlay.Control.TimeDisplay($('video'), $('time_tooltip'), { pattern: '{h}:{m}', auto_update: false});
     
+    new MooPlay.Control.FullScreen($('fullscreen'), $('player') );
+    
     $('play_slider').addEvents({
         'mousemove':  function(event) {
             // make tooltip to appear
