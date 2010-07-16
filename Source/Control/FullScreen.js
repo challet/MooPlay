@@ -38,13 +38,13 @@ MooPlay.Control.FullScreen = new Class({
         
         this.initialState = {
             coordinates: this.video.getCoordinates(document.body),
-            position: this.video.getStyle('position')
+            style: this.video.getStyles('position', 'top', 'left'),
         };
         this.fx = new Fx.Morph(this.video, {
             link: 'cancel',
             onComplete: function() {
                 if(this.full_screened) {
-                    this.video.setStyle('position', this.initialState.position);
+                    this.video.setStyles(this.initialState.style);
                 } else {
                     this.video.setStyles({
                         width: '100%',
@@ -71,7 +71,11 @@ MooPlay.Control.FullScreen = new Class({
                 left: this.initialState.coordinates.left
             });
         } else {
-            this.video.setStyle('position', 'fixed');
+            this.video.setStyles({
+                position: 'fixed',
+                top: String(this.initialState.coordinates.top) + 'px',
+                left: String(this.initialState.coordinates.left) + 'px' 
+            });
             var body_dimension = document.body.getCoordinates();
             this.fx.start({
                 height: body_dimension.height,
