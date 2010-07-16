@@ -15,7 +15,7 @@ The video element methods can be called by other scripts, MooPlay objects will a
 
 More functionnalities will be available.
 
-![Screenshot](http://img441.imageshack.us/img441/1659/image4kp.png)
+![Screenshot](http://img441.imageshack.us/img441/2513/image4vc.png)
 
 
 Demo
