@@ -18,10 +18,17 @@ More functionnalities will be available.
 ![Screenshot](http://img441.imageshack.us/img441/2513/image4vc.png)
 
 
-Demo
-----
+### Demo
 
 A demo page is available at [http://mooplay.challet.eu/](http://mooplay.challet.eu/) : not a pretty design, but all the features are viewable. You should use an html5 browser supporting ogg codecs.
+
+### Unit Tests
+
+About [a hundred tests are running](http://mooplay.challet.eu/Specs/?specs=master) on each new step, to make sure all the functionnalities are still available.
+
+### Any feedback or ideas about a feature ?
+
+Please [fill the issue form on GitHub](http://github.com/challet/MooPlay/issues) or [send me message](http://github.com/inbox/new/challet)
 
 
 How to use
@@ -135,16 +142,3 @@ The subtitles are loaded through **MooPlay.Subtitle.Loader** performing an ajax 
 * *the element to be displayed*
 * *the container* as specified at initialization
 * *the overlapping level* : in case several subtitles should be displayed at the same time, each one has a different level associated as integer, beggining to 0 and going up according to the displaying order through time.
-
-Unit Tests
-----------
-
-About [a hundred tests are running](http://mooplay.challet.eu/Specs/?specs=master) on each new step, to make sure all the functionnalities are still available.
-
-Any feedback or ideas about a feature ?
----------------------------------------
-
-Please [fill the issue form on GitHub](http://github.com/challet/MooPlay/issues) or [send me message](http://github.com/inbox/new/challet)
-
-
-    
