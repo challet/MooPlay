@@ -30,68 +30,67 @@
     <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub" />
 </a>
 
-<div id="player">
-    <video id="video" src="http://blip.tv/file/get/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="false" style=""></video>
-    <div id="subtitle"></div>
+<div id="static_container">
+    <div id="player">
+        <video id="video" src="http://blip.tv/file/get/Framasoft-WhatsNewInFirefox35717.ogv" autobuffer="false" style=""></video>
+        <div id="subtitle"></div>
 
-    <div id="controls">
+        <div id="controls">
 
-        <div class="layer"></div>
+            <div class="layer"></div>
         
-        <div class="pannel">
-            <div id="line1">
+            <div class="pannel">
+                <div id="line1">
 
-                <a id="info" href="http://mootools.net/forge/p/mooplay" target="_blank"></a>
+                    <a id="info" href="http://mootools.net/forge/p/mooplay" target="_blank"></a>
 
-                <select id="subtitles_select">
-                    <option value="" class="none">no</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="en">en</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="fr">fr</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.sub" class="fr">fr</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="es">es</option>
-                    <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="it">it</option>
-                </select>
+                    <select id="subtitles_select">
+                        <option value="" class="none">no</option>
+                        <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="en">en</option>
+                        <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="fr">fr</option>
+                        <option value="/Assets/Framasoft-WhatsNewInFirefox35717.sub" class="fr">fr</option>
+                        <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="es">es</option>
+                        <option value="/Assets/Framasoft-WhatsNewInFirefox35717.srt" class="it">it</option>
+                    </select>
                 
-                <a id="playpause" href="#"></a>
+                    <a id="playpause" href="#"></a>
 
-                <a id="mute" href="#"></a>
+                    <a id="mute" href="#"></a>
             
-                <div id="slider_volume">
-                    <div id="full_volume"></div>
-                    <div id="knob_volume"></div>
+                    <div id="slider_volume">
+                        <div id="full_volume"></div>
+                        <div id="knob_volume"></div>
+                    </div>
+                
+                    <div id="separator"></div>
+                
+                    <a id="fullscreen" href="#"></a>
+                
                 </div>
+                <div class="clear"></div>
+                <div id="line2">
+                    <div class="time">
+                        <span id="current_time_container">0:00:00</span>
+                    </div>
                 
-                <div id="separator"></div>
-                
-                <a id="fullscreen" href="#"></a>
-                
-            </div>
-            <div class="clear"></div>
-            <div id="line2">
-                <div class="time">
-                    <span id="current_time_container">0:00:00</span>
-                </div>
-                
-                <div id="progresses_bar">
-                    <div id="load"></div>
-                    <div id="time_tooltip"></div>
-                    <div id="play_slider">
-                        <div id="knob_slider"></div>
+                    <div id="progresses_bar">
+                        <div id="load"></div>
+                        <div id="time_tooltip"></div>
+                        <div id="play_slider">
+                            <div id="knob_slider"></div>
+                        </div>
+                    </div>
+
+                    <div class="time">
+                        - <span id="remaining_time_container">0:00:00</span>
                     </div>
                 </div>
-
-                <div class="time">
-                    - <span id="remaining_time_container">0:00:00</span>
-                </div>
-            </div>
             
+            </div>
+
         </div>
 
     </div>
-    
-    <!--
-    <div id="pause">play</div>
-    -->
 
 </div>
 
@@ -116,7 +115,7 @@
 <hr />
 <p> The video used in this demonstration page is from Framasoft and the original file can be found <a href="http://blip.tv/file/2296139">here</a> </p>
 <p> The subtitle file is a french translation made by Joan from Framalang and can be found <a href="http://www.framalang.org/wiki/Whats_new_in_firefox_three_five">here</a> </p>
-<p>
+<p style="height:500px;">
     Want to see unit tests running ? you may go <a href="/Specs/?specs=master">here</a>
 </p>
 <script>
