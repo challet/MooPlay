@@ -733,13 +733,13 @@ MooPlay.Control.TimeDisplay = new Class({
     
     update: function(abs_movie_time) {
         
-        var time = MooPlay.Utils.readable(MooPlay.Utils.timestampToSexagesimal(abs_movie_time));
-        
-        this.container.empty().appendText(
-            this.options.pattern.substitute(
-                time
-            )
+        var new_text = this.options.pattern.substitute(
+            MooPlay.Utils.readable(MooPlay.Utils.timestampToSexagesimal(abs_movie_time))
         );
+        
+        if(new_text != this.container.get('text')) {
+            this.container.empty().appendText(new_text);
+        }
     }
 
 });
