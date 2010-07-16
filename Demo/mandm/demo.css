@@ -45,7 +45,7 @@ div.subtitles_select ul.options li span { margin: 0 0 0 18px; white-space: nowra
 #player #controls .pannel #line1 #slider_volume #knob_volume {width:0px; height:100%; background:transparent; cursor:pointer;}
 #player #controls .pannel #line1 #separator {display:block; float:left; width:1px; height:20px; border-left: 1px #000 solid; background:#c3e1e6;margin: 17px 0 21px 12px;}
 #player #controls .pannel #line1 #fullscreen {display:block; width: 17px; height:16px; background: url(img/bt_fullscreen.png); float: left; margin: 19px 0 21px 12px; }
-#player #controls .pannel #line1 #fullscreen.active_state_class { background: url(img/bt_fullscreenExit.png); }
+#player #controls .pannel #line1 #fullscreen.active { background: url(img/bt_fullscreenExit.png); }
 
 /* 2nd line of controls pannel */
 #player #controls .pannel #line2 {width:100%; margin: 16px 0 0 0 ;}
