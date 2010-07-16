@@ -11,7 +11,8 @@
 #subtitle div.overlapping1 p {color: #f80; }
 
 /* controls pannel */
-#player #controls { position: absolute; bottom: 5%; left: 10%; width: 80%; height: 100px; z-index: 5; opacity: 0; visibility: hidden;}
+#player #controls_container { position: absolute; position: absolute; bottom: 10%; left:0; text-align: center;width:100%;}
+#player #controls { margin: 0 auto; width: 448px; height: 100px; z-index: 5; opacity: 0; visibility: hidden; position:relative ;}
 #player #controls .layer { position: absolute; height: 100%; width: 100%; bottom: 0; left: 0; background: #1a1a1a; opacity: 0.8; z-index:6;-moz-border-radius: 8px;
 -webkit-border-radius: 8px; }
 #player #controls .pannel {position:absolute; width:100%; height:100%; bottom:0; left:0; z-index:7;}
@@ -44,6 +45,7 @@ div.subtitles_select ul.options li span { margin: 0 0 0 18px; white-space: nowra
 #player #controls .pannel #line1 #slider_volume #knob_volume {width:0px; height:100%; background:transparent; cursor:pointer;}
 #player #controls .pannel #line1 #separator {display:block; float:left; width:1px; height:20px; border-left: 1px #000 solid; background:#c3e1e6;margin: 17px 0 21px 12px;}
 #player #controls .pannel #line1 #fullscreen {display:block; width: 17px; height:16px; background: url(img/bt_fullscreen.png); float: left; margin: 19px 0 21px 12px; }
+#player #controls .pannel #line1 #fullscreen.active_state_class { background: url(img/bt_fullscreenExit.png); }
 
 /* 2nd line of controls pannel */
 #player #controls .pannel #line2 {width:100%; margin: 16px 0 0 0 ;}
