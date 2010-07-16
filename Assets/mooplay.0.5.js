@@ -470,7 +470,13 @@ MooPlay.Control.FullScreen = new Class({
                         height: '100%'
                     });
                 }
+                if(this.full_screened) {
+                    this.element.removeClass(this.options.active_state_class);
+                } else {
+                    this.element.addClass(this.options.active_state_class);
+                }
                 this.full_screened = !this.full_screened;
+                
             }.bind(this)
         });
         
