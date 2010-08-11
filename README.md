@@ -119,9 +119,10 @@ The *mute* element will toggle the mute state of the *video* throucg user clicks
     </div>
     
     var slider_volume = new Slider($('slider_volume'), $('knob_volume'), {steps: 100});
-    new MooPlay.Control.Volume(slider_volume, $('video'));
+    new MooPlay.Control.Volume(slider_volume, $('video'), {auto_unmute: true});
     
 The user can set the volume of the *video* through the *slider*.
+If the *auto_unmute* is true, any change on the volume will disable the muted state.
 
 
 ### MooPlay.Control.TimeDisplay
