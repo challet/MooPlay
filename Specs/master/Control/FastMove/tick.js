@@ -31,7 +31,7 @@
             
             mock_video = {currentTime: 2443242342};
             
-            fast_move = new MooPlay.Control.FastMove(element, video, {speed_factor: 2});
+            fast_move = new MooPlay.Control.FastMove(video, element, {speed_factor: 2});
             fast_move.video = mock_video;
             
         },

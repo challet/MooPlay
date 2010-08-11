@@ -40,7 +40,7 @@
                 }
             };
             
-            play_pause = new MooPlay.Control.PlayPause(element, video);
+            play_pause = new MooPlay.Control.PlayPause(video, element);
             play_pause.video = mock_video;
         },
         

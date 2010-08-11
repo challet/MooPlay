@@ -55,20 +55,20 @@
         },
                 
         "should handle the play video event": function() {
-            var button = new MooPlay.Control.PlayPause(element, video);
+            var button = new MooPlay.Control.PlayPause(video, element);
             element.addClass(button.options.paused_state_class);
             video.fireEvent('play', {preventDefault: $empty});
             value_of(element.hasClass(button.options.paused_state_class)).should_be_false();
         },
         
         "should handle the pause video event": function() {
-            var button = new MooPlay.Control.PlayPause(element, video);
+            var button = new MooPlay.Control.PlayPause(video, element);
             video.fireEvent('pause', {preventDefault: $empty});
             value_of(element.hasClass(button.options.paused_state_class)).should_be_true();
         },
         
         "should handle the click element event": function() {
-            new MooPlay.Control.PlayPause(element, video);
+            new MooPlay.Control.PlayPause(video, element);
             element.fireEvent('click',{ preventDefault: $empty});
             value_of(toggle_state_called).should_be_true();
         }

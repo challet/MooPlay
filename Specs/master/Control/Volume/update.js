@@ -47,7 +47,7 @@
             slider.knob.setStyle = function (prop, value) {
                 set_style_arg_value = value;
             };
-            volume = new MooPlay.Control.Volume(slider, video);            
+            volume = new MooPlay.Control.Volume(video, slider);            
             
         },
         

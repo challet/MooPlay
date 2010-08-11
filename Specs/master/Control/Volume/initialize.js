@@ -78,13 +78,13 @@
         },
                 
         "should handle the volumechange video event": function() {
-            new MooPlay.Control.Volume(slider, video);
+            new MooPlay.Control.Volume(video, slider);
             video.fireEvent('volumechange', {preventDefault: $empty});
             value_of(update_called).should_be_true();
         },
 
         "should handle the change slider event": function() {
-            new MooPlay.Control.Volume(slider, video);
+            new MooPlay.Control.Volume(video, slider);
             slider.fireEvent('change',{ preventDefault: $empty});
             value_of(change_called).should_be_true();
         }

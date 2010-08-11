@@ -26,7 +26,7 @@
                 }
             }).inject(document.body);
             
-            mute = new MooPlay.Control.Mute(element, video);
+            mute = new MooPlay.Control.Mute(video, element);
             
         },
         

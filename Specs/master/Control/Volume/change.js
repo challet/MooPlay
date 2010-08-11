@@ -38,7 +38,7 @@
             }).inject(document.body);
             
             slider = new Slider(slider_div, knob_div);
-            volume = new MooPlay.Control.Volume(slider, video);            
+            volume = new MooPlay.Control.Volume(video, slider);            
             
         },
         

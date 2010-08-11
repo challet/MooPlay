@@ -39,7 +39,7 @@
             }).inject(slider_div);
 
             slider = new Slider(slider_div, knob_div);
-            progress = new MooPlay.Control.PlayProgress(slider, mock_video_div);
+            progress = new MooPlay.Control.PlayProgress(mock_video_div, slider);
 
         },
         

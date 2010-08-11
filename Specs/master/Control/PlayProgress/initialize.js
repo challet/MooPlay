@@ -78,7 +78,7 @@
             };
             
             slider = new Slider(slider_div, knob_div);
-            progress = new MooPlay.Control.PlayProgress(slider, video_div);
+            progress = new MooPlay.Control.PlayProgress(video_div, slider);
 
             
         },

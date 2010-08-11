@@ -61,13 +61,13 @@
         },
                 
         "should handle the volumechange video event": function() {
-            new MooPlay.Control.Mute(element, video);
+            new MooPlay.Control.Mute(video, element);;
             video.fireEvent('volumechange', {preventDefault: $empty});
             value_of(update_called).should_be_true();
         },
 
         "should handle the click element event": function() {
-            new MooPlay.Control.Mute(element, video);
+            new MooPlay.Control.Mute(video, element);
             element.fireEvent('click',{ preventDefault: $empty});
             value_of(toggle_state_called).should_be_true();
         }

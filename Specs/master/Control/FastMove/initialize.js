@@ -64,19 +64,19 @@
         },
                 
         "should begin move on element 'mousedown' event": function() {
-            new MooPlay.Control.FastMove(element, video);
+            new MooPlay.Control. FastMove(video, element);;
             element.fireEvent('mousedown', fake_event);
             value_of(begin_move_called).should_be_true();
         },
         
         "should stop move on element 'mouseup' event": function() {
-            new MooPlay.Control.FastMove(element, video);
+            new MooPlay.Control. FastMove(video, element);;
             element.fireEvent('mouseup', fake_event);
             value_of(stop_move_called).should_be_true();
         },
         
         "should stop move on element 'mouseleave' event": function() {
-            new MooPlay.Control.FastMove(element, video);
+            new MooPlay.Control. FastMove(video, element);;
             element.fireEvent('mouseleave', fake_event);
             value_of(stop_move_called).should_be_true();
         }
