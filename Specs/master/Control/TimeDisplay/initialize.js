@@ -11,7 +11,7 @@
     var update_called = false;
     var update_arg_value = null;
 
-    describe('Control.Time.initialize function', {
+    describe('Control.TimeDisplay.initialize function', {
         
         before_all: function() {
             initial_prototype = {
