@@ -10,6 +10,7 @@ MooPlay gives some tools on top of an html5 video markup. You can build your own
 * a load progress bar
 * a volume slider and a mute button
 * subtitles loaded through an ajax request and synchronized with the video. Supported formats are SubRip (.srt) and SubViewer (.sub)
+* displays current or remaining time
   
 The video element methods can be called by other scripts, MooPlay objects will adapt themself to any state changes.
 
@@ -122,6 +123,18 @@ The *mute* element will toggle the mute state of the *video* throucg user clicks
     
 The user can set the volume of the *video* through the *slider*.
 
+
+### MooPlay.Control.TimeDisplay
+
+    <span id="current_time_container">00:00:00</span>
+    <span id="remaining_time_container">00:00:00</span>
+    
+    new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
+    new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
+    
+The *container* element will display the current time of the *video*, or it's remaining time (depending of the *current* option).
+The displaying format can be setted through the *pattern* option. See the [Mootools String.substitute method](http://mootools.net/docs/core/Native/String#String:substitute) about how it works.
+
 ### MooPlay.Subtitle
     
     <video id="video" src="myvideo.ogv"></video>
@@ -142,3 +155,4 @@ The subtitles are loaded through **MooPlay.Subtitle.Loader** performing an ajax 
 * *the element to be displayed*
 * *the container* as specified at initialization
 * *the overlapping level* : in case several subtitles should be displayed at the same time, each one has a different level associated as integer, beggining to 0 and going up according to the displaying order through time.
+
