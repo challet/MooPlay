@@ -83,7 +83,7 @@ The *element* will display the current time or the remaining time of the *video*
         startPercentage: 0,
         step: 0,
     });
-    new MooPlay.Control.LoadProgress(progressbar, $('video'));
+    new MooPlay.Control.LoadProgress($('video'), progressbar);
     
 The *progress_container* element will be filled function of the video file load state
 
