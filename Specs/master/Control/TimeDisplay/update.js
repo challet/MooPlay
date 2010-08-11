@@ -3,7 +3,7 @@
     var element = null;
     var video = null;
     
-    describe('Control.Time.update function', {
+    describe('Control.TimeDisplay.update function', {
         
         before_each: function() {
 
