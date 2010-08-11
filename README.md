@@ -11,6 +11,7 @@ MooPlay gives some tools on top of an html5 video markup. You can build your own
 * a volume slider and a mute button
 * subtitles loaded through an ajax request and synchronized with the video. Supported formats are SubRip (.srt) and SubViewer (.sub)
 * displays current or remaining time
+* a full page display button
   
 The video element methods can be called by other scripts, MooPlay objects will adapt themself to any state changes.
 
@@ -135,6 +136,19 @@ If the *auto_unmute* is true, any change on the volume will disable the muted st
     
 The *container* element will display the current time of the *video*, or it's remaining time (depending of the *current* option).
 The displaying format can be setted through the *pattern* option. See the [Mootools String.substitute method](http://mootools.net/docs/core/Native/String#String:substitute) about how it works.
+
+
+### MooPlay.Control.FullScreen
+
+    <a id="fullscreen" href="#">
+        fullscreen
+    </a>
+    
+    new MooPlay.Control.FullScreen($('fullscreen'), $('container') );
+    
+When clicked, the *fullscreen* button will fire the transition to display the *container* on the full page.
+*container* should be the video element itself or any of its ancestors.
+
 
 ### MooPlay.Subtitle
     
