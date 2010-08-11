@@ -29,9 +29,9 @@ context.Sets = {
     'Control/TimeDisplay/initialize',
     'Control/TimeDisplay/update',
 
-    'Control/Volume/initialize', // todo
-    'Control/Volume/update', // todo
-    'Control/Volume/change', // todo
+    'Control/Volume/initialize',
+    'Control/Volume/update',
+    'Control/Volume/change',
 
     'Subtitle/Item/initialize',
     
