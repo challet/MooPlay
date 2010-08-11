@@ -18,7 +18,7 @@
     <script src="/Assets/ProgressBar.js" type="text/javascript"></script>
 
     <!-- SubRipReader -->
-    <script src="/Assets/mooplay.0.5.js" type="text/javascript"></script>
+    <script src="/Assets/mooplay.0.6.js" type="text/javascript"></script>
     
 	<link rel="stylesheet" href="demo.css" type="text/css" media="screen" title="no title" charset="utf-8">
 </head>
@@ -128,25 +128,25 @@ var reader = null;
 
 document.addEvent('domready', function() {
 
-    new MooPlay.Control.PlayPause($('playpause'), $('video'));
+    new MooPlay.Control.PlayPause($('video'), $('playpause'));
 
     new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
     new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
 
     var slider_volume = new Slider($('slider_volume'), $('knob_volume'), {steps: 100});
-    var volume_ctrl = new MooPlay.Control.Volume(slider_volume, $('video'));
+    var volume_ctrl = new MooPlay.Control.Volume($('video'), slider_volume);
     $('video').addEvent('volumechange', function(event) {
         var volume = event.target.muted ? 0 : event.target.volume;
         $('full_volume').setStyle('width', String(volume * 100) + '%');
     });
-    new MooPlay.Control.Mute($('mute'), $('video'));
+    new MooPlay.Control.Mute($('video'), $('mute'));
     
     var slider_progress = new Slider($('play_slider'), $('knob_slider'), {steps: 400});
-    new MooPlay.Control.PlayProgress(slider_progress, $('video'));
+    new MooPlay.Control.PlayProgress($('video'), slider_progress);
     
     var time_tooltip = new MooPlay.Control.TimeDisplay($('video'), $('time_tooltip'), { pattern: '{h}:{m}', auto_update: false});
     
-    new MooPlay.Control.FullScreen($('fullscreen'), $('player') );
+    new MooPlay.Control.FullScreen($('player'), $('fullscreen'));
     
     $('play_slider').addEvents({
         'mousemove':  function(event) {
@@ -229,9 +229,7 @@ document.addEvent('domready', function() {
         fxTo: 115,
         showStyles: true
     });
-    
-    
-    
+
     mySelect.addEvent('select', function() {
         var value = $('subtitles_select').value;
         if(value != '') {

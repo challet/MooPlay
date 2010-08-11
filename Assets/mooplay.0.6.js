@@ -144,7 +144,7 @@ MooPlay.Control.PlayProgress = new Class({
 
     Implements: [Options],
         
-    initialize: function(slider, video, options) {
+    initialize: function(video, slider, options) {
         
         this.setOptions(options);
         
@@ -285,7 +285,7 @@ MooPlay.Control.BaseButton = new Class({
     },
     
     
-    initialize: function(element, video, options) {
+    initialize: function(video, element, options) {
         
         this.setOptions(options);
         
@@ -602,7 +602,7 @@ MooPlay.Control.Volume = new Class({
     
     Implements: [Options],
         
-    initialize: function(slider, video, options) {
+    initialize: function(video, slider, options) {
         this.setOptions(options);
         
         this.slider = slider;

@@ -21,7 +21,7 @@ MooPlay.Control.PlayProgress = new Class({
 
     Implements: [Options],
         
-    initialize: function(slider, video, options) {
+    initialize: function(video, slider, options) {
         
         this.setOptions(options);
         

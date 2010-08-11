@@ -26,7 +26,7 @@ MooPlay.Control.Volume = new Class({
     
     Implements: [Options],
         
-    initialize: function(slider, video, options) {
+    initialize: function(video, slider, options) {
         this.setOptions(options);
         
         this.slider = slider;

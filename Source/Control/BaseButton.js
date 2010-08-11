@@ -26,7 +26,7 @@ MooPlay.Control.BaseButton = new Class({
     },
     
     
-    initialize: function(element, video, options) {
+    initialize: function(video, element, options) {
         
         this.setOptions(options);
         
