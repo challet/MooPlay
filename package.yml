@@ -4,5 +4,5 @@ category: Media
 tags: [video, player, subtitles, html5]
 #docs: http://url.to.docs
 demo: http://mooplay.challet.eu/
-current: 0.5
+current: 0.6
 files: [MooPlay.js, Utils.js, Control/PlayProgress.js, Control/LoadProgress.js, Control/BaseButton.js, Control/PlayPause.js, Control/FastMove.js, Control/FullScreen.js, Control/Volume.js, Control/Mute.js, Control/TimeDisplay.js, Subtitle/Item.js, Subtitle/Tree.js, Subtitle/Loader.js, Subtitle/Player.js, Subtitle/Parser/Base.js, Subtitle/Parser/SubRip.js, Subtitle/Parser/SubViewer.js]
