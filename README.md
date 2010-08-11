@@ -11,6 +11,7 @@ MooPlay gives some tools on top of an html5 video markup. You can build your own
 * a volume slider and a mute button
 * subtitles loaded through an ajax request and synchronized with the video. Supported formats are SubRip (.srt) and SubViewer (.sub)
 * displays current or remaining time
+* a full page display button
   
 The video element methods can be called by other scripts, MooPlay objects will adapt themself to any state changes.
 
@@ -84,7 +85,7 @@ The *element* will display the current time or the remaining time of the *video*
         startPercentage: 0,
         step: 0,
     });
-    new MooPlay.Control.LoadProgress(progressbar, $('video'));
+    new MooPlay.Control.LoadProgress($('video'), progressbar);
     
 The *progress_container* element will be filled function of the video file load state
 
@@ -119,9 +120,10 @@ The *mute* element will toggle the mute state of the *video* throucg user clicks
     </div>
     
     var slider_volume = new Slider($('slider_volume'), $('knob_volume'), {steps: 100});
-    new MooPlay.Control.Volume(slider_volume, $('video'));
+    new MooPlay.Control.Volume(slider_volume, $('video'), {auto_unmute: true});
     
 The user can set the volume of the *video* through the *slider*.
+If the *auto_unmute* is true, any change on the volume will disable the muted state.
 
 
 ### MooPlay.Control.TimeDisplay
@@ -134,6 +136,19 @@ The user can set the volume of the *video* through the *slider*.
     
 The *container* element will display the current time of the *video*, or it's remaining time (depending of the *current* option).
 The displaying format can be setted through the *pattern* option. See the [Mootools String.substitute method](http://mootools.net/docs/core/Native/String#String:substitute) about how it works.
+
+
+### MooPlay.Control.FullScreen
+
+    <a id="fullscreen" href="#">
+        fullscreen
+    </a>
+    
+    new MooPlay.Control.FullScreen($('fullscreen'), $('container') );
+    
+When clicked, the *fullscreen* button will fire the transition to display the *container* on the full page.
+*container* should be the video element itself or any of its ancestors.
+
 
 ### MooPlay.Subtitle
     

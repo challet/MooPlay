@@ -60,6 +60,20 @@
             slider.steps = 100;
             volume.change(47);
             value_of(video.volume.round(2)).should_be(0.47);
+        },
+        
+        "should unmute if the according option allows it": function() {
+            volume.options.auto_unmute = true;
+            video.muted = true;
+            volume.change(47);
+            value_of(video.muted).should_be_false();
+        },
+        
+        "should not unmute if the according option denies it": function() {
+            volume.options.auto_unmute = false;
+            video.muted = true;
+            volume.change(47);
+            value_of(video.muted).should_be_true();
         }
         
     });

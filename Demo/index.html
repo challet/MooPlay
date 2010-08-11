@@ -128,7 +128,7 @@ document.addEvent('domready', function() {
         startPercentage: 0,
         step: 0,
     });
-    new MooPlay.Control.LoadProgress(progressbar, $('video'));
+    new MooPlay.Control.LoadProgress( $('video'), progressbar);
     
     reader = new MooPlay.Subtitle.Player($('video'), $('subtitle'), {
         onDisplay: function(element, container, overlapping) {
