@@ -11,9 +11,9 @@ context.Sets = {
     'Control/FastMove/stopMove',
     'Control/FastMove/tick',
     
-    'Control/LoadProgress/initialize', // todo
-    'Control/LoadProgress/preload', // todo
-    'Control/LoadProgress/tick', // todo
+    'Control/LoadProgress/initialize',
+    'Control/LoadProgress/preload',
+    'Control/LoadProgress/tick',
     
     'Control/Mute/initialize',
     'Control/Mute/update',

@@ -38,7 +38,7 @@ MooPlay.Control.LoadProgress = new Class({
                 if(e.event.lengthComputable) {
                     this.tick(e.event.loaded, e.event.total);
                 } else {
-                    this.preload.pass(true, this);
+                    this.preload(true);
                 }
             }.bind(this),
             'loadstart': this.preload.pass(true, this),
