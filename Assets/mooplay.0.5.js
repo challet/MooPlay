@@ -191,23 +191,43 @@ provides:
 */
 
 MooPlay.Control.LoadProgress = new Class({
-
+    
+    options: {
+        preload_class: 'preloading'
+    },
+    
     Implements: [Options],
         
-    initialize: function(progressbar, video, options) {
+    initialize: function(video, progressbar, options) {
         
         this.setOptions(options);
         
         this.progressbar = progressbar;
         this.video = $(video);
         
-        this.video.addEvent('progress', function(e, video, data) {
-            if(e.event.lengthComputable) {
-                this.tick(e.event.loaded, e.event.total);
-            }
-        }.bind(this));
+        this.video.addEvents({
+            'progress': function(e, video, data) {
+                if(e.event.lengthComputable) {
+                    this.tick(e.event.loaded, e.event.total);
+                } else {
+                    this.preload(true);
+                }
+            }.bind(this),
+            'loadstart': this.preload.pass(true, this),
+            'seeking': this.preload.pass(true, this),
+            'loadedmetadata': this.preload.pass(false, this),
+            'seeked': this.preload.pass(false, this)
+        });
         
         
+    },
+    
+    preload: function(state) {
+        if(state) {
+            this.progressbar.options.container.addClass(this.options.preload_class);
+        } else {
+            this.progressbar.options.container.removeClass(this.options.preload_class);
+        }
     },
     
     tick: function(loaded, total) {
@@ -555,6 +575,10 @@ provides:
 
 MooPlay.Control.Volume = new Class({
 
+    options: {
+        auto_unmute: true
+    },
+    
     Implements: [Options],
         
     initialize: function(slider, video, options) {
@@ -575,6 +599,9 @@ MooPlay.Control.Volume = new Class({
 
     change: function(pos) {
         this.video.volume = pos / this.slider.steps;
+        if(this.options.auto_unmute && this.video.muted) {
+            this.video.muted = false;
+        }
     }
 
 });
@@ -681,11 +708,12 @@ MooPlay.Control.TimeDisplay = new Class({
     },
     
     update: function(abs_movie_time) {
-        this.container.empty().appendText(
-            this.options.pattern.substitute(
-                MooPlay.Utils.timestampToSexagesimal(abs_movie_time)
-            )
+        var new_text = this.options.pattern.substitute(
+            MooPlay.Utils.timestampToSexagesimal(abs_movie_time)
         );
+        if(new_text != this.container.get('text')) {
+            this.container.empty().appendText(new_text);
+        }
     }
 
 });

@@ -10,18 +10,26 @@ MooPlay gives some tools on top of an html5 video markup. You can build your own
 * a load progress bar
 * a volume slider and a mute button
 * subtitles loaded through an ajax request and synchronized with the video. Supported formats are SubRip (.srt) and SubViewer (.sub)
+* displays current or remaining time
   
 The video element methods can be called by other scripts, MooPlay objects will adapt themself to any state changes.
 
 More functionnalities will be available.
 
-![Screenshot](http://img441.imageshack.us/img441/1659/image4kp.png)
+![Screenshot](http://img441.imageshack.us/img441/2513/image4vc.png)
 
 
-Demo
-----
+### Demo
 
 A demo page is available at [http://mooplay.challet.eu/](http://mooplay.challet.eu/) : not a pretty design, but all the features are viewable. You should use an html5 browser supporting ogg codecs.
+
+### Unit Tests
+
+About [a hundred tests are running](http://mooplay.challet.eu/Specs/?specs=master) on each new step, to make sure all the functionnalities are still available.
+
+### Any feedback or ideas about a feature ?
+
+Please [fill the issue form on GitHub](http://github.com/challet/MooPlay/issues) or [send me message](http://github.com/inbox/new/challet)
 
 
 How to use
@@ -76,7 +84,7 @@ The *element* will display the current time or the remaining time of the *video*
         startPercentage: 0,
         step: 0,
     });
-    new MooPlay.Control.LoadProgress(progressbar, $('video'));
+    new MooPlay.Control.LoadProgress($('video'), progressbar);
     
 The *progress_container* element will be filled function of the video file load state
 
@@ -111,9 +119,22 @@ The *mute* element will toggle the mute state of the *video* throucg user clicks
     </div>
     
     var slider_volume = new Slider($('slider_volume'), $('knob_volume'), {steps: 100});
-    new MooPlay.Control.Volume(slider_volume, $('video'));
+    new MooPlay.Control.Volume(slider_volume, $('video'), {auto_unmute: true});
     
 The user can set the volume of the *video* through the *slider*.
+If the *auto_unmute* is true, any change on the volume will disable the muted state.
+
+
+### MooPlay.Control.TimeDisplay
+
+    <span id="current_time_container">00:00:00</span>
+    <span id="remaining_time_container">00:00:00</span>
+    
+    new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
+    new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
+    
+The *container* element will display the current time of the *video*, or it's remaining time (depending of the *current* option).
+The displaying format can be setted through the *pattern* option. See the [Mootools String.substitute method](http://mootools.net/docs/core/Native/String#String:substitute) about how it works.
 
 ### MooPlay.Subtitle
     
@@ -136,15 +157,3 @@ The subtitles are loaded through **MooPlay.Subtitle.Loader** performing an ajax 
 * *the container* as specified at initialization
 * *the overlapping level* : in case several subtitles should be displayed at the same time, each one has a different level associated as integer, beggining to 0 and going up according to the displaying order through time.
 
-Unit Tests
-----------
-
-About [a hundred tests are running](http://mooplay.challet.eu/Specs/?specs=master) on each new step, to make sure all the functionnalities are still available.
-
-Any feedback or ideas about a feature ?
----------------------------------------
-
-Please [fill the issue form on GitHub](http://github.com/challet/MooPlay/issues) or [send me message](http://github.com/inbox/new/challet)
-
-
-    

@@ -13,10 +13,11 @@ context.Sets = {
     
     'Control/FullScreen/specificInitialize', // todo
     'Control/FullScreen/toggleState', // todo
-    
-    'Control/LoadProgress/initialize', // todo
-    'Control/LoadProgress/tick', // todo
-    
+
+    'Control/LoadProgress/initialize',
+    'Control/LoadProgress/preload',
+    'Control/LoadProgress/tick',
+
     'Control/Mute/initialize',
     'Control/Mute/update',
     'Control/Mute/toggleState',
@@ -31,9 +32,9 @@ context.Sets = {
     'Control/TimeDisplay/initialize',
     'Control/TimeDisplay/update',
 
-    'Control/Volume/initialize', // todo
-    'Control/Volume/update', // todo
-    'Control/Volume/change', // todo
+    'Control/Volume/initialize',
+    'Control/Volume/update',
+    'Control/Volume/change',
 
     'Subtitle/Item/initialize',
     
