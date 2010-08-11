@@ -26,7 +26,7 @@ MooPlay.Control.LoadProgress = new Class({
     
     Implements: [Options],
         
-    initialize: function(progressbar, video, options) {
+    initialize: function(video, progressbar, options) {
         
         this.setOptions(options);
         
