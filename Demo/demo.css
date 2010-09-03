@@ -55,7 +55,7 @@ div.subtitles_select ul.options li span { margin: 0 0 0 18px; white-space: nowra
 
 #player #controls .pannel #line2 div#progresses_bar div#load { width:100%; height:100%; background:none; position:absolute; top:0; left: 0;  -moz-border-radius: 3px;
 -webkit-border-radius: 3px;}
-#player #controls .pannel #line2 div#progresses_bar div#load.preloading { background: url(img/barre_download.png); }
+#player #controls .pannel #line2 div#progresses_bar div#load.preloading { background: url(img/progression.gif); }
 #player #controls .pannel #line2 div#progresses_bar div#load #progress-bar-box-id {width:100%; height:100%;  -moz-border-radius: 3px;
 -webkit-border-radius: 3px;}
 #player #controls .pannel #line2 div#progresses_bar div#load.preloading #progress-bar-box-id  {display: none;}
