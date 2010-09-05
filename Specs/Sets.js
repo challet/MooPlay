@@ -2,7 +2,7 @@
  
 context.Sets = {
  
-'master': [
+'/Specs/master': [
 
     'Control/BaseButton/initialize',
     
