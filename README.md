@@ -22,11 +22,11 @@ More functionnalities will be available.
 
 ### Demo
 
-A demo page is available at [http://mooplay.challet.eu/](http://mooplay.challet.eu/) : not a pretty design, but all the features are viewable. You should use an html5 browser supporting ogg codecs.
+A demo page is available at [http://mooplay.challet.eu/](http://mooplay.challet.eu/).
 
 ### Unit Tests
 
-About [a hundred tests are running](http://mooplay.challet.eu/Specs/?specs=master) on each new step, to make sure all the functionnalities are still available.
+About [a hundred tests are running](http://mooplay.challet.eu/tests.html?specs=/Specs/master) on each new step, to make sure all the functionnalities are still available.
 
 ### Any feedback or ideas about a feature ?
 
