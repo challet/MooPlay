@@ -1,10 +1,13 @@
 document.addEvent('domready', function() {
-
+    
+    // init the play / pause button
     new MooPlay.Control.PlayPause($('video'), $('playpause'));
 
+    // init the time containers (current and remaining)
     new MooPlay.Control.TimeDisplay($('video'), $('current_time_container'), {pattern: '{h}:{m}:{s}', current: true});
     new MooPlay.Control.TimeDisplay($('video'), $('remaining_time_container'), {pattern: '{h}:{m}:{s}', current: false});
 
+    // use a mootools slider to manage the volume
     var slider_volume = new Slider($('slider_volume'), $('knob_volume'), {steps: 100});
     var volume_ctrl = new MooPlay.Control.Volume($('video'), slider_volume);
     $('video').addEvent('volumechange', function(event) {
@@ -13,6 +16,7 @@ document.addEvent('domready', function() {
     });
     new MooPlay.Control.Mute($('video'), $('mute'));
     
+    // use a Mootools slider to manage the play progress status
     var slider_progress = new Slider($('play_slider'), $('knob_slider'), {steps: 400});
     new MooPlay.Control.PlayProgress($('video'), slider_progress);
     
