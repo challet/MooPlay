@@ -2,4 +2,5 @@ name: MooPlay
 author: challet
 category: Media
 tags: [video, player, subtitles, html5]
-demo: http://mooplay.challet.eu/
+demo: http://mooplay.challet.eu/#demonstration
+docs: http://mooplay.challet.eu/#documentation
