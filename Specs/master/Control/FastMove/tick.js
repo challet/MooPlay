@@ -1,5 +1,5 @@
 (function() {
-    
+
     var initial_prototype = {};
     var fake_event = {preventDefault: $empty};
 
@@ -7,10 +7,10 @@
     var video = null;
     var fast_move = null;
     var mock_video = null;
-    
+
     describe('Control.FastMove.tick function', {
-        
-        
+
+
         before_each: function() {
 
             element = new Element('a', {
@@ -20,7 +20,7 @@
                     height: 50
                 }
             }).inject(document.body);
-            
+
             video = new Element('video', {
                 id: 'video',
                 styles: {
@@ -28,26 +28,26 @@
                     height: 50
                 }
             }).inject(document.body);
-            
+
             mock_video = {currentTime: 2443242342};
-            
+
             fast_move = new MooPlay.Control.FastMove(video, element, {speed_factor: 2});
             fast_move.video = mock_video;
-            
+
         },
-        
+
         after_each: function() {
-            
+
             element.dispose();
             video.dispose();
-            
+
             element = null;
             video = null;
             fast_move = null;
             mock_video = null;
-            
+
         },
-        
+
         "should set the new time of the video element": function() {
             fast_move.start_time = $time() - 543534;
             fast_move.start_pos = 2443242342;
@@ -57,13 +57,13 @@
             // but we can be sure of what it should not be
             value_of(mock_video.currentTime).should_not_be(2443242342);
         },
-        
+
         "should do nothing if move have stopped": function() {
             fast_move.timer = null;
             fast_move.tick();
             value_of(mock_video.currentTime).should_be(2443242342);
         }
-        
+
     });
-    
+
 })();

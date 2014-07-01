@@ -12,7 +12,7 @@ requires:
 - MooPlay.Utils
 
 
-provides: 
+provides:
 - MooPlay.Control.Mute
 
 ...
@@ -21,13 +21,13 @@ provides:
 MooPlay.Control.Mute = new Class({
 
     Implements: [MooPlay.Control.BaseButton],
-    
+
     options: {
         muted_state_class: 'muted'
     },
-    
+
     specificInitialize: function() {
-        
+
         this.video.addEvents({
             'volumechange': this.update.bind(this)
         });
@@ -38,7 +38,7 @@ MooPlay.Control.Mute = new Class({
                 this.toggleState();
             }.bind(this)
         });
-        
+
     },
 
     update: function(event) {
@@ -48,7 +48,7 @@ MooPlay.Control.Mute = new Class({
             this.element.removeClass(this.options.muted_state_class);
         }
     },
-    
+
     toggleState: function() {
         this.video.muted = !this.video.muted;
     }

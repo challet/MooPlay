@@ -12,7 +12,7 @@ la dernière version du navigateur de Mozilla.
 
 4
 00:00:05,980 --> 00:00:07,560
-C'est le Firefox le plus rapide 
+C'est le Firefox le plus rapide
 que vous ayez jamais utilisé.
 
 5
@@ -49,7 +49,7 @@ rien de ce que vous rencontrez sur le Web ne sera enregistré.
 
 13
 00:00:24,780 --> 00:00:28,240
-Ni les sites visités, ni les cookies 
+Ni les sites visités, ni les cookies
 ne seront enregistrés sur votre disque dur.
 
 14
@@ -58,12 +58,12 @@ Dès que vous quittez ce mode,
 
 15
 00:00:29,750 --> 00:00:32,500
-toutes les données sont supprimées 
+toutes les données sont supprimées
 et rien n'est conservé sur votre ordinateur.
 
 16
 00:00:32,760 --> 00:00:35,690
-Si vous avez parcouru un site 
+Si vous avez parcouru un site
 dont vous ne voulez pas garder de traces
 
 17
@@ -88,17 +88,17 @@ puis "Oublier ce site".
 
 23
 00:00:45,810 --> 00:00:49,070
-le navigateur supprimera de votre historique 
+le navigateur supprimera de votre historique
 toute trace de votre passage sur ce site.
 
 24
 00:00:49,160 --> 00:00:51,530
-Si vous voulez effacer l'historique 
+Si vous voulez effacer l'historique
 de navigation des dernières heures
 
 25
 00:00:51,560 --> 00:00:54,450
-vous trouverez une entrée 
+vous trouverez une entrée
 "Supprimer l'historique récent" dans le menu Outils.
 
 26
@@ -151,7 +151,7 @@ c'est aussi une mise à jour du Web.
 
 38
 00:01:16,170 --> 00:01:19,110
-Une des fonctionnalités que je trouve 
+Une des fonctionnalités que je trouve
 les plus excitantes est la prise en charge de la vidéo.
 
 39
@@ -164,7 +164,7 @@ la lire, monter et descendre le volume
 
 41
 00:01:24,300 --> 00:01:27,040
-vous pouvez aussi faire un clic droit 
+vous pouvez aussi faire un clic droit
 et enregistrer la vidéo sur votre ordinateur
 
 42
@@ -214,7 +214,7 @@ plus adaptés à votre situation géographique
 
 53
 00:01:52,860 --> 00:01:54,700
-ou encore faire des choses sympas 
+ou encore faire des choses sympas
 qu'on ne peut même pas encore imaginer.
 
 54
@@ -231,7 +231,7 @@ on trouve les polices téléchargeables.
 
 57
 00:02:00,620 --> 00:02:03,500
-Les gens pourront maintenant écrire des pages 
+Les gens pourront maintenant écrire des pages
 en utilisant des polices créatives,
 
 58
@@ -240,7 +240,7 @@ comme ils ont toujours pu le faire dans les journaux et les livres.
 
 59
 00:02:05,810 --> 00:02:08,510
-Les améliorations au niveau CSS 
+Les améliorations au niveau CSS
 leur permettront d'appliquer des styles aux pages
 
 60
@@ -249,17 +249,17 @@ pour qu'elles soient exactement telles qu'ils les ont conçues.
 
 61
 00:02:10,870 --> 00:02:14,730
-Des améliorations d'éléments comme 
+Des améliorations d'éléments comme
 Web Workers Thread, SVG et JSON
 
 62
 00:02:14,730 --> 00:02:17,200
-signifient que vous pourrez faire 
+signifient que vous pourrez faire
 de plus en plus de choses en ligne.
 
 63
 00:02:17,260 --> 00:02:20,220
-Il est très important pour nous 
+Il est très important pour nous
 de nous assurer que Firefox vous va comme un gant.
 
 64
@@ -276,7 +276,7 @@ Avec des extensions comme Personas
 
 67
 00:02:27,740 --> 00:02:30,230
-vous pouvez changer l'aspect de votre navigateur, 
+vous pouvez changer l'aspect de votre navigateur,
 rapidement et facilement.
 
 68
@@ -305,7 +305,7 @@ C'était un rapide tour d'horizon de Firefox 3.5.
 
 74
 00:02:42,910 --> 00:02:46,950
-Si vous voulez en savoir plus, 
+Si vous voulez en savoir plus,
 veuillez rejoindre www.firefox.com
 
 75

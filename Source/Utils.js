@@ -10,7 +10,7 @@ authors:
 requires:
 - MooPlay
 
-provides: 
+provides:
 - MooPlay.Utils
 
 ...
@@ -44,18 +44,18 @@ MooPlay.Utils = {
         };
 
     },
-    
+
     readable: function(srt_time) {
-        
+
         srt_time.m = String(srt_time.m).pad(2,'0');
         srt_time.s = String(srt_time.s).pad(2,'0');
         srt_time.ms = String(srt_time.ms).pad(3,'0');
-        
+
         return srt_time;
-        
+
     }
-    
-    
+
+
 }
 
 //+ Jonas Raoni Soares Silva

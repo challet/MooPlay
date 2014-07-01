@@ -11,7 +11,7 @@ var FOR_IN_MAX = 20;
 var debug = {
 
 	$nil: Function.empty,
-	
+
 	$init: function(){
 		debug.loaded = false;
 		debug.$groups = {'keys': [], 'values': []};
@@ -51,7 +51,7 @@ var debug = {
 						holder.adopt(new Element('span').setHTML('{'));
 						var x = 0;
 						var length = 0;
-						
+
 						for (var len in chunk.value) length++;
 						for (var key in chunk.value){
 							x++;
@@ -82,22 +82,22 @@ var debug = {
 	$element: function(el){
 		var el_style = el.style;
 		if (!el_style) el_style = {};
-		
+
 		var oldbg = el_style.backgroundColor;
 		var oldfg = el_style.color;
-		
+
 		var link = new Element('a', {'href': '#'}).addEvents({
 
 			mouseenter: function(){
 				el_style.backgroundColor = '#DBEAF0';
 				el_style.color = '#757E8A';
 			},
-			
+
 			mouseleave: function(){
 				el_style.backgroundColor = oldbg;
 				el_style.color = oldfg;
 			},
-			
+
 			click: function(){
 				return false;
 			}
@@ -109,7 +109,7 @@ var debug = {
 		});
 		return link.setHTML(htm.join(' '), '&gt;');
 	},
-	
+
 	$pre: function(content, klass){
 		var pre = new Element('pre', {'class': klass || 'message'});
 		if ($type(content) == "string") pre.appendText(content);
@@ -118,7 +118,7 @@ var debug = {
 		if (debug.loaded) debug._scroll.toBottom();
 		return pre;
 	},
-	
+
 	$log: function(args, separator, klass){
 		separator = $pick(separator, ', ');
 		var sRegExp = /%[sdifo]/gi;
@@ -139,14 +139,14 @@ var debug = {
 		debug.$parse(args, separator, false, klass);
 		return debug.$nil;
 	},
-	
+
 	$special: function(obj, klass){
 		if (obj.length == 1){
 			var one = obj[0];
 			var type = $type(one);
 			if ((type == 'object' && one.name && one.message) || (type == 'string')){
 				var name, message;
-				
+
 				if (type == 'object'){
 					name = one.name;
 					message = one.message;
@@ -154,7 +154,7 @@ var debug = {
 					name = klass.capitalize();
 					message = one;
 				}
-				
+
 				return debug.$pre(name + ': ' + message, klass);
 			}
 		}
@@ -166,32 +166,32 @@ var debug = {
 		debug.$messages = Cookie.get('mootools-debugger-history') || [];
 		debug.$messages = debug.$messages.length ? debug.$messages.replace(/%%%/g, ';').split('|||') : [];
 		debug.$midx = debug.$messages.length;
-		
+
 		debug._body = $('debug').setStyle('display', 'block');
 		debug._messages = $('debug-messages');
-		
+
 		debug.$groups.keys.push('$main$');
 		debug.$groups.values.push(debug._messages);
-		
+
 		debug._input = $('debug-input');
-		
+
 		debug._scroll = new Fx.Scroll(debug._messages, {duration: 300, wait: false});
-		
+
 		debug._input.addEvent('keydown', debug.$key);
 
 		debug._max = $('debug-button-max').addEvent('click', debug.$max);
 
 		debug._min = $('debug-button-min').addEvent('click', debug.$min);
-		
+
 		debug._close = $('debug-button-close').addEvent('click', debug.$unload);
-		
+
 		debug._maxValue = 132;
 		debug._minValue = 18;
-		
+
 		var state = Cookie.get('mootools-debugger-state');
 		if (state) debug[state]();
 		else debug.$max();
-		
+
 		for (var i = 0, l = parent.debug.queue.length; i < l; i++){
 			var kue = parent.debug.queue[i];
 			debug[kue.name].apply(debug, kue.arguments);
@@ -210,7 +210,7 @@ var debug = {
 		debug._min.setStyle('display', 'block');
 		debug.$pad();
 	},
-	
+
 	$min: function(){
 		Cookie.set('mootools-debugger-state', '$min', {duration: 10});
 		debug._messages.setStyles({
@@ -221,19 +221,19 @@ var debug = {
 		debug._min.setStyle('display', 'none');
 		debug.$pad();
 	},
-	
+
 	$pad: function(){
 		parent.debug.iFrame.style.height = debug._body.offsetHeight + 'px';
 		debug._messages.scrollTop = debug._messages.scrollHeight - debug._messages.offsetHeight;
 		parent.Moo.Debugger.reposition();
 	},
-	
+
 	$unload: function(){
 		if (!debug.loaded) return;
 		debug.$init();
 		parent.Moo.Debugger.unload();
 	},
-	
+
 	$focus: function(){
 		debug._input.focus();
 	},
@@ -257,7 +257,7 @@ var debug = {
 				if (value.indexOf('var ') == 0) value = value.substring(4, value.length);
 				if (value.charAt(value.length - 1) == ';') value = value.substring(0, value.length - 1);
 				if (value.indexOf('{') == 0) value = '(' + value + ')';
-				
+
 				parent.Moo.Debugger.evaluate(value);
 				break;
 
@@ -281,7 +281,7 @@ var debug = {
 					debug.$midx = debug.$messages.length;
 				}
 		}
-		
+
 		return debug.$focus.delay(50);
 	},
 
@@ -334,7 +334,7 @@ var debug = {
 		else debug.error("no such timer called " + name);
 		return debug.$nil;
 	},
-	
+
 	group: function(name){
 		if (debug.$groups.keys.contains(name)){
 			debug.error('a group called ' + name + ' already exists');
@@ -352,7 +352,7 @@ var debug = {
 		}
 		return debug.$nil;
 	},
-	
+
 	groupEnd: function(name){
 		var idx = debug.$groups.keys.indexOf(name);
 		if (idx >= 0){
@@ -363,17 +363,17 @@ var debug = {
 		}
 		return debug.$nil;
 	},
-	
+
 	error: function(){
 		debug.$special($A(arguments), 'error');
 		return debug.$nil;
 	},
-	
+
 	warn: function(warning){
 		debug.$special($A(arguments), 'warning');
 		return debug.$nil;
 	},
-	
+
 	info: function(){
 		debug.$special($A(arguments), 'info');
 		return debug.$nil;

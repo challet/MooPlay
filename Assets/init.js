@@ -1,5 +1,5 @@
 document.addEvent('domready', function() {
-    
+
     // init the play / pause button
     new MooPlay.Control.PlayPause($('video'), $('playpause'));
 
@@ -15,15 +15,15 @@ document.addEvent('domready', function() {
         $('full_volume').setStyle('width', String(volume * 100) + '%');
     });
     new MooPlay.Control.Mute($('video'), $('mute'));
-    
+
     // use a Mootools slider to manage the play progress status
     var slider_progress = new Slider($('play_slider'), $('knob_slider'), {steps: 400});
     new MooPlay.Control.PlayProgress($('video'), slider_progress);
-    
+
     var time_tooltip = new MooPlay.Control.TimeDisplay($('video'), $('time_tooltip'), { pattern: '{h}:{m}', auto_update: false});
-    
+
     new MooPlay.Control.FullScreen($('player'), $('fullscreen'));
-    
+
     $('play_slider').addEvents({
         'mousemove':  function(event) {
             // make tooltip to appear
@@ -39,14 +39,14 @@ document.addEvent('domready', function() {
             $('time_tooltip').setStyle('display', 'none');
         }
     });
-    
+
     var progressbar = new ProgressBar({
         container: $('load'),
         startPercentage: 0,
         step: 0,
     });
     new MooPlay.Control.LoadProgress($('video'), progressbar);
-        
+
     $('playpause').addEvent('mousemove', function() {
         if(!$('playpause').hasClass('paused') && !$('controls').hasClass('displayed')) {
             $('controls').addClass('displayed');
@@ -58,7 +58,7 @@ document.addEvent('domready', function() {
             $('controls').removeClass('displayed');
         }
     });
-    
+
     var reader = new MooPlay.Subtitle.Player($('video'), $('subtitle'), {
         onDisplay: function(element, container, overlapping) {
             element.addClass('overlapping' + String(overlapping));
@@ -94,7 +94,7 @@ document.addEvent('domready', function() {
             });
         }
     });
-    
+
     var mySelect = new MavSelectBox({
         elem: $('subtitles_select'),
         selectboxClass: 'subtitles_select',
@@ -117,7 +117,7 @@ document.addEvent('domready', function() {
         } else {
             reader.unLoad();
         }
-        
+
     });
 
     var controls_fx = new Fx.Tween($('controls'), {property: 'opacity', link: 'ignore', duration: 300});
@@ -132,7 +132,7 @@ document.addEvent('domready', function() {
             $('player').setStyle('cursor', 'default');
             controls_fx.start(1);
         }
-        
+
     }
     function pannel_hide() {
         if(visible) {
@@ -147,6 +147,6 @@ document.addEvent('domready', function() {
         'click': pannel_show,
         'mouseleave': pannel_hide
     });
-    
-    
+
+
 });

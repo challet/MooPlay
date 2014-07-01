@@ -11,7 +11,7 @@ requires:
 - MooPlay
 
 
-provides: 
+provides:
 - MooPlay.Control.FullScreen
 
 ...
@@ -20,24 +20,24 @@ provides:
 MooPlay.Control.FullScreen = new Class({
 
     Implements: [MooPlay.Control.BaseButton, Events],
-    
+
     options: {
         active_state_class: 'active'
     },
-    
+
     full_screened: false,
-    
+
     specificInitialize: function() {
-        
+
         this.initialStyle = this.video.getStyles('position', 'top', 'left');
-        
+
         this.element.addEvents({
             'click': function(event) {
                 event.preventDefault();
                 this.fireEvent(this.full_screened ? 'foldStart' : 'expandStart');
             }.bind(this)
         });
-        
+
         this.fx = new Fx.Morph(this.video, {
             link: 'cancel',
             onComplete: function() {
@@ -45,22 +45,22 @@ MooPlay.Control.FullScreen = new Class({
                 this.full_screened = !this.full_screened;
             }.bind(this)
         });
-        
+
         this.addEvents({
             'expandStart':      this.onExpandStart.bind(this),
             'expandComplete':   this.onExpandComplete.bind(this),
             'foldStart':        this.onFoldStart.bind(this),
             'foldComplete':     this.onFoldComplete.bind(this)
         });
-        
+
     },
-    
+
     onExpandStart: function() {
         document.body.setStyle('overflow', 'hidden');
-        
+
         var abs_coordinates = this.video.getCoordinates(document.body);
         var body_scroll = document.body.getScroll();
-        
+
         this.initialCoordinates = {
             top: abs_coordinates.top - body_scroll.y,
             left: abs_coordinates.left - body_scroll.x,
@@ -71,7 +71,7 @@ MooPlay.Control.FullScreen = new Class({
         this.video.setStyles({
             position: 'fixed',
             top: String(this.initialCoordinates.top) + 'px',
-            left: String(this.initialCoordinates.left) + 'px' 
+            left: String(this.initialCoordinates.left) + 'px'
         });
         var body_dimension = document.body.getCoordinates();
         this.fx.start({
@@ -81,7 +81,7 @@ MooPlay.Control.FullScreen = new Class({
             left: 0
         });
     },
-    
+
     onExpandComplete: function() {
         this.video.setStyles({
             width: '100%',
@@ -103,7 +103,7 @@ MooPlay.Control.FullScreen = new Class({
             left: this.initialCoordinates.left
         });
     },
-    
+
     onFoldComplete: function() {
         document.body.setStyle('overflow', 'visible');
         this.video.setStyles(this.initialStyle);

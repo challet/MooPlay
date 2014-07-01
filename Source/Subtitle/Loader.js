@@ -12,16 +12,16 @@ requires:
 - MooPlay.Subtitle.Item
 - MooPlay.Subtitle.Tree
 
-provides: 
+provides:
 - MooPlay.Subtitle.Loader
 
 ...
 */
 
 MooPlay.Subtitle.Loader = new Class({
-    
+
     Implements: [Options],
-    
+
     initialize: function(url, options) {
         this.url = url;
         this.setOptions(options);
@@ -36,12 +36,12 @@ MooPlay.Subtitle.Loader = new Class({
         });
         request.send({});
     },
-    
+
     run: function (data) {
         var parser = this.selectParser();
         return new parser(data, {onComplete: this.options.onComplete});
     },
-    
+
     selectParser: function() {
         var ext = this.url.split('.').pop();
         switch(ext) {
@@ -56,5 +56,5 @@ MooPlay.Subtitle.Loader = new Class({
             break;
         }
     }
-    
+
 });

@@ -12,10 +12,10 @@
 	z-index: 9999;
 	padding:0.5em 0.75em;
 	color: #fff;
-	
+
 	font-size: 20px;
 	line-height: 20px;
-	
+
 	font-weight: normal;
 }
 #slickspec_logo a,
@@ -36,10 +36,10 @@
 	z-index: 1;
 	padding:0.5em 0.75em;
 	color: #000;
-	
+
 	font-size: 20px;
 	line-height: 20px;
-	
+
 	font-weight: normal;
 }
 #framework_name a,
@@ -62,7 +62,7 @@
 	padding:0.5em 0.75em;
 	background-color: #fff;
 	background-color: rgba(255,255,255,0.9);
-	
+
 	-webkit-border-top-left-radius: 6px;
 }
 * html #copyright {
@@ -119,16 +119,16 @@ body, #jsspec_container {
 	margin: 0 !important;
 	height: 40px !important;
 	overflow: hidden !important;
-	
+
 	position: fixed;
 	_position: absolute;
-	top: 0px;	   
+	top: 0px;
 	_top: expression(eval(document.documentElement.scrollTop));
 	left: 0px;
 	_left: expression(eval(document.documentElement.scrollLeft));
 	width: 100%;
 	_width: expression(eval(document.documentElement.clientWidth));
-	
+
 	z-index: 1000;
 }
 
@@ -138,15 +138,15 @@ body, #jsspec_container {
 
 #list {
 	overflow: auto;
-	
+
 	position: fixed;
 	top: 0px;
 	left: 0px;
 	bottom: 0px;
 	background: #eee;
-	
+
 	margin-top:42px;
-	
+
 	width: 250px;
 }
 * html #list{
@@ -166,7 +166,7 @@ html.moobugger #list{
 #log {
 	position:relative;
 	overflow: hidden;
-	
+
 	padding: 0;
 	margin: 0;
 	margin-top: 42px;
@@ -178,7 +178,7 @@ html.moobugger #list{
 	#list {
 		overflow: visible;
 	}
-	
+
 	#log {
 		overflow: visible;
 	}
@@ -268,7 +268,7 @@ ul.specs li h3 a:hover {
 ul.examples li {
 	background-color: #eee;
 	color: #999;
-	
+
 	border-style: solid;
 	border-width: 0px 0px 1px 5px;
 	margin: 0.2em 0em 0.2em 1em;
@@ -284,23 +284,23 @@ ul.examples li h4 {
 pre.examples-code {
 	background: #FFFFFF;
 	border: solid 1px #CCC;
-	
+
 	margin: 0.5em 2em;
 }
 pre.examples-code code {
 	display:block;
-	
+
 	padding: 0.5em;
 	_padding-right: 0;
 	_padding-left: 0;
-	
+
 	white-space: pre;
 	_width:100%;
-	
+
 	font-size: 10px;
 	font-family: "Panic Sans", "Monaco", monospace !important;
 	overflow-x: auto;
-	
+
 	scrollbar-base-color:       #FFF;
 	scrollbar-arrow-color:      #FFF;
 	scrollbar-track-color:      #FFF;

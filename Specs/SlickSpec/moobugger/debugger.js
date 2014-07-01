@@ -1,9 +1,9 @@
 var Moo = {
-	
+
 	defined: function(obj){
 		return (obj != undefined);
 	},
-	
+
 	type: function(obj){
 		if (obj == null) return false;
 		if (!Moo.defined(obj)) return false;
@@ -26,7 +26,7 @@ var Moo = {
 		}
 		return type;
 	}
-	
+
 };
 
 Moo.Client = {
@@ -84,7 +84,7 @@ Moo.ViewPort = {
 };
 
 Moo.Element = {
-	
+
 	addEvent: function(element, type, fn){
 		if (element.addEventListener) element.addEventListener(type, fn, false);
 		else element.attachEvent('on' + type, fn);
@@ -94,7 +94,7 @@ Moo.Element = {
 		if (item.removeEventListener) item.removeEventListener(type, fn, false);
 		else item.detachEvent('on' + type, fn);
 	},
-	
+
 	remove: function(item){
 		if (!item || !item.parentNode) return;
 		item.parentNode.removeChild(item);
@@ -111,11 +111,11 @@ Moo.Array = {
 };
 
 Moo.String = {
-	
+
 	contains: function(item, string, s){
 		return (s) ? (s + item + s).indexOf(s + string + s) > -1 : item.indexOf(string) > -1;
 	}
-	
+
 };
 
 Moo.Object = {
@@ -141,17 +141,17 @@ Moo.Array.forEach(debug.methods, function(name){
 });
 
 Moo.Debugger = {
-	
+
 	load: function(){
-		
+
 		document.documentElement.className = document.documentElement.className + ' moobugger';
-		
+
 		debug.spacer = document.createElement('div');
 		debug.spacer.className = 'debug-spacer';
 		document.body.appendChild(debug.spacer);
 
 		debug.iFrame = document.createElement('iframe');
-		
+
 		debug.iFrame.frameBorder = 0;
 
 		Moo.Object.add(debug.iFrame.style, {
@@ -164,18 +164,18 @@ Moo.Debugger = {
 			'left': 0,
 			'zIndex': 999999
 		});
-		
+
 		if (Moo.Client.Engine.ie) debug.iFrame.style.position = 'absolute';
 
 		debug.iFrame.id = debug.iFrame.name = 'debugger';
 		debug.iFrame.src = (debug.local) ? debug.path + 'debugger.html' : 'javascript:parent.debug.htmlString';
-		
-		
+
+
 		document.body.appendChild(debug.iFrame);
-		
+
 		Moo.Element.addEvent(debug.iFrame, 'load', Moo.Debugger.onFrameLoaded);
 	},
-	
+
 	getPath: function(){
 		var path = '';
 		Moo.Array.forEach(document.getElementsByTagName('script'), function(script){
@@ -183,20 +183,20 @@ Moo.Debugger = {
 		});
 		return path + '/';
 	},
-	
+
 	onFrameLoaded: function(){
 		debug.frame = window.frames['debugger'];
-		
+
 		Moo.Array.forEach(debug.methods, function(name){
 			debug[name] = debug.frame.debug[name];
 		});
-		
+
 		Moo.Element.addEvent(window, 'resize', Moo.Debugger.reposition);
 		Moo.Element.addEvent(window, 'scroll', Moo.Debugger.reposition);
-		
+
 		Moo.Debugger.reposition();
 	},
-	
+
 	reposition: function(){
 		debug.spacer.style.height = debug.iFrame.offsetHeight + 'px';
 		var top = Moo.ViewPort.getHeight() - debug.iFrame.offsetHeight;
@@ -206,7 +206,7 @@ Moo.Debugger = {
 			debug.iFrame.style.top = top + 'px';
 		}
 	},
-	
+
 	unload: function(){
 		debug.queue = [];
 		document.documentElement.className = document.documentElement.className.replace(/ ?moobugger ?/,' ');
@@ -214,7 +214,7 @@ Moo.Debugger = {
 		Moo.Element.remove(debug.spacer);
 		Moo.Element.remove(document.getElementById('debug-bookmarklet'));
 	},
-	
+
 	evaluate: function(value){
 		try {
 			var evaluation = value;

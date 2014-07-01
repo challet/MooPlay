@@ -13,7 +13,7 @@ requires:
 - MooPlay.Subtitle.Parser.Base
 - MooPlay.Subtitle.Item
 
-provides: 
+provides:
 - MooPlay.Subtitle.Parser.SubRip
 
 ...
@@ -23,20 +23,20 @@ provides:
 MooPlay.Subtitle.Parser.SubRip = new Class({
 
     Implements: MooPlay.Subtitle.Parser.Base,
-    
+
     regexps: {
         new_sub: /^(\d+)$/,
         time: /^(\d{2}):(\d{2}):(\d{2}),(\d{3}) --> (\d{2}):(\d{2}):(\d{2}),(\d{3})$/,
         text: /^(.+)$/
     },
-    
+
     options: {
         srt_end_of_line: '\n',
         onComplete: $empty
     },
 
     parse: function(data) {
-    
+
         var subs = [];
         var current_sub = null;
         var current_text = null;

@@ -12,7 +12,7 @@ requires:
 - MooPlay.Utils
 
 
-provides: 
+provides:
 - MooPlay.Control.Volume
 
 ...
@@ -23,12 +23,12 @@ MooPlay.Control.Volume = new Class({
     options: {
         auto_unmute: true
     },
-    
+
     Implements: [Options],
-        
+
     initialize: function(video, slider, options) {
         this.setOptions(options);
-        
+
         this.slider = slider;
         this.video = $(video);
 

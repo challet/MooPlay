@@ -10,7 +10,7 @@ authors:
 requires:
 - MooPlay
 
-provides: 
+provides:
 - MooPlay.Subtitle.Item
 
 ...
@@ -18,9 +18,9 @@ provides:
 
 
 MooPlay.Subtitle.Item = new Class({
-    
+
     initialize: function(start, end, texts) {
-        
+
         this.start = start;
         this.end = end;
         this.element = new Element('div');
@@ -29,7 +29,7 @@ MooPlay.Subtitle.Item = new Class({
                 new Element('p').appendText(text)
             );
         }.bind(this));
-        
+
     },
-    
+
 });

@@ -11,7 +11,7 @@ authors:
 requires:
 - core/1.2.4: [Core, Element, Element.Event, Element.Style, Class, Class.Extra.Events, Class.Extra.Options]
 
-provides: 
+provides:
 - MooPlay
 - MooPlay.Subtitle
 - MooPlay.Subtitle.Parser
@@ -66,7 +66,7 @@ authors:
 requires:
 - MooPlay
 
-provides: 
+provides:
 - MooPlay.Utils
 
 ...
@@ -100,18 +100,18 @@ MooPlay.Utils = {
         };
 
     },
-    
+
     readable: function(srt_time) {
-        
+
         srt_time.m = String(srt_time.m).pad(2,'0');
         srt_time.s = String(srt_time.s).pad(2,'0');
         srt_time.ms = String(srt_time.ms).pad(3,'0');
-        
+
         return srt_time;
-        
+
     }
-    
-    
+
+
 }
 
 //+ Jonas Raoni Soares Silva
@@ -134,7 +134,7 @@ requires:
 - MooPlay
 - more/1.2.4: [Slider]
 
-provides: 
+provides:
 - MooPlay.Control.PlayProgress
 
 ...
@@ -143,41 +143,41 @@ provides:
 MooPlay.Control.PlayProgress = new Class({
 
     Implements: [Options],
-        
+
     initialize: function(video, slider, options) {
-        
+
         this.setOptions(options);
-        
+
         this.slider = slider;
         this.video = $(video);
-        
+
         this.suspended = false;
-        
+
         this.video.addEvents({
             'timeupdate': this.tick.bind(this),
             'seeked': this.resume.bind(this)
         });
-        
+
         this.slider.knob.addEvents({
             'mousedown': this.suspend.bind(this),
             'mouseup': this.resume.bind(this),
             'click': function(event) { event.stop(); }
         });
-        
+
         this.slider.addEvent('change', this.change.bind(this));
 
     },
-    
+
     suspend: function(event) {
         event.preventDefault();
         this.suspended = true;
     },
-    
+
     resume: function(event) {
         event.preventDefault();
         this.suspended = false;
     },
-    
+
     tick: function(event) {
         if(!this.suspended) {
             position = this.slider.toPosition( event.target.currentTime / event.target.duration * this.slider.range );
@@ -205,27 +205,27 @@ requires:
 - progressbar: *
 - more/1.2.4: [Slider]
 
-provides: 
+provides:
 - MooPlay.Control.LoadProgress
 
 ...
 */
 
 MooPlay.Control.LoadProgress = new Class({
-    
+
     options: {
         preload_class: 'preloading'
     },
-    
+
     Implements: [Options],
-        
+
     initialize: function(video, progressbar, options) {
-        
+
         this.setOptions(options);
-        
+
         this.progressbar = progressbar;
         this.video = $(video);
-        
+
         this.video.addEvents({
             'progress': function(e, video, data) {
                 if(e.event.lengthComputable) {
@@ -239,10 +239,10 @@ MooPlay.Control.LoadProgress = new Class({
             'loadedmetadata': this.preload.pass(false, this),
             'seeked': this.preload.pass(false, this)
         });
-        
-        
+
+
     },
-    
+
     preload: function(state) {
         if(state) {
             this.progressbar.options.container.addClass(this.options.preload_class);
@@ -250,7 +250,7 @@ MooPlay.Control.LoadProgress = new Class({
             this.progressbar.options.container.removeClass(this.options.preload_class);
         }
     },
-    
+
     tick: function(loaded, total) {
         this.progressbar.set(loaded / total * 100);
     },
@@ -278,48 +278,48 @@ provides:
 MooPlay.Control.BaseButton = new Class({
 
     Implements: Options,
-    
+
     options: {
         over_state_class: 'over',
         click_state_class: 'clicked'
     },
-    
-    
+
+
     initialize: function(video, element, options) {
-        
+
         this.setOptions(options);
-        
+
         this.element = $(element);
         this.video = $(video);
 
         this.element.addEvents({
-            
+
             'mouseenter': function(event) {
                 event.preventDefault();
                 this.element.addClass(this.options.over_state_class);
             }.bind(this),
-            
+
             'mouseleave': function(event) {
                 event.preventDefault();
                 this.element.removeClass(this.options.over_state_class);
             }.bind(this),
-        
+
             'mousedown': function(event) {
                 event.preventDefault();
                 this.element.addClass(this.options.click_state_class);
             }.bind(this),
-        
+
             'mouseup': function(event) {
                 event.preventDefault();
                 this.element.removeClass(this.options.click_state_class);
             }.bind(this)
-            
+
         });
-        
+
         this.specificInitialize();
-        
+
     }
-    
+
 
 });
 /*
@@ -334,7 +334,7 @@ authors:
 requires:
 - MooPlay.Control.BaseButton
 
-provides: 
+provides:
 - MooPlay.Control.PlayPause
 
 ...
@@ -343,41 +343,41 @@ provides:
 MooPlay.Control.PlayPause = new Class({
 
     Implements: [MooPlay.Control.BaseButton],
-    
+
     options: {
         paused_state_class: 'paused'
     },
-    
+
     specificInitialize: function() {
-        
+
         if(this.video.paused) {
             this.element.addClass(this.options.paused_state_class);
         }
 
         this.video.addEvents({
-            
+
             'play': function() {
                 this.element.removeClass(this.options.paused_state_class);
             }.bind(this),
-        
+
             'pause': function() {
                 this.element.addClass(this.options.paused_state_class);
             }.bind(this)
-            
+
         });
 
         this.element.addEvents({
-        
+
             'click': function(event) {
                 event.preventDefault();
                 this.toggleState();
             }.bind(this)
-            
+
         });
-        
+
     },
 
-    
+
     toggleState: function() {
         if(this.video.paused) {
             this.video.play();
@@ -406,28 +406,28 @@ provides:
 */
 
 MooPlay.Control.FastMove = new Class({
-    
+
 
     Implements: MooPlay.Control.BaseButton,
-    
+
     options: {
         speed_factor: 1
     },
-    
+
     specificInitialize: function() {
-        
+
         this.element.addEvents({
             'mousedown': this.beginMove.bind(this),
             'mouseup': this.stopMove.bind(this),
             'mouseleave': this.stopMove.bind(this)
         });
-        
+
         this.start_time = null;
         this.timer = null;
         this.start_pos = null;
-        
+
     },
-    
+
     beginMove: function() {
         if(this.timer == null) {
             this.start_time = $time();
@@ -435,7 +435,7 @@ MooPlay.Control.FastMove = new Class({
             this.timer = this.tick.bind(this).periodical(50);
         }
     },
-    
+
     stopMove: function() {
         if(this.timer != null) {
             this.start_time = null;
@@ -444,17 +444,17 @@ MooPlay.Control.FastMove = new Class({
             this.timer = null;
         }
     },
-    
+
     tick: function() {
-        
+
         if(this.timer == null) {
             return;
         }
-        
+
         var time_to_move = ($time() - this.start_time) * this.options.speed_factor;
-        
+
         this.video.currentTime = this.start_pos + (time_to_move / 1000);
-        
+
     }
 
 });
@@ -471,7 +471,7 @@ requires:
 - MooPlay
 
 
-provides: 
+provides:
 - MooPlay.Control.FullScreen
 
 ...
@@ -480,24 +480,24 @@ provides:
 MooPlay.Control.FullScreen = new Class({
 
     Implements: [MooPlay.Control.BaseButton, Events],
-    
+
     options: {
         active_state_class: 'active'
     },
-    
+
     full_screened: false,
-    
+
     specificInitialize: function() {
-        
+
         this.initialStyle = this.video.getStyles('position', 'top', 'left');
-        
+
         this.element.addEvents({
             'click': function(event) {
                 event.preventDefault();
                 this.fireEvent(this.full_screened ? 'foldStart' : 'expandStart');
             }.bind(this)
         });
-        
+
         this.fx = new Fx.Morph(this.video, {
             link: 'cancel',
             onComplete: function() {
@@ -505,22 +505,22 @@ MooPlay.Control.FullScreen = new Class({
                 this.full_screened = !this.full_screened;
             }.bind(this)
         });
-        
+
         this.addEvents({
             'expandStart':      this.onExpandStart.bind(this),
             'expandComplete':   this.onExpandComplete.bind(this),
             'foldStart':        this.onFoldStart.bind(this),
             'foldComplete':     this.onFoldComplete.bind(this)
         });
-        
+
     },
-    
+
     onExpandStart: function() {
         document.body.setStyle('overflow', 'hidden');
-        
+
         var abs_coordinates = this.video.getCoordinates(document.body);
         var body_scroll = document.body.getScroll();
-        
+
         this.initialCoordinates = {
             top: abs_coordinates.top - body_scroll.y,
             left: abs_coordinates.left - body_scroll.x,
@@ -531,7 +531,7 @@ MooPlay.Control.FullScreen = new Class({
         this.video.setStyles({
             position: 'fixed',
             top: String(this.initialCoordinates.top) + 'px',
-            left: String(this.initialCoordinates.left) + 'px' 
+            left: String(this.initialCoordinates.left) + 'px'
         });
         var body_dimension = document.body.getCoordinates();
         this.fx.start({
@@ -541,7 +541,7 @@ MooPlay.Control.FullScreen = new Class({
             left: 0
         });
     },
-    
+
     onExpandComplete: function() {
         this.video.setStyles({
             width: '100%',
@@ -563,7 +563,7 @@ MooPlay.Control.FullScreen = new Class({
             left: this.initialCoordinates.left
         });
     },
-    
+
     onFoldComplete: function() {
         document.body.setStyle('overflow', 'visible');
         this.video.setStyles(this.initialStyle);
@@ -588,7 +588,7 @@ requires:
 - MooPlay.Utils
 
 
-provides: 
+provides:
 - MooPlay.Control.Volume
 
 ...
@@ -599,12 +599,12 @@ MooPlay.Control.Volume = new Class({
     options: {
         auto_unmute: true
     },
-    
+
     Implements: [Options],
-        
+
     initialize: function(video, slider, options) {
         this.setOptions(options);
-        
+
         this.slider = slider;
         this.video = $(video);
 
@@ -640,7 +640,7 @@ requires:
 - MooPlay.Utils
 
 
-provides: 
+provides:
 - MooPlay.Control.Mute
 
 ...
@@ -649,13 +649,13 @@ provides:
 MooPlay.Control.Mute = new Class({
 
     Implements: [MooPlay.Control.BaseButton],
-    
+
     options: {
         muted_state_class: 'muted'
     },
-    
+
     specificInitialize: function() {
-        
+
         this.video.addEvents({
             'volumechange': this.update.bind(this)
         });
@@ -666,7 +666,7 @@ MooPlay.Control.Mute = new Class({
                 this.toggleState();
             }.bind(this)
         });
-        
+
     },
 
     update: function(event) {
@@ -676,7 +676,7 @@ MooPlay.Control.Mute = new Class({
             this.element.removeClass(this.options.muted_state_class);
         }
     },
-    
+
     toggleState: function() {
         this.video.muted = !this.video.muted;
     }
@@ -696,29 +696,29 @@ requires:
 - MooPlay.Utils
 
 
-provides: 
+provides:
 - MooPlay.Control.TimeDisplay
 
 ...
 */
 
 MooPlay.Control.TimeDisplay = new Class({
-    
+
     Implements: [Options],
-    
+
     options: {
         pattern: '{h}:{m}:{s},{ms}',
         current: true, // vs 'remaining'
         auto_update: true
     },
-    
+
     initialize: function(video, container, options) {
-        
+
         this.setOptions(options);
-        
+
         this.container = $(container);
         this.video = $(video);
-        
+
         if(this.options.auto_update) {
             this.video.addEvent('timeupdate', function(event) {
                 if(this.options.current) {
@@ -728,15 +728,15 @@ MooPlay.Control.TimeDisplay = new Class({
                 }
             }.bind(this));
         }
-        
+
     },
-    
+
     update: function(abs_movie_time) {
-        
+
         var new_text = this.options.pattern.substitute(
             MooPlay.Utils.readable(MooPlay.Utils.timestampToSexagesimal(abs_movie_time))
         );
-        
+
         if(new_text != this.container.get('text')) {
             this.container.empty().appendText(new_text);
         }
@@ -755,7 +755,7 @@ authors:
 requires:
 - MooPlay
 
-provides: 
+provides:
 - MooPlay.Subtitle.Item
 
 ...
@@ -763,9 +763,9 @@ provides:
 
 
 MooPlay.Subtitle.Item = new Class({
-    
+
     initialize: function(start, end, texts) {
-        
+
         this.start = start;
         this.end = end;
         this.element = new Element('div');
@@ -774,9 +774,9 @@ MooPlay.Subtitle.Item = new Class({
                 new Element('p').appendText(text)
             );
         }.bind(this));
-        
+
     },
-    
+
 });
 /*
 ---
@@ -791,7 +791,7 @@ requires:
 - MooPlay
 - MooPlay.Subtitle.Item
 
-provides: 
+provides:
 - MooPlay.Subtitle.Tree
 
 ...
@@ -799,20 +799,20 @@ provides:
 
 
 MooPlay.Subtitle.Tree = new Class({
-    
+
     nb_childs: 2,
-    
+
     children: [],
     subs: [],
-    
+
     initialize : function(start, end) {
         this.start = start;
         this.end = end;
     },
-    
+
     buildChildren: function() {
 
-       var child_period = Math.ceil((this.end - this.start) / this.nb_childs); 
+       var child_period = Math.ceil((this.end - this.start) / this.nb_childs);
 
        for (var i = 0; i < this.nb_childs; i++) {
            this.children.push(new MooPlay.Subtitle.Tree(
@@ -821,20 +821,20 @@ MooPlay.Subtitle.Tree = new Class({
            ));
        }
    },
-    
+
     getChildren: function(even_empty) {
         if(this.children.length == 0 && even_empty) {
             this.buildChildren();
         }
         return this.children;
     },
-    
+
     doesSubtitleFit: function(sub) {
         return sub.start >= this.start && sub.end <= this.end;
     },
-    
+
     addSub: function(sub) {
-        
+
         var fit_in_one_child = false;
         this.getChildren(true).each(function(child) {
             if(child.doesSubtitleFit(sub)) {
@@ -842,32 +842,32 @@ MooPlay.Subtitle.Tree = new Class({
                 child.addSub(sub);
             }
         }.bind(this));
-        
+
         if(this.doesSubtitleFit(sub) && !fit_in_one_child) {
             this.subs.push(sub);
         }
     },
-    
+
     getSubs: function(timestamp) {
-        
+
         if(timestamp < this.start && timestamp >= this.end) {
             return [];
         }
 
         var subs = [];
-        
+
         this.subs.each(function(sub) {
             if(timestamp >= sub.start && timestamp < sub.end) {
                 subs.push(sub);
             }
         });
-        
+
         this.getChildren(false).each(function(child) {
             if(timestamp >= child.start && timestamp <= child.end) {
                 subs.extend(child.getSubs(timestamp));
             }
         });
-        
+
         return subs;
     }
 
@@ -886,16 +886,16 @@ requires:
 - MooPlay.Subtitle.Item
 - MooPlay.Subtitle.Tree
 
-provides: 
+provides:
 - MooPlay.Subtitle.Loader
 
 ...
 */
 
 MooPlay.Subtitle.Loader = new Class({
-    
+
     Implements: [Options],
-    
+
     initialize: function(url, options) {
         this.url = url;
         this.setOptions(options);
@@ -910,12 +910,12 @@ MooPlay.Subtitle.Loader = new Class({
         });
         request.send({});
     },
-    
+
     run: function (data) {
         var parser = this.selectParser();
         return new parser(data, {onComplete: this.options.onComplete});
     },
-    
+
     selectParser: function() {
         var ext = this.url.split('.').pop();
         switch(ext) {
@@ -930,7 +930,7 @@ MooPlay.Subtitle.Loader = new Class({
             break;
         }
     }
-    
+
 });
 /*
 ---
@@ -946,7 +946,7 @@ requires:
 - MooPlay.Subtitle.Item
 - MooPlay.Subtitle.Tree
 
-provides: 
+provides:
 - MooPlay.Subtitle.Player
 
 ...
@@ -974,10 +974,10 @@ MooPlay.Subtitle.Player = new Class({
     initialize: function( video, container, options) {
 
         this.setOptions(options);
-        
+
         this.video = $(video);
         this.container = $(container);
-        
+
         if(this.options.subs_hash != null) {
             this.loadSubtitles(this.options.subs_hash);
         }
@@ -990,22 +990,22 @@ MooPlay.Subtitle.Player = new Class({
                 this.tick(event.target.currentTime * 1000);
             }
         }.bind(this));
-    
+
     },
-    
+
     loadSubtitles: function(subs_hash) {
         this.unLoad();
         this.subs_hash = subs_hash;
     },
-    
+
     unLoad: function() {
         this.subs_hash = null;
     },
-  
+
     tick: function(abs_movie_time) {
 
         var next_displayed = this.subs_hash != null ? this.subs_hash.getSubs(abs_movie_time - this.options.time_shift) : [];
-        
+
         // remove subs which are not here anymore
         this.displayed.each(function(sub) {
             var displayed = [];
@@ -1016,22 +1016,22 @@ MooPlay.Subtitle.Player = new Class({
             }
             this.displayed = displayed;
         }.bind(this));
-        
+
         // display subs which should to
         next_displayed.each(function(sub) {
             if(!this.displayed.contains(sub)) {
-                
+
                 this.displayed.push(sub);
                 this.options.onDisplay(sub.element, this.container, this.overlapping_level++);
             }
         }.bind(this));
 
     },
-    
+
     setTimeShift: function(shift) {
         this.options.time_shift = parseInt(shift);
     }
-    
+
 
 });
 /*
@@ -1048,45 +1048,45 @@ requires:
 - MooPlay.Subtitle.Item
 - MooPlay.Subtitle.Tree
 
-provides: 
+provides:
 - MooPlay.Subtitle.Parser.Base
 
 ...
 */
 
 MooPlay.Subtitle.Parser.Base = new Class({
-    
+
     Implements: [Options],
-    
+
     options: {
         onComplete: $empty
     },
-    
+
     initialize: function(data, options) {
         this.setOptions(options);
         this.hash(
             this.parse(data)
         );
-        
+
         this.options.onComplete(this.hash_root);
-        
+
     },
-    
+
     hash: function(subs) {
-        
+
         var abs_start = Infinity;
         var abs_end = 0;
         subs.each(function(sub) {
             abs_start = Math.min(abs_start, sub.start);
             abs_end = Math.max(abs_end, sub.end);
         });
-        
+
         this.hash_root = new MooPlay.Subtitle.Tree(abs_start, abs_end);
 
         subs.each(function(sub) {
             this.hash_root.addSub(sub);
         }.bind(this));
-        
+
     }
 
 });
@@ -1105,7 +1105,7 @@ requires:
 - MooPlay.Subtitle.Parser.Base
 - MooPlay.Subtitle.Item
 
-provides: 
+provides:
 - MooPlay.Subtitle.Parser.SubRip
 
 ...
@@ -1115,20 +1115,20 @@ provides:
 MooPlay.Subtitle.Parser.SubRip = new Class({
 
     Implements: MooPlay.Subtitle.Parser.Base,
-    
+
     regexps: {
         new_sub: /^(\d+)$/,
         time: /^(\d{2}):(\d{2}):(\d{2}),(\d{3}) --> (\d{2}):(\d{2}):(\d{2}),(\d{3})$/,
         text: /^(.+)$/
     },
-    
+
     options: {
         srt_end_of_line: '\n',
         onComplete: $empty
     },
 
     parse: function(data) {
-    
+
         var subs = [];
         var current_sub = null;
         var current_text = null;
@@ -1180,7 +1180,7 @@ requires:
 - MooPlay.Subtitle.Parser.Base
 - MooPlay.Subtitle.Item
 
-provides: 
+provides:
 - MooPlay.Subtitle.Parser.SubViewer
 
 ...
@@ -1190,19 +1190,19 @@ provides:
 MooPlay.Subtitle.Parser.SubViewer = new Class({
 
     Implements: MooPlay.Subtitle.Parser.Base,
-    
+
     regexps: {
         time: /^(\d{2}):(\d{2}):(\d{2}).(\d{3}),(\d{2}):(\d{2}):(\d{2}).(\d{3})$/,
         text: /^(.+)$/
     },
-    
+
     options: {
         srt_end_of_line: '\n',
         onComplete: $empty
     },
 
     parse: function(data) {
-    
+
         var subs = [];
         var current_sub = null;
         var current_text = null;

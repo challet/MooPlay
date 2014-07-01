@@ -8,9 +8,9 @@
 
     describe('Control.Volume.change function', {
 
-        
+
         before_each: function() {
-            
+
             slider_div = new Element('div', {
                 id: 'slider',
                 styles: {
@@ -28,7 +28,7 @@
                     background: '#ffff80'
                 }
             }).inject(slider_div);
-            
+
             video = new Element('video', {
                 id: 'video',
                 styles: {
@@ -36,18 +36,18 @@
                     height: 50
                 }
             }).inject(document.body);
-            
+
             slider = new Slider(slider_div, knob_div);
-            volume = new MooPlay.Control.Volume(video, slider);            
-            
+            volume = new MooPlay.Control.Volume(video, slider);
+
         },
-        
+
         after_each: function() {
-            
+
             slider_div.dispose();
             knob_div.dispose();
             video.dispose();
-            
+
             slider = null;
             slider_div = null;
             knob_div = null;
@@ -55,27 +55,27 @@
             volume = null;
 
         },
-        
+
         "should set volume according to position": function() {
             slider.steps = 100;
             volume.change(47);
             value_of(video.volume.round(2)).should_be(0.47);
         },
-        
+
         "should unmute if the according option allows it": function() {
             volume.options.auto_unmute = true;
             video.muted = true;
             volume.change(47);
             value_of(video.muted).should_be_false();
         },
-        
+
         "should not unmute if the according option denies it": function() {
             volume.options.auto_unmute = false;
             video.muted = true;
             volume.change(47);
             value_of(video.muted).should_be_true();
         }
-        
+
     });
-    
+
 })();

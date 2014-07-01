@@ -4,7 +4,7 @@
  * @version 0.5.5
  * @url http://fuzecore.com, http://maveno.us
  * @license MIT Style License
- * 
+ *
  * @contributions
  * : Container additions for using selectbox in animations and ie scrolling bug fixes
  * : fixed multiselect bug, yayyy! ^_^
@@ -64,7 +64,7 @@ var MavSelectBox = new Class({
 		this.boundShow = this.show.bind(this);
 		this.boundKey_option = this.key_option.bind(this);
 		this.boundHide = this.hide.bind(this);
-		
+
 		var opts = ($type(_options) != 'object' ? {'elem':_options} : _options);
 		if (!$defined(opts.elem)) return;
 
@@ -88,7 +88,7 @@ var MavSelectBox = new Class({
 
 		this.create_select();
 		if (this.options.attachResize) { window.addEvent('resize', function() { if (this.showing) { this.show(); } }.bind(this)); }
-		
+
 	},
 
 	destroy: function(_revert) {
@@ -116,10 +116,10 @@ var MavSelectBox = new Class({
 
 		// create the select element
 		this.elementSelect  = new Element('div', {
-			'class': this.options.selectboxClass, 
+			'class': this.options.selectboxClass,
 			'styles': { 'width': wh.x, 'height': wh.y }
 		}).inject(this.element, 'after');
-		
+
 		// create display element for selectbox
 		this.elementDisplay = new Element('a', {'href':'#'}).inject(this.elementSelect, 'top');
 		if (this.elementCopy.get('tabindex') != 0) {
@@ -143,7 +143,7 @@ var MavSelectBox = new Class({
 
 		// create the fx object if useFx is set
 		this.fx = this.options.useFx ? new Fx.Tween(this.elementOptions, $merge({
-			'duration': 150, 
+			'duration': 150,
 			'link': 'cancel'
 		}, this.options.fxOptions)) : null;
 
@@ -200,7 +200,7 @@ var MavSelectBox = new Class({
 		}).inject(($(_group) || this.elementOptions));
 
 		new_option.store('coords', new_option.getCoordinates());
-		
+
 		if (_opt.get('tag') == 'optgroup') {
 			var optgroup = new Element('ul', {'class': this.options.groupClass}).inject(new_option);
 			$each(_opt.getChildren(), function(_sopt, _sidx) {
@@ -215,17 +215,17 @@ var MavSelectBox = new Class({
 			this.elementOptions.lastChild.set('html', '<span><span class="goleft">' + text[0].trim() + '</span><span class="goright">' + text[1].trim() + '</span><br style="clear:both" /></span>');
 		}
 	},
-	
+
 	filter: function(_str, _regx, _tmplt) {
 		return _tmplt.replace(/\%s/i, _str);
 	},
 
 	inject: function(_option, _where) {
-		
+
 	},
-	
+
 	dispose: function(_elem) {
-		
+
 	},
 
 	add_events: function() {
@@ -259,12 +259,12 @@ var MavSelectBox = new Class({
 				case 'tab':
 					this.hide();
 					break;
-				
+
 				case 'up': case 'down':
 					if (e.alt) { this.show(); }
 					this.select(e.key);
 					break;
-				
+
 				case 'shift': case 'control': case 'alt':
 					break;
 
@@ -306,7 +306,7 @@ var MavSelectBox = new Class({
 			var fromIdx = ((this.focused && this.focused != this.selected) ? this.focused : this.selected).retrieve('idx');
 
 			elem = elem.filter(function(_el) {
-						return (!$(_el).hasClass(this.options.disableClass) && 
+						return (!$(_el).hasClass(this.options.disableClass) &&
 								((_elem == 'up' && $(_el).retrieve('idx') < fromIdx ) ||
 								 (_elem == 'down' && $(_el).retrieve('idx') > fromIdx)));
 			}, this);
@@ -331,7 +331,7 @@ var MavSelectBox = new Class({
 	select: function(_elem) {
 		var elem = ($type(_elem) == 'event' ? new Event(_elem).target : _elem);
 		elem = this.determine(elem);
-		
+
 		if (elem && !elem.hasClass(this.options.disableClass) && !elem.hasClass('unselectable')) {
 			if (this.focused) { this.focused.removeClass(this.options.selectClass); }
 			if (this.showing === true) {
@@ -353,7 +353,7 @@ var MavSelectBox = new Class({
 
 			if (Browser.Engine.trident) {
 				this.isCrolling = false;
-				this.hide();	
+				this.hide();
 			}
 		}
 	},
@@ -373,11 +373,11 @@ var MavSelectBox = new Class({
 
 	show: function(e) {
 	    e.preventDefault();
-	    
+
 	    if(this.showing) {
 	        return this.hide();
 	    }
-	    
+
 		var coords = this.elementOptions.retrieve('coords');
 		var sElem = this.elementSelect.getCoordinates(), sElem_top = (sElem.top + sElem.height);
 
@@ -402,7 +402,7 @@ var MavSelectBox = new Class({
 		}
 
 		this.elementOptions.setStyles({
-			'display': '' 
+			'display': ''
 		});
 		this.scroll();
 
@@ -412,7 +412,7 @@ var MavSelectBox = new Class({
 		this.fireEvent('show');
 
 		if (this.options.useFx) { this.fx.start(this.options.fxProperty, this.options.fxFrom, this.options.fxTo); }
-		
+
 		// fixes chrome/safari focus bug
 		this.elementDisplay.focus();
 	},

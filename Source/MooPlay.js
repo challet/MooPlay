@@ -10,7 +10,7 @@ authors:
 requires:
 - core/1.2.4: [Core, Element, Element.Event, Element.Style, Class, Class.Extra.Events, Class.Extra.Options]
 
-provides: 
+provides:
 - MooPlay
 - MooPlay.Subtitle
 - MooPlay.Subtitle.Parser

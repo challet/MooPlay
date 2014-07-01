@@ -30,21 +30,21 @@ var parseQueryString = function(string){
 
 var getSpecs = function(queryString){
 	queryString = parseQueryString(queryString);
-	
+
 	var requestedSpecs = [],
 		specs = queryString.specs;
-	
+
 	forEach(specs && specs._type == 'Array' ? specs : [specs], function(spec){
 		if (Sets[spec] && requestedSpecs.indexOf(spec) == -1) requestedSpecs.push(spec);
 	});
-	
+
 	return requestedSpecs;
 };
 
 var loadSpecs = function(obj){
 	for (var i = 0; i < obj.length; i++){
 		SpecNames.push(obj[i]);
-		
+
 		var specs = Sets[obj[i]];
 		for (var j = 0; j < specs.length; j++){
 			document.write('<scr'+'ipt src="' + obj[i] + '/' + specs[j] + '.js" type="text/javascript"><\/script>');

@@ -10,9 +10,9 @@
 
     describe('Control.Volume.update function', {
 
-        
+
         before_each: function() {
-            
+
             slider_div = new Element('div', {
                 id: 'slider',
                 styles: {
@@ -30,7 +30,7 @@
                     background: '#ffff80'
                 }
             }).inject(slider_div);
-            
+
             video = new Element('video', {
                 id: 'video',
                 styles: {
@@ -47,16 +47,16 @@
             slider.knob.setStyle = function (prop, value) {
                 set_style_arg_value = value;
             };
-            volume = new MooPlay.Control.Volume(video, slider);            
-            
+            volume = new MooPlay.Control.Volume(video, slider);
+
         },
-        
+
         after_each: function() {
-            
+
             slider_div.dispose();
             knob_div.dispose();
             video.dispose();
-            
+
             slider = null;
             slider_div = null;
             knob_div = null;
@@ -64,25 +64,25 @@
             volume = null;
             to_position_arg_value = null;
             set_style_arg_value = null;
-            
+
         },
-        
+
         "should consider volume as 0 when muted": function() {
             volume.update({target: {muted: true, volume: 1}});
             value_of(to_position_arg_value).should_be(0);
         },
-        
+
         "should pass a position function of the volume": function() {
             slider.range = 100;
             volume.update({target: {muted: false, volume: 0.5}});
             value_of(to_position_arg_value).should_be(50);
         },
-        
+
         "should set style according to computed position": function() {
             volume.update({target: {muted: false, volume: 0.5}});
             value_of(set_style_arg_value).should_be("d42fds2fds2f");
         }
-        
+
     });
-    
+
 })();
